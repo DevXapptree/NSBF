@@ -1,0 +1,913 @@
+{
+	"version": {
+		"id": "1.1.3",
+		"comment": "Version avec customData"
+	},
+	"contentEnvironment": {
+		"envNetworkId": {
+			"country": {
+				"id": "250",
+				"value": "France"
+			},
+			"network": {
+				"id": "901",
+				"value": "IDFM"
+			}
+		},
+		"envApplicationIssuerId": [{
+			"id": "0000",
+			"value": "Tout exploitant"
+		}, {
+		}, {
+			"id": "0001",
+			"value": "RATP + SNCF"
+		}, {
+			"id": "0002",
+			"value": "SNCF"
+		}, {
+			"id": "0003",
+			"value": "RATP"
+		}, {
+			"id": "0004",
+			"value": "OPTILE"
+		}],
+		"holderData": {
+			"holderDataCardStatus": [{
+				"id": "0006",
+				"value": "Navigo annuel"
+			}, {
+				"id": "000E",
+				"value": "Imagine R"
+			}, {
+				"id": "0000",
+				"value": "Carte anonyme"
+			}, {
+				"id": "0001",
+				"value": "Carte déclarative"
+			}, {
+				"id": "0002",
+				"value": "Personnalisé"
+			}, {
+				"id": "0003",
+				"value": "Badge agent"
+			}],
+			"holderDataCommercialId": [{
+				"id": "0001",
+				"value": "Navigo Découverte"
+			}, {
+				"id": "0001",
+				"value": "Navigo Personalisé"
+			}, {
+				"id": "0002",
+				"value": "Navigo Annuel"
+			}, {
+				"id": "0005",
+				"value": "Imagin'R"
+			}, {
+				"id": "0007",
+				"value": "Paris Région Pass"
+			}, {
+				"id": "0009",
+				"value": "SIM ou eSE"
+			}, {
+				"id": "000A",
+				"value": "eSE"
+			}, {
+				"id": "0010",
+				"value": "Navigo Easy"
+			}, {
+				"id": "0030",
+				"value": "Carte Accès Libre"
+			}]
+		},
+		"holderProfileNumber": [{
+			"id": "0024",
+			"value": "Autorisation circula"
+		}, {
+			"id": "0080",
+			"value": "VIP"
+		}, {
+			"id": "0082",
+			"value": "Police"
+		}, {
+			"id": "0087",
+			"value": "Mutilé"
+		}, {
+			"id": "0088",
+			"value": "Guide Mutilé"
+		}, {
+			"id": "0089",
+			"value": "Guide Aveugle"
+		}, {
+			"id": "0090",
+			"value": "TST Gratuité"
+		}, {
+			"id": "0091",
+			"value": "TEST"
+		}, {
+			"id": "0092",
+			"value": "Maintenance"
+		}, {
+			"id": "0093",
+			"value": "TST 1"
+		}, {
+			"id": "0094",
+			"value": "TST 2"
+		}, {
+			"id": "00D1",
+			"value": "Autorisation à franc"
+		}, {
+			"id": "00D2",
+			"value": "Réservé RATP"
+		}, {
+			"id": "00D3",
+			"value": "Réservé RATP 2"
+		}, {
+			"id": "00D4",
+			"value": "Réservé RATP 3"
+		}, {
+			"id": "0001",
+			"value": "(Non utilisé)"
+		}, {
+			"id": "0009",
+			"value": "Agent"
+		}, {
+			"id": "0004",
+			"value": "Agent retraité"
+		}]
+	},
+	"contractData": {
+		"contractStatus": [{
+			"id": "01",
+			"value": "OK"
+		}, {
+			"id": "05",
+			"value": "Annulé"
+		}, {
+			"id": "3F",
+			"value": "invalidé"
+		}, {
+			"id": "FF",
+			"value": "supprimé"
+		}],
+		"products": [{
+			"productId": "0000",
+			"description": {
+				"fr": {
+					"title": "Forfait Navigo Mois",
+					"shortDesc": "",
+					"longDesc": "Le forfait Navigo Mois est strictement personnel.\r\n\\n\r\n\\nIl permet des voyages illimités en Ile-de-France, sur tous les modes de transport (métro, train, RER, tram express, tram, bus, Filéo), à l’exception de certaines dessertes directes d’aéroports et des bus touristiques.\r\n\\n\r\n\\nIl est valable un mois (du premier au dernier jour du mois) et mis en vente à partir du 20 du mois précédent.",
+					"resources": [{
+						"value": "img_ticketing_month",
+						"tag": "Image"
+					}, {
+						"value": "ic_ticketing_month",
+						"tag": "Icon"
+					}, {
+						"value": "http://www.navigo.fr/titres/le-forfait-navigo-mois-presentation/",
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Monthly pass",
+					"shortDesc": "",
+					"longDesc": "Le forfait Navigo Mois est strictement personnel.\r\n\\n\r\n\\nIl permet des voyages illimités en Ile-de-France, sur tous les modes de transport (métro, train, RER, tram express, tram, bus, Filéo), à l’exception de certaines dessertes directes d’aéroports et des bus touristiques.\r\n\\n\r\n\\nIl est valable un mois (du premier au dernier jour du mois) et mis en vente à partir du 20 du mois précédent.",
+					"resources": [{
+						"value": "ic_ticketing_month",
+						"tag": "Icon"
+					}, {
+						"value": "img_ticketing_month",
+						"tag": "Image"
+					}]
+				},
+				"de": {
+					"title": "Monatskarte",
+					"shortDesc": "",
+					"longDesc": "Le forfait Navigo Mois est strictement personnel.\r\n\\n\r\n\\nIl permet des voyages illimités en Ile-de-France, sur tous les modes de transport (métro, train, RER, tram express, tram, bus, Filéo), à l’exception de certaines dessertes directes d’aéroports et des bus touristiques.\r\n\\n\r\n\\nIl est valable un mois (du premier au dernier jour du mois) et mis en vente à partir du 20 du mois précédent.",
+					"resources": [{
+						"value": "ic_ticketing_month",
+						"tag": "Icon"
+					}, {
+						"value": "img_ticketing_month",
+						"tag": "Image"
+					}]
+				},
+				"es": {
+					"title": "billete mensual",
+					"shortDesc": "",
+					"longDesc": "Le forfait Navigo Mois est strictement personnel.\r\n\\n\r\n\\nIl permet des voyages illimités en Ile-de-France, sur tous les modes de transport (métro, train, RER, tram express, tram, bus, Filéo), à l’exception de certaines dessertes directes d’aéroports et des bus touristiques.\r\n\\n\r\n\\nIl est valable un mois (du premier au dernier jour du mois) et mis en vente à partir du 20 du mois précédent.",
+					"resources": [{
+						"value": "ic_ticketing_month",
+						"tag": "Icon"
+					}, {
+						"value": "img_ticketing_month",
+						"tag": "Image"
+					}]
+				}
+			},
+			"authUser": [{
+				"holderDataCommercialId": "0009"
+			}, {
+				"holderDataCommercialId": "000A"
+			}],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0001",
+			"description": {
+				"fr": {
+					"title": "Forfait Navigo Semaine",
+					"shortDesc": "",
+					"longDesc": "Le forfait Navigo Semaine est strictement personnel.\r\n\\n\r\n\\nIl permet des voyages illimités en Ile-de-France, sur tous les modes de transport (métro, train, RER, tram express, tram, bus, Filéo), à l’exception de certaines dessertes directes d’aéroports et des bus touristiques.\r\n\\n\r\n\\nIl est valable une semaine (du lundi 0h au dimanche 24h) et mis en vente à partir du vendredi pour la semaine suivante.",
+					"resources": [{
+						"value": "image_navigo_semaine",
+						"tag": "Image"
+					}, {
+						"value": "ic_navigo_semaine",
+						"tag": "Icon"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Weekly pass",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Wochenkarte",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Billete semanal",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [{
+				"holderDataCommercialId": "0009"
+			}, {
+				"holderDataCommercialId": "000A"
+			}],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0002",
+			"description": {
+				"fr": {
+					"title": "Navigo Annuel",
+					"shortDesc": "",
+					"longDesc": "Description de 500 caractères",
+					"resources": []
+				},
+				"en": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0003",
+			"description": {
+				"fr": {
+					"title": "Forfait Navigo Jour",
+					"shortDesc": "",
+					"longDesc": "test init Forfait journalier qui permet des voyages illimités à l'intérieur des zones tarifaires choisies, sur tous les modes (sauf Orlyval).\r\n\\n\r\n\\nSur téléphone, le forfait Navigo Jour est proposé avec le choix des zones.\r\n\\nÀ l’intérieur des zones de validité, le forfait Navigo Jour est valable sur tous les modes de transport (métro, train, RER, tram express, tram, bus y compris Filéo), à l’exception de certaines dessertes directes d’aéroports et des bus touristiques.",
+					"resources": [{
+						"value": "image_navigo_jour",
+						"tag": "Image"
+					}, {
+						"value": "ic_navigo_jour",
+						"tag": "Icon"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "daily pass",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Tageskarte",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "billete del día",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0004",
+			"description": {
+				"fr": {
+					"title": "Forfait Imagine R scolaire",
+					"shortDesc": "",
+					"longDesc": "Description de 500 caractères",
+					"resources": []
+				},
+				"en": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0005",
+			"description": {
+				"fr": {
+					"title": "Forfait Imagine R étudiant",
+					"shortDesc": "",
+					"longDesc": "Description de 500 caractères",
+					"resources": []
+				},
+				"en": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "000A",
+			"description": {
+				"fr": {
+					"title": "Forfait Navigo Mois Test",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"en": {
+					"title": "Monthly pass",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Monatskarte",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "billete mensual",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {}
+		}, {
+			"productId": "000D",
+			"description": {
+				"fr": {
+					"title": "Forfait Jeunes week-end",
+					"shortDesc": "",
+					"longDesc": "Forfait journalier pour les – de 26 ans permettant d’effectuer un nombre illimité de voyages à l’intérieur des zones tarifaires choisies (sauf dessertes directes des aéroports).\r\n\\n\r\n\\nIl est valable pour une journée (samedi, dimanche ou jour férié).\r\n\\nSur téléphone, le forfait Navigo Jeunes week-end est proposé avec le choix des zones.",
+					"resources": [{
+						"value": "image_navigo_jeunes_we",
+						"tag": "Icon"
+					}, {
+						"value": "ic_navigo_jeunes_we",
+						"tag": "Image"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Forfait Jeunes week-end",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Forfait Jeunes week-end",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Forfait Jeunes week-end",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "000F",
+			"description": {
+				"fr": {
+					"title": "Forfait Antipollution",
+					"shortDesc": "",
+					"longDesc": "En cas de pic de pollution, le forfait Antipollution permet de voyager de façon illimitée 1 jour dans toute l'Ile-de-France sur tous les modes de transports, sauf Orlyval.\r\n\\nLe titre est ouvert à la vente la veille de sa validité. ",
+					"resources": [{
+						"value": "image_antipollution",
+						"tag": "Image"
+					}, {
+						"value": "ic_antipollution",
+						"tag": "Icon"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Air Pollution Action Day",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Akute Luftverschmutzunglll",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Día de alta contaminación",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0015",
+			"description": {
+				"fr": {
+					"title": "Forfait Paris Visite",
+					"shortDesc": "",
+					"longDesc": "Description de 500 caractères",
+					"resources": []
+				},
+				"en": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "0100",
+			"description": {
+				"fr": {
+					"title": "Forfait Fête de la Musique",
+					"shortDesc": "",
+					"longDesc": "Le forfait Fête de la Musique permet des voyages illimités sur l’ensemble du réseau de la région Île-de-France, hors Orlyval.\r\n\\n\r\n\\nIl est valable du 21 juin à 17h jusqu’au 22 juin à 6h59.",
+					"resources": [{
+						"value": "image_fete_musique",
+						"tag": "Icon"
+					}, {
+						"value": "ic_fete_musique",
+						"tag": "Image"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Forfait Fête de la Musique",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Forfait Fête de la Musique",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Forfait Fête de la Musique",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "1000",
+			"description": {
+				"fr": {
+					"title": "Post-Paiement Ticket",
+					"shortDesc": "",
+					"longDesc": "Description de 500 caractères",
+					"resources": []
+				},
+				"en": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}, {
+			"productId": "5000",
+			"description": {
+				"fr": {
+					"title": "Ticket(s) t+",
+					"shortDesc": "",
+					"longDesc": "Ticket valable pour un déplacement en bus ou tram dans toute l'Ile-de-France, ou en métro, en train ou en RER dans Paris.\r\n\\n\r\n\\nLe Ticket t+ permet les correspondances suivantes:\r\n\\n- métro-métro, RER-RER et métro-RER dans Paris pendant 2 heures à partir de la validation d’entrée sur le réseau,\r\n\\n- entre bus, tram (Tram 1 à 9) et Tzen pendant 1h30 entre la première et la dernière validation.\r\n\\nLe Ticket t+ sur téléphone n'est pas valable sur Orlybus, Roissybus, Orlyval, Noctiliens, Bus 299, 350, 351.",
+					"resources": [{
+						"value": "image_ticket_t",
+						"tag": "Image"
+					}, {
+						"value": "ic_ticket_t",
+						"tag": "Icon"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Single-journey ticket",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Einzelfahrschein",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Billete sencillo",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData1": "0002",
+				"customData2": "0008"
+			}
+		}, {
+			"productId": "5004",
+			"description": {
+				"fr": {
+					"title": "Ticket(s) Orlybus",
+					"shortDesc": "",
+					"longDesc": "Titre spécifique pour accéder directement à l'aéroport d'Orly.\r\n\\n\r\n\\nLe ticket Orlybus autorise un trajet jusqu’au terminus de la ligne Orlybus.\r\n\\n\r\n\\nLes correspondances sur d’autres lignes ne sont pas autorisées.\r\n\\nLes allers-retours sur la même ligne et les interruptions de trajet pour reprendre un autre bus de la même ligne ne sont pas autorisés avec un même titre.",
+					"resources": [{
+						"value": "image_aeroports",
+						"tag": "Image"
+					}, {
+						"value": "ic_aeroports",
+						"tag": "Icon"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Orlybus ticket",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Fahrkarten für den Orlybus",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Billete Orlybus",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData1": "0002",
+				"customData2": "0008"
+			}
+		}, {
+			"productId": "5005",
+			"description": {
+				"fr": {
+					"title": "Ticket(s) Aéroport Roissybus",
+					"shortDesc": "",
+					"longDesc": "Titre spécifique pour accéder directement à l'aéroport Roissy-Charles de Gaulle.\r\n\\n\r\n\\nLe ticket Roissybus autorise un trajet jusqu’au terminus de la ligne Roissybus.\r\n\\n\r\n\\nLes correspondances sur d’autres lignes ne sont pas autorisées.\r\n\\n\r\n\\nLes allers-retours sur la même ligne et les interruptions de trajet pour reprendre un autre bus de la même ligne ne sont pas autorisés avec un même titre. ",
+					"resources": [{
+						"value": "image_aeroports",
+						"tag": "Icon"
+					}, {
+						"value": "ic_aeroports",
+						"tag": "Image"
+					}, {
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "RoissyBus ticket",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Fahrkarten für den RoissyBus",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Billete RoissyBus",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData1": "0002",
+				"customData2": "0008"
+			}
+		}, {
+			"productId": "5010",
+			"description": {
+				"fr": {
+					"title": "Carnet(s) t+ tarif réduit",
+					"shortDesc": "",
+					"longDesc": "\t\r\n\\n\r\n\\nTitre réservé aux utilisateurs du tarif réduit (enfants de 4 à 9 ans, détenteurs d’une carte famille nombreuse, …).\r\n\\n\r\n\\nL’utilisateur du tarif réduit doit pouvoir justifier de son droit à réduction à tout moment lors de son voyage.\r\n\\nTicket valable pour un déplacement en bus ou tram dans toute l'Ile-de-France, ou en métro, en train ou en RER dans Paris. Il autorise certaines correspondances entre les modes.",
+					"resources": [{
+						"value": "image_ticket_t",
+						"tag": "Image"
+					}, {
+						"value": "ic_ticket_t",
+						"tag": "Icon"
+					}, {
+						"value": "http://www.navigo.fr/titres/ticket-t-presentation/",
+						"tag": "Info"
+					}]
+				},
+				"en": {
+					"title": "Journey tickets reduced rate",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "Einzelfahrschein ermäßigten Tari",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "Billetes sencillo tarifa reducid",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData1": "0002",
+				"customData2": "0008"
+			}
+		}, {
+			"productId": "8003",
+			"description": {
+				"fr": {
+					"title": "Contrats sociaux zonaux",
+					"shortDesc": "",
+					"longDesc": "Description de 500 caractères",
+					"resources": []
+				},
+				"en": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"de": {
+					"title": "-",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				},
+				"es": {
+					"title": "lib lon Esp",
+					"shortDesc": "",
+					"longDesc": "",
+					"resources": []
+				}
+			},
+			"authUser": [],
+			"customData": {
+				"customData3": "0002",
+				"customData4": "0002"
+			}
+		}],
+		"contractCustomerProfile": [{
+			"id": "0001",
+			"value": "Profil par défaut"
+		}, {
+			"id": "0010",
+			"value": "Améthyste Paris 75"
+		}, {
+			"id": "0004",
+			"value": "Retraités"
+		}, {
+			"id": "0009",
+			"value": "Agents"
+		}, {
+			"id": "0011",
+			"value": "Améthyste Essonne 91"
+		}, {
+			"id": "0012",
+			"value": "Améthyste Haut de Seine 92"
+		}, {
+			"id": "0013",
+			"value": "\tAméthyste Seine Saint Denis 93"
+		}, {
+			"id": "0014",
+			"value": "Améthyste Val de Marne 94"
+		}, {
+			"id": "0015",
+			"value": "Améthyste Val d’Oise 95"
+		}, {
+			"id": "0017",
+			"value": "Améthyste Seine et Marne 77"
+		}, {
+			"id": "0018",
+			"value": "Améthyste Yvelines 78"
+		}, {
+			"id": "0020",
+			"value": "VIP"
+		}, {
+			"id": "0022",
+			"value": "Police"
+		}, {
+			"id": "0024",
+			"value": "Autorisation circulation"
+		}, {
+			"id": "0027",
+			"value": "Mutilé de guerre"
+		}, {
+			"id": "0028",
+			"value": "Guide mutilé"
+		}, {
+			"id": "0029",
+			"value": "Guide d’aveugle"
+		}, {
+			"id": "0030",
+			"value": "TST gratuité"
+		}, {
+			"id": "003E",
+			"value": "Carte de Test"
+		}, {
+			"id": "003F",
+			"value": "Carte maintenance"
+		}],
+		"contractValidityZones": [{
+			"id": "3",
+			"zoneLabel": "1-2"
+		}, {
+			"id": "7",
+			"zoneLabel": "1-3"
+		}, {
+			"id": "F",
+			"zoneLabel": "1-4"
+		}, {
+			"id": "1F",
+			"zoneLabel": "1-5"
+		}, {
+			"id": "6",
+			"zoneLabel": "2-3"
+		}, {
+			"id": "E",
+			"zoneLabel": "2-4"
+		}, {
+			"id": "1E",
+			"zoneLabel": "2-5"
+		}, {
+			"id": "C",
+			"zoneLabel": "3-4"
+		}, {
+			"id": "1C",
+			"zoneLabel": "3-5"
+		}, {
+			"id": "18",
+			"zoneLabel": "4-5"
+		}]
+	}
+}

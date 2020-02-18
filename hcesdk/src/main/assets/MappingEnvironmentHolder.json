@@ -1,0 +1,306 @@
+{
+  "mappingCard": {
+    "environment": {
+      "SFI": "07",
+      "EnvApplicationVersionNumber": {
+        "dataId": "0700",
+        "dataType": "binary",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "6"
+      },
+      "EnvBitmap": {
+        "dataId": "0701",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "7"
+      },
+      "EnvNetworkId": {
+        "dataId": "0702",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0701",
+        "bitmapPos": "0",
+        "dataLength": "24"
+      },
+      "EnvApplicationIssuerId": {
+        "dataId": "0703",
+        "dataType": "enterprise",
+        "bitmapUsed": "true",
+        "bitmapId": "0701",
+        "bitmapPos": "1",
+        "dataLength": "8"
+      },
+      "EnvApplicationEndDate": {
+        "dataId": "0704",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0701",
+        "bitmapPos": "2",
+        "dataLength": "14"
+      },
+      "EnvAuthenticator": {
+        "dataId": "0705",
+        "dataType": "binary",
+        "bitmapUsed": "true",
+        "bitmapId": "0701",
+        "bitmapPos": "4",
+        "dataLength": "16"
+      },
+      "EnvDataBitmap": {
+        "dataId": "0706",
+        "dataType": "bitmap",
+        "bitmapUsed": "true",
+        "bitmapId": "0701",
+        "bitmapPos": "6",
+        "dataLength": "2"
+      },
+      "EnvDataCardStatus": {
+        "dataId": "0707",
+        "dataType": "binary",
+        "bitmapUsed": "true",
+        "bitmapId": "0706",
+        "bitmapPos": "0",
+        "dataLength": "1"
+      }
+    },
+    "Holder": {
+      "SFI": "07",
+      "HolderBitmap": {
+        "dataId": "0708",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "8"
+      },
+      "HolderBirth": {
+        "dataId": "0709",
+        "dataType": "bitmap",
+        "bitmapUsed": "true",
+        "bitmapId": "0708",
+        "bitmapPos": "1",
+        "dataLength": "2"
+      },
+      "HolderBirthDate": {
+        "dataId": "0710",
+        "dataType": "bitmap",
+        "bitmapUsed": "true",
+        "bitmapId": "0709",
+        "bitmapPos": "0",
+        "dataLength": "32"
+      },
+      "HolderIdNumber": {
+        "dataId": "0711",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0708",
+        "bitmapPos": "3",
+        "dataLength": "32"
+      },
+      "HolderProfiles": {
+        "dataId": "0712",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0708",
+        "bitmapPos": "6",
+        "dataLength": "4"
+      },
+      "HolderProfileBitmap1": {
+        "dataId": "0713",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "HolderNetworkId1": {
+        "dataId": "0714",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0713",
+        "bitmapPos": "0",
+        "dataLength": "24"
+      },
+      "HolderProfileNumber1": {
+        "dataId": "0715",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0713",
+        "bitmapPos": "1",
+        "dataLength": "8"
+      },
+      "HolderProfileDate1": {
+        "dataId": "0716",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0713",
+        "bitmapPos": "2",
+        "dataLength": "14"
+      },
+      "HolderProfileBitmap2": {
+        "dataId": "0717",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "HolderNetworkId2": {
+        "dataId": "0718",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0717",
+        "bitmapPos": "0",
+        "dataLength": "24"
+      },
+      "HolderProfileNumber2": {
+        "dataId": "0719",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0717",
+        "bitmapPos": "1",
+        "dataLength": "8"
+      },
+      "HolderProfileDate2": {
+        "dataId": "0720",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0717",
+        "bitmapPos": "0",
+        "dataLength": "14"
+      },
+      "HolderProfileBitmap3": {
+        "dataId": "0721",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "HolderNetworkId3": {
+        "dataId": "0722",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0721",
+        "bitmapPos": "0",
+        "dataLength": "24"
+      },
+      "HolderProfileNumber3": {
+        "dataId": "0723",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0721",
+        "bitmapPos": "1",
+        "dataLength": "8"
+      },
+      "HolderProfileDate3": {
+        "dataId": "0724",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0721",
+        "bitmapPos": "2",
+        "dataLength": "14"
+      },
+      "HolderProfileBitmap4": {
+        "dataId": "0725",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "HolderNetworkId4": {
+        "dataId": "0726",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0725",
+        "bitmapPos": "0",
+        "dataLength": "24"
+      },
+      "HolderProfileNumber4": {
+        "dataId": "0727",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0725",
+        "bitmapPos": "1",
+        "dataLength": "8"
+      },
+      "HolderProfileDate4": {
+        "dataId": "0728",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0725",
+        "bitmapPos": "2",
+        "dataLength": "14"
+      },
+      "HolderData": {
+        "dataId": "0729",
+        "dataType": "bitmap",
+        "bitmapUsed": "true",
+        "bitmapId": "0708",
+        "bitmapPos": "7",
+        "dataLength": "12"
+      },
+      "HolderDataCardStatus": {
+        "dataId": "0730",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "0",
+        "dataLength": "4"
+      },
+      "HolderDataTeleReglement": {
+        "dataId": "0731",
+        "dataType": "binary",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "1",
+        "dataLength": "4"
+      },
+      "HolderDataCommercialID": {
+        "dataId": "0732",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "3",
+        "dataLength": "6"
+      },
+      "HolderDataProfileStartDate1": {
+        "dataId": "0733",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "8",
+        "dataLength": "14"
+      },
+      "HolderDataProfileStartDate2": {
+        "dataId": "0734",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "9",
+        "dataLength": "14"
+      },
+      "HolderDataProfileStartDate3": {
+        "dataId": "0735",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "10",
+        "dataLength": "14"
+      },
+      "HolderDataProfileStartDate4": {
+        "dataId": "0736",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0729",
+        "bitmapPos": "11",
+        "dataLength": "14"
+      }
+    }
+  }
+}
