@@ -52,4 +52,23 @@ final class HCECore implements IHCECore {
     public void retrieveRemoteOffer() {
         Log.i(TAG, "retrieveRemoteOffer");
     }
+
+    @Override
+    public void retrieveRemoteOffer(ReadParameters params, RetrieveRemoteOfferCallback callback) {
+        if (params == null) {
+            callback.onRetrieveRemoteOfferError(new HCEError("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(), null));
+            return;
+        }
+        if(callback == null)
+            throw new RuntimeException("startReading required ReadCallback, interface ReadCallback can not be null!");
+
+        if (params.getSourceType() == SourceType.HCE) {
+            HCECardData cardData = CoreParser.getInstance().parseStringToHCECardData(params.getData());
+            if (cardData == null)
+                callback.onRetrieveRemoteOfferError(new HCEError("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(),null));
+
+            this.hceCardData = cardData;
+            CoreParser.getInstance().startRemoteParsingHCE(hceCardData, callback);
+        }
+    }
 }

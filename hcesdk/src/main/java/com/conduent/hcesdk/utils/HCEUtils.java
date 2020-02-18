@@ -1,6 +1,7 @@
 package com.conduent.hcesdk.utils;
 
 import android.support.annotation.RestrictTo;
+import android.util.Base64;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -10,6 +11,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+
+
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class HCEUtils {
@@ -79,6 +82,31 @@ public class HCEUtils {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * HEx String to Base64 encoding
+     * @param hexString input as HEX String
+     * @return Base64Encode String
+     */
+    public static String hexStringToBase64String(String hexString) {
+        byte[] bytes = hexStringToByteArray(hexString);
+        return Base64.encodeToString(bytes, 0);
+    }
+
+    /**
+     * HEX String to byte array
+     * @param hexString input as HEX String
+     * @return byte[]
+     */
+    public static byte[] hexStringToByteArray(String hexString) {
+        byte[] b = new byte[hexString.length() / 2];
+        for (int i = 0; i < b.length; i++) {
+            int index = i * 2;
+            int v = Integer.parseInt(hexString.substring(index, index + 2), 16);
+            b[i] = (byte) v;
+        }
+        return b;
     }
 
     public static int binaryStringToDecimal(String binString){

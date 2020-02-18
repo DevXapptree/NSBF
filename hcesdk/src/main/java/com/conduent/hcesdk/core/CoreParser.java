@@ -9,12 +9,14 @@ import com.conduent.hcesdk.utils.FilterUtils;
 import com.conduent.hcesdk.utils.HCEUtils;
 import com.google.gson.Gson;
 
+
 import java.util.ArrayList;
 
 class CoreParser implements ICoreParser {
 
     private static volatile ICoreParser instance;
     private ReadCallback readCallback;
+    private RetrieveRemoteOfferCallback remoteOfferCallback;
 
     private CoreParser() {
 
@@ -58,6 +60,20 @@ class CoreParser implements ICoreParser {
         /*End Parse SFI 07*/
         parseSFI_09(hceCardData);
     }
+
+    @Override
+    public void startRemoteParsingHCE(HCECardData hceCardData, RetrieveRemoteOfferCallback callback) {
+        this.remoteOfferCallback = callback;
+
+        HCECardData hceCardDataBinary = new HCECardData();
+
+        hceCardDataBinary.setAnswerSelectApplication(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectApplication().replace(" ","")));
+        hceCardDataBinary.setAnswerSelectFileRT(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectFileRT().replace(" ","")));
+
+
+    }
+
+
 
     private void parseSFI_07(HCECardData hceCardData) {
         HCERecordFile sfi_07_record = FilterUtils.INSTANCE.getHCERecordBySFICode(hceCardData.getRecordFiles(), SFICodeType.SFI07.code());
