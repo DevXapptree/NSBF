@@ -11,7 +11,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
-
+import java.util.Date;
+import java.util.TimeZone;
 
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -191,4 +192,18 @@ public class HCEUtils {
         return output;
     }
 
+    public static long hexStringToDecimal(String mediaSerialNumber) {
+        return Long.parseLong(mediaSerialNumber, 16);
+    }
+
+    /**
+     * This method collect current date from system and return UTC time
+     * @return UTC time in String
+     */
+    public static String getCurrentUCTTime() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return  dateFormat.format(date);
+    }
 }

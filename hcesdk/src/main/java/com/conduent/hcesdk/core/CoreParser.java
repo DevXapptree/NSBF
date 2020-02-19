@@ -62,8 +62,7 @@ class CoreParser implements ICoreParser {
     }
 
     @Override
-    public void startRemoteParsingHCE(HCECardData hceCardData, RetrieveRemoteOfferCallback callback) {
-        this.remoteOfferCallback = callback;
+    public HCECardData startRemoteParsingHCE(HCECardData hceCardData) {
 
         HCECardData hceCardDataBase64 = new HCECardData();
 
@@ -89,9 +88,17 @@ class CoreParser implements ICoreParser {
 
         String json = (new Gson()).toJson(hceCardDataBase64);
 
-
+        return hceCardDataBase64;
     }
 
+    @Override
+    public long startParsingMediaSerialNumber(HCECardData hceCardData) {
+        String applicationData = hceCardData.getAnswerSelectApplication().replace(" ","");
+        int count = Integer.parseInt(applicationData.substring(52, 54));
+        String mediaSerialNumber = applicationData.substring(54, 54+(count*2));
+
+        return HCEUtils.hexStringToDecimal(mediaSerialNumber);
+    }
 
 
     private void parseSFI_07(HCECardData hceCardData) {

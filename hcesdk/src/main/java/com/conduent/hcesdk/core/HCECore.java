@@ -68,7 +68,7 @@ final class HCECore implements IHCECore {
                 callback.onRetrieveRemoteOfferError(new HCEError("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(),null));
 
             this.hceCardData = cardData;
-            CoreParser.getInstance().startRemoteParsingHCE(hceCardData, callback);
+            CoreProvider.getInstance().provideHCENeworkAccess().retrieveRemoteOfferApi(hceCardData, callback);
         }
     }
 }
