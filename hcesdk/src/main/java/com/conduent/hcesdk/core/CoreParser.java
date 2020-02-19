@@ -65,10 +65,29 @@ class CoreParser implements ICoreParser {
     public void startRemoteParsingHCE(HCECardData hceCardData, RetrieveRemoteOfferCallback callback) {
         this.remoteOfferCallback = callback;
 
-        HCECardData hceCardDataBinary = new HCECardData();
+        HCECardData hceCardDataBase64 = new HCECardData();
 
-        hceCardDataBinary.setAnswerSelectApplication(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectApplication().replace(" ","")));
-        hceCardDataBinary.setAnswerSelectFileRT(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectFileRT().replace(" ","")));
+        hceCardDataBase64.setAnswerSelectApplication(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectApplication().replace(" ","")));
+        hceCardDataBase64.setAnswerSelectFileRT(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectFileRT().replace(" ","")));
+
+        ArrayList<HCERecordFile> hceRecordFilesBase64 = new ArrayList<>();
+        for(HCERecordFile hceRecordFile: hceCardData.getRecordFiles()){
+            HCERecordFile hceRecordFileBase64 = new HCERecordFile();
+            hceRecordFileBase64.setSFI(hceRecordFile.getSFI());
+
+            ArrayList<HCERecordData> recordDataBase64 = new ArrayList<>();
+            for(HCERecordData hceRecordData: hceRecordFile.getRecordData()){
+                HCERecordData hceRecordDataBase64 = new HCERecordData();
+                hceRecordDataBase64.setRecord(HCEUtils.hexStringToBase64String(hceRecordData.getRecord().replace(" ","")));
+                recordDataBase64.add(hceRecordDataBase64);
+            }
+
+            hceRecordFileBase64.setRecordData(recordDataBase64);
+            hceRecordFilesBase64.add(hceRecordFileBase64);
+        }
+        hceCardDataBase64.setRecordFiles(hceRecordFilesBase64);
+
+        String json = (new Gson()).toJson(hceCardDataBase64);
 
 
     }
