@@ -9,12 +9,14 @@ import com.conduent.hcesdk.utils.FilterUtils;
 import com.conduent.hcesdk.utils.HCEUtils;
 import com.google.gson.Gson;
 
+
 import java.util.ArrayList;
 
 class CoreParser implements ICoreParser {
 
     private static volatile ICoreParser instance;
     private ReadCallback readCallback;
+    private RetrieveRemoteOfferCallback remoteOfferCallback;
 
     private CoreParser() {
 
@@ -58,6 +60,46 @@ class CoreParser implements ICoreParser {
         /*End Parse SFI 07*/
         parseSFI_09(hceCardData);
     }
+
+    @Override
+    public HCECardData startRemoteParsingHCE(HCECardData hceCardData) {
+
+        HCECardData hceCardDataBase64 = new HCECardData();
+
+        hceCardDataBase64.setAnswerSelectApplication(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectApplication().replace(" ","")));
+        hceCardDataBase64.setAnswerSelectFileRT(HCEUtils.hexStringToBase64String(hceCardData.getAnswerSelectFileRT().replace(" ","")));
+
+        ArrayList<HCERecordFile> hceRecordFilesBase64 = new ArrayList<>();
+        for(HCERecordFile hceRecordFile: hceCardData.getRecordFiles()){
+            HCERecordFile hceRecordFileBase64 = new HCERecordFile();
+            hceRecordFileBase64.setSFI(hceRecordFile.getSFI());
+
+            ArrayList<HCERecordData> recordDataBase64 = new ArrayList<>();
+            for(HCERecordData hceRecordData: hceRecordFile.getRecordData()){
+                HCERecordData hceRecordDataBase64 = new HCERecordData();
+                hceRecordDataBase64.setRecord(HCEUtils.hexStringToBase64String(hceRecordData.getRecord().replace(" ","")));
+                recordDataBase64.add(hceRecordDataBase64);
+            }
+
+            hceRecordFileBase64.setRecordData(recordDataBase64);
+            hceRecordFilesBase64.add(hceRecordFileBase64);
+        }
+        hceCardDataBase64.setRecordFiles(hceRecordFilesBase64);
+
+        String json = (new Gson()).toJson(hceCardDataBase64);
+
+        return hceCardDataBase64;
+    }
+
+    @Override
+    public long startParsingMediaSerialNumber(HCECardData hceCardData) {
+        String applicationData = hceCardData.getAnswerSelectApplication().replace(" ","");
+        int count = Integer.parseInt(applicationData.substring(52, 54));
+        String mediaSerialNumber = applicationData.substring(54, 54+(count*2));
+
+        return HCEUtils.hexStringToDecimal(mediaSerialNumber);
+    }
+
 
     private void parseSFI_07(HCECardData hceCardData) {
         HCERecordFile sfi_07_record = FilterUtils.INSTANCE.getHCERecordBySFICode(hceCardData.getRecordFiles(), SFICodeType.SFI07.code());

@@ -7,4 +7,6 @@ public interface ICoreParser {
     HCECardData parseStringToHCECardData(final String cardData);
     byte[] convertHexToByte(String hexData);
     void startParsingHCE(HCECardData hceCardData, ReadCallback readCallback);
+    HCECardData startRemoteParsingHCE(HCECardData hceCardData);
+    long startParsingMediaSerialNumber(HCECardData hceCardData);
 }

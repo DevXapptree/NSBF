@@ -27,4 +27,9 @@ class CoreProvider implements ICoreProvider {
     public IMappingRule provideMappingRuleAccess() {
         return new MappingRule();
     }
+
+    @Override
+    public IHCENetwork provideHCENeworkAccess() {
+        return new HCENetwork();
+    }
 }
