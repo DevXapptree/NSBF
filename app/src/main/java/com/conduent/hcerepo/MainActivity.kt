@@ -1,6 +1,7 @@
 package com.conduent.hcerepo
 
 import android.os.Bundle
+import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -56,19 +57,23 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
         Log.i("HCE", "Remote complete")
     }
 
-    override fun onRetrieveRemoteOfferError(error: HCEError?) {
+    override fun onRetrieveRemoteOfferError(error: Failure?) {
         Log.i("HCE", "Remote error")
     }
 
-    override fun onError() {
+    /*Start Read Callback*/
+    override fun onStarted() {
     }
 
+    override fun onEnded(cardParsedContent: String?) {
+        Log.i("HCE", "complete")
+        Log.i("HCE", cardParsedContent)
+    }
 
-    override fun onReadError(p0: HCEError?) {
+    override fun onError(error: Failure?) {
         Log.i("HCE", "error")
     }
 
-    override fun onReadComplete(result: HCECardResult) {
-        Log.i("HCE", "complete")
+    override fun onTimeOut() {
     }
 }

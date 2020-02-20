@@ -10,7 +10,7 @@ final class HCECore implements IHCECore {
     @Override
     public void startReading(ReadParameters params, ReadCallback callback) {
         if (params == null) {
-            callback.onReadError(new HCEError("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(), null));
+            callback.onError(new Failure("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()));
             return;
         }
 
@@ -20,7 +20,7 @@ final class HCECore implements IHCECore {
         if (params.getSourceType() == SourceType.HCE) {
             HCECardData cardData = CoreParser.getInstance().parseStringToHCECardData(params.getData());
             if (cardData == null)
-                callback.onReadError(new HCEError("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(), null));
+                callback.onError(new Failure("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()));
 
             this.hceCardData = cardData;
             /*Start parsing*/
@@ -35,7 +35,7 @@ final class HCECore implements IHCECore {
     @Override
     public void retrieveRemoteOffer(ReadParameters params, RetrieveRemoteOfferCallback callback) {
         if (params == null) {
-            callback.onRetrieveRemoteOfferError(new HCEError("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(), null));
+            callback.onRetrieveRemoteOfferError(new Failure("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()));
             return;
         }
         if(callback == null)
@@ -44,10 +44,10 @@ final class HCECore implements IHCECore {
         if (params.getSourceType() == SourceType.HCE) {
             HCECardData cardData = CoreParser.getInstance().parseStringToHCECardData(params.getData());
             if (cardData == null)
-                callback.onRetrieveRemoteOfferError(new HCEError("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal(),null));
+                callback.onRetrieveRemoteOfferError(new Failure("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()));
 
             this.hceCardData = cardData;
-            CoreProvider.getInstance().provideHCENeworkAccess().retrieveRemoteOfferApi(hceCardData, callback);
+            CoreProvider.getInstance().provideHCENetworkAccess().retrieveRemoteOfferApi(hceCardData, callback);
         }
     }
 }

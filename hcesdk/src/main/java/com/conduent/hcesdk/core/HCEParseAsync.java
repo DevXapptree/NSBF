@@ -42,7 +42,7 @@ public class HCEParseAsync extends AsyncTask<Void, String, HCECardResult> {
             return hceCardResult;
         } catch (Exception e) {
             if (readCallback != null) {
-                readCallback.onError();
+                readCallback.onError(new Failure());
             }
             return null;
         }
@@ -52,7 +52,10 @@ public class HCEParseAsync extends AsyncTask<Void, String, HCECardResult> {
     protected void onPostExecute(HCECardResult result) {
         super.onPostExecute(result);
         Log.i("NSBF", new Gson().toJson(result));
-        readCallback.onReadComplete(result);
+        if (result == null)
+            readCallback.onError(new Failure());
+        else
+            readCallback.onEnded(new Gson().toJson(result));
     }
 
     /*Parsing SFI07*/
@@ -60,7 +63,7 @@ public class HCEParseAsync extends AsyncTask<Void, String, HCECardResult> {
         HCERecordFile sfi_07_record = FilterUtils.INSTANCE.getHCERecordBySFICode(hceCardData.getRecordFiles(), SFICodeType.SFI07.code());
         if (sfi_07_record == null) {
             if (readCallback != null) {
-                readCallback.onReadError(null);
+                readCallback.onError(null);
             }
             return null;
         }
@@ -82,7 +85,7 @@ public class HCEParseAsync extends AsyncTask<Void, String, HCECardResult> {
         HCERecordFile sfi_09_record = FilterUtils.INSTANCE.getHCERecordBySFICode(hceCardData.getRecordFiles(), SFICodeType.SFI09.code());
         if (sfi_09_record == null) {
             if (readCallback != null) {
-                readCallback.onReadError(null);
+                readCallback.onError(null);
             }
             return null;
         }
@@ -104,7 +107,7 @@ public class HCEParseAsync extends AsyncTask<Void, String, HCECardResult> {
         HCERecordFile sfi_08_record = FilterUtils.INSTANCE.getHCERecordBySFICode(hceCardData.getRecordFiles(), SFICodeType.SFI08.code());
         if (sfi_08_record == null) {
             if (readCallback != null) {
-                readCallback.onReadError(null);
+                readCallback.onError(null);
             }
             return null;
         }
