@@ -13,7 +13,24 @@ final class MappingRule implements IMappingRule {
 
     private MappingEnvironmentHolder mappingEnvironmentHolder;
     private MappingContracts mappingContracts;
+    private MappingContractList mappingContractList;
+    private MappingTransportLog mappingTransportLog;
     private ValuesApiResponse valuesApiResponse;
+    private static volatile IMappingRule instance;
+
+    private MappingRule() {
+
+    }
+
+    public static IMappingRule getInstance() {
+        if (instance == null) {
+            synchronized (MappingRule.class) {
+                if (instance == null)
+                    instance = new MappingRule();
+            }
+        }
+        return instance;
+    }
 
     @Override
     public MappingEnvironmentHolder provideHCEMappingEnvHolder() {
@@ -41,6 +58,34 @@ final class MappingRule implements IMappingRule {
             }
         }
         return mappingContracts;
+    }
+
+    @Override
+    public MappingContractList provideHCEMappingContractList() {
+        if (mappingContractList == null) {
+            try {
+                InputStream is = HCEEngine.localInstance().getContext().getAssets().open("MappingContractsList.json");
+                String mapContract = HCEUtils.convertStreamToString(is);
+                mappingContractList = new Gson().fromJson(mapContract, MappingContractList.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return mappingContractList;
+    }
+
+    @Override
+    public MappingTransportLog provideHCEMappingTransportLog() {
+        if (mappingTransportLog == null) {
+            try {
+                InputStream is = HCEEngine.localInstance().getContext().getAssets().open("MappingTransportLog.json");
+                String mapContract = HCEUtils.convertStreamToString(is);
+                mappingTransportLog = new Gson().fromJson(mapContract, MappingTransportLog.class);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return mappingTransportLog;
     }
 
     @Override
@@ -135,6 +180,33 @@ final class MappingRule implements IMappingRule {
         contractRules.add(new HCERules(HCETag.CONTRACT_STATUS, contract.getContractStatus()));
         contractRules.add(new HCERules(HCETag.CONTRACT_AUTHENTICATOR, contract.getContractAuthenticator()));
         return contractRules;
+    }
+
+    @Override
+    public ArrayList<HCERules> provideHCETransportLogRules() {
+        TransportLog transportLog = provideHCEMappingTransportLog().getMappingCard().getTransportLog();
+        ArrayList<HCERules> transportRules = new ArrayList<>();
+        if (transportLog == null) {
+            return transportRules;
+        }
+        transportRules.add(new HCERules(HCETag.EVENT_DATE_STAMP, transportLog.getEventDateStamp()));
+        transportRules.add(new HCERules(HCETag.EVENT_TIME_STAMP, transportLog.getEventTimeStamp()));
+        transportRules.add(new HCERules(HCETag.EVENT_BITMAP, transportLog.getEventBitmap()));
+        transportRules.add(new HCERules(HCETag.EVENT_CODE, transportLog.getEventCode()));
+        transportRules.add(new HCERules(HCETag.EVENT_SERVICE_PROVIDER, transportLog.getEventServiceProvider()));
+        transportRules.add(new HCERules(HCETag.EVENT_NOTOK_COUNTER, transportLog.getEventNotokCounter()));
+        transportRules.add(new HCERules(HCETag.EVENT_SERIAL_NUMBER, transportLog.getEventSerialNumber()));
+        transportRules.add(new HCERules(HCETag.EVENT_LOCATION_ID, transportLog.getEventLocationId()));
+        transportRules.add(new HCERules(HCETag.EVENT_LOCATION_GATE, transportLog.getEventLocationGate()));
+        transportRules.add(new HCERules(HCETag.EVENT_DEVICE, transportLog.getEventDevice()));
+        transportRules.add(new HCERules(HCETag.EVENT_ROUTING_NUMBER, transportLog.getEventRouteNumber()));
+        transportRules.add(new HCERules(HCETag.EVENT_JOURNEY_RUN, transportLog.getEventJourneyRun()));
+        transportRules.add(new HCERules(HCETag.EVENT_VEHICLE_ID, transportLog.getEventVehicleId()));
+        transportRules.add(new HCERules(HCETag.EVENT_CONTRACT_POINTER, transportLog.getEventContractPointer()));
+        transportRules.add(new HCERules(HCETag.EVENT_DATA, transportLog.getEventData()));
+        transportRules.add(new HCERules(HCETag.EVENT_DATA_DATE_FIRST_STAMP, transportLog.getEventDataDateFirstStamp()));
+        transportRules.add(new HCERules(HCETag.EVENT_DATA_TIME_FIRST_STAMP, transportLog.getEventDataTimeFirstStamp()));
+        return transportRules;
     }
 
     @Override

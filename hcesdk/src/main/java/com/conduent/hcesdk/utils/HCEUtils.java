@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Locale;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class HCEUtils {
@@ -61,7 +62,7 @@ public class HCEUtils {
         return data;
     }
 
-    public static String hexStringToBinaryString(String hexString) {
+    public static String HexStringToBinaryString(String hexString) {
         String trimHex = hexString.replaceAll("\\s", "");
         char[] hexChars = trimHex.toCharArray();
         StringBuilder sb = new StringBuilder();
@@ -81,19 +82,33 @@ public class HCEUtils {
         return sb.toString();
     }
 
-    public static int binaryStringToDecimal(String binString){
-        return Integer.parseInt(binString,2);
+    public static int binaryStringToDecimal(String binString) {
+        return Integer.parseInt(binString, 2);
     }
 
-    public static String binaryToHexString(String binaryString){
-        String hexa = Integer.toHexString(binaryStringToDecimal(binaryString));
-        return hexa;
+    public static String binaryToHexString(String binaryString) {
+        String hexOutput= Integer.toHexString(binaryStringToDecimal(binaryString));
+        return hexOutput.toUpperCase();
     }
 
-    public static String getEnvApplicationValidityEndDate(String binString){
-        int days = 12052;//Integer.parseInt(binString,2);
+    public static String getEnvApplicationValidityEndDate(String binString) {
+        int days = Integer.parseInt(binString,2);
         String dt = "01/01/1997";  // Start date
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",Locale.getDefault());
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(dt));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DATE, days);
+        return sdf.format(c.getTime());
+    }
+
+    public static String getDate(String binString) {
+        int days = Integer.parseInt(binString,2);
+        String dt = "01/01/1997";  // Start date
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",Locale.getDefault());
         Calendar c = Calendar.getInstance();
         try {
             c.setTime(sdf.parse(dt));
@@ -161,6 +176,28 @@ public class HCEUtils {
         String output = "";
         output = data.subSequence(startPos, endPos).toString();
         return output;
+    }
+
+    public static String padLeft(String data, int dataLength) {
+        int noz = dataLength - data.length();
+        StringBuilder sb = new StringBuilder();
+        while (noz > 0) {
+            sb.append("0");
+            noz--;
+        }
+        sb.append(data);
+        return sb.toString();
+    }
+
+    public static int padLeft(int data, int dataLength) {
+        int noz = dataLength - data;
+        StringBuilder sb = new StringBuilder();
+        while (noz > 0) {
+            sb.append("0");
+            noz--;
+        }
+        sb.append(data);
+        return Integer.parseInt(sb.toString());
     }
 
 }

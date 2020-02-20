@@ -26,7 +26,7 @@ com.conduent.hcesdk.R$string: int abc_font_family_display_4_material
 android.support.constraint.R$styleable: int ConstraintSet_layout_goneMarginTop
 android.support.v7.appcompat.R$attr: int actionBarSplitStyle
 com.conduent.hcesdk.room.Description: com.conduent.hcesdk.room.DescriptionLanguage fr
-com.conduent.hcesdk.entities.valuesapi.CustomData: java.lang.String getCustomData4()
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: java.lang.String getCustomData4()
 android.support.drawerlayout.R$dimen: int notification_small_icon_size_as_large
 com.conduent.hcesdk.R$styleable: int AppCompatImageView_tintMode
 com.conduent.hcesdk.SourceType: <clinit>()
@@ -251,7 +251,7 @@ android.support.constraint.R$styleable: int ConstraintLayout_Layout_layout_const
 com.conduent.hcesdk.core.HCECore: void startReading(com.conduent.hcesdk.HCECardData,com.conduent.hcesdk.ReadCallback)
 com.conduent.hcesdk.R$color: int foreground_material_dark
 com.conduent.hcesdk.R$style: int TextAppearance_AppCompat_Display4
-com.conduent.hcesdk.entities.valuesapi.Description: Description()
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: Description()
 com.conduent.hcesdk.R$style: int Base_Theme_AppCompat_CompactMenu
 android.arch.persistence.room.R$dimen: int notification_media_narrow_margin
 android.support.v7.appcompat.R$id: int tabMode
@@ -278,7 +278,7 @@ android.support.v7.appcompat.R$style: int Widget_AppCompat_PopupMenu
 android.support.v7.appcompat.R$style: int Base_ThemeOverlay_AppCompat_ActionBar
 android.support.asynclayoutinflater.R$id: int text
 com.conduent.hcesdk.R$attr: int firstBaselineToTopHeight
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: java.lang.String value
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: java.lang.String value
 com.conduent.hcesdk.R$attr: int switchMinWidth
 com.conduent.hcesdk.R$style: int Platform_AppCompat_Light
 android.support.v7.appcompat.R$attr: int switchMinWidth
@@ -688,7 +688,7 @@ android.support.v7.appcompat.R$color: int material_grey_900
 com.conduent.hcesdk.core.HCEEngine: void startReading(java.lang.String,com.conduent.hcesdk.ReadCallback)
 android.support.v7.appcompat.R$styleable: int[] DrawerArrowToggle
 android.support.v7.viewpager.R$drawable: int notification_bg_low_pressed
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.util.ArrayList getResources()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.util.ArrayList getResources()
 android.support.v7.appcompat.R$style: int Widget_AppCompat_Spinner_Underlined
 com.conduent.hcesdk.core.CoreProvider: com.conduent.hcesdk.core.ICoreProvider instance
 com.conduent.hcesdk.R$attr: int fontWeight
@@ -711,7 +711,7 @@ android.support.v7.appcompat.R$dimen: int abc_button_inset_horizontal_material
 com.conduent.hcesdk.R$attr: int layout_constraintGuide_end
 android.support.constraint.R$id: int wrap
 android.support.coordinatorlayout.R$drawable: int notification_template_icon_bg
-com.conduent.hcesdk.entities.valuesapi.CustomData: java.lang.String customData4
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: java.lang.String customData4
 com.conduent.hcesdk.R$color: int background_floating_material_dark
 com.conduent.hcesdk.R$layout: int abc_list_menu_item_radio
 android.support.compat.R$dimen: int compat_notification_large_icon_max_height
@@ -1006,7 +1006,7 @@ com.conduent.hcesdk.R$styleable: int AppCompatTheme_colorPrimary
 android.support.coreui.R$id: int none
 android.support.v7.appcompat.R$drawable: int notification_bg_low_pressed
 android.support.v7.appcompat.R$style: int RtlOverlay_Widget_AppCompat_SearchView_MagIcon
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: void setResources(java.util.ArrayList)
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: void setResources(java.util.ArrayList)
 com.conduent.hcesdk.room.DatabaseQueryAsync: void onPostExecute(java.lang.Boolean)
 android.support.v7.appcompat.R$attr: int colorControlHighlight
 com.conduent.hcesdk.room.ValuesAPIDao_Impl: android.arch.persistence.room.EntityInsertionAdapter __insertionAdapterOfContractStatusTable
@@ -1122,7 +1122,7 @@ android.arch.persistence.room.R$dimen: int compat_button_padding_vertical_materi
 com.conduent.hcesdk.R$dimen: int abc_dialog_min_width_major
 com.conduent.hcesdk.entities.valuesapi.Value: void setId(java.lang.String)
 com.conduent.hcesdk.R$style: int Theme_AppCompat_CompactMenu
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: void setTag(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: void setTag(java.lang.String)
 com.conduent.hcesdk.R$styleable: int GradientColor_android_type
 android.support.swiperefreshlayout.R$id: int tag_transition_group
 android.support.graphics.drawable.R$styleable: int ColorStateListItem_android_alpha
@@ -1168,7 +1168,7 @@ com.conduent.hcesdk.R$styleable: int ConstraintSet_android_minHeight
 android.support.v7.viewpager.R$id: int line1
 com.conduent.hcesdk.entities.Rule: java.lang.String dataId
 com.conduent.hcesdk.R$id: int spread_inside
-com.conduent.hcesdk.entities.valuesapi.Description: void setFr(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage)
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: void setFr(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage)
 android.support.v7.viewpager.R$dimen: int notification_right_icon_size
 com.conduent.hcesdk.core.CoreProvider: com.conduent.hcesdk.core.IMappingRule provideMappingRuleAccess()
 android.support.v7.appcompat.R$style: int Widget_Compat_NotificationActionText
@@ -1323,7 +1323,7 @@ android.support.constraint.R$styleable: int ConstraintLayout_Layout_layout_const
 android.support.v7.appcompat.R$layout: int abc_alert_dialog_title_material
 android.support.v7.appcompat.R$dimen: int tooltip_horizontal_padding
 com.conduent.hcesdk.room.tables.HolderProfileNumberTable: com.conduent.hcesdk.room.DataValue getProfile()
-com.conduent.hcesdk.entities.valuesapi.CustomData: void setCustomData3(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: void setCustomData3(java.lang.String)
 android.support.swiperefreshlayout.R$drawable: int notify_panel_notification_icon_bg
 android.support.loader.R$attr: int fontWeight
 com.conduent.hcesdk.R$drawable: int abc_vector_test
@@ -1450,9 +1450,9 @@ android.support.swiperefreshlayout.R$styleable: int FontFamilyFont_android_ttcIn
 android.support.coordinatorlayout.R$drawable: R$drawable()
 com.conduent.hcesdk.entities.Contract: void setContractValidityJourneys(com.conduent.hcesdk.entities.Rule)
 com.conduent.hcesdk.room.AppRoomDataBase: com.conduent.hcesdk.room.AppRoomDataBase getDatabase(android.content.Context)
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getEn()
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getEn()
 com.conduent.hcesdk.R$styleable: int AppCompatTheme_actionModeCloseDrawable
-com.conduent.hcesdk.entities.valuesapi.CustomData: void setCustomData4(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: void setCustomData4(java.lang.String)
 com.conduent.hcesdk.entities.valuesapi.HolderData: void setHolderDataCommercialId(java.util.ArrayList)
 android.support.swiperefreshlayout.R$drawable: int notification_bg_low_pressed
 android.support.v7.appcompat.R$attr: int layout_insetEdge
@@ -1605,7 +1605,7 @@ com.conduent.hcesdk.R$style: int Base_TextAppearance_Widget_AppCompat_Toolbar_Su
 android.support.coordinatorlayout.R$attr: int keylines
 com.conduent.hcesdk.R$attr: int spinnerDropDownItemStyle
 com.conduent.hcesdk.R$id: int buttonPanel
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage de
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage de
 android.support.graphics.drawable.R$style: int TextAppearance_Compat_Notification_Time
 android.support.fragment.R$dimen: R$dimen()
 android.support.asynclayoutinflater.R$styleable: int FontFamily_fontProviderFetchStrategy
@@ -1954,7 +1954,7 @@ android.arch.persistence.room.R$id: int notification_main_column
 android.support.constraint.R$styleable: int ConstraintSet_constraint_referenced_ids
 android.support.coordinatorlayout.R$attr: int layout_behavior
 android.support.v7.appcompat.R$color: int material_deep_teal_500
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getFr()
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getFr()
 android.support.loader.R$id: int notification_main_column
 com.conduent.hcesdk.R$styleable: int ConstraintSet_android_layout_marginEnd
 com.conduent.hcesdk.R$styleable: int PopupWindowBackgroundState_state_above_anchor
@@ -2582,7 +2582,7 @@ android.support.constraint.R$attr: int layout_constraintVertical_chainStyle
 com.conduent.hcesdk.R$styleable: int Toolbar_titleMargin
 com.conduent.hcesdk.R$attr: int switchStyle
 android.support.coreui.R$styleable: int ColorStateListItem_android_alpha
-com.conduent.hcesdk.entities.valuesapi.Product: void setCustomData(com.conduent.hcesdk.entities.valuesapi.CustomData)
+com.conduent.hcesdk.entities.valuesapi.Product: void setCustomData(com.conduent.hcesdk.entities.valuesapi.ProductCustomData)
 android.support.v7.appcompat.R$style: int Theme_AppCompat_DialogWhenLarge
 com.conduent.hcesdk.room.DescriptionLanguage: DescriptionLanguage()
 com.conduent.hcesdk.room.tables.EnvNetworkIdTable
@@ -2626,7 +2626,7 @@ com.conduent.hcesdk.R$string: int abc_action_menu_overflow_description
 android.support.constraint.R$attr: int layout_constraintRight_toRightOf
 com.conduent.hcesdk.R$string: int abc_menu_shift_shortcut_label
 android.support.v7.appcompat.R$dimen: int abc_text_size_menu_material
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.lang.String getLongDesc()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.lang.String getLongDesc()
 android.support.loader.R$layout
 android.support.coreutils.R$styleable: int GradientColorItem_android_offset
 com.conduent.hcesdk.R$drawable: int abc_btn_radio_material
@@ -2659,7 +2659,7 @@ com.conduent.hcesdk.R$styleable: int GradientColor_android_startX
 android.support.v7.appcompat.R$styleable: int FontFamilyFont_fontVariationSettings
 com.conduent.hcesdk.R$styleable: int ConstraintLayout_Layout_layout_constraintStart_toEndOf
 android.support.customview.R$dimen: int compat_notification_large_icon_max_width
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: DescriptionLanguage()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: DescriptionLanguage()
 android.support.v7.appcompat.R$drawable: int abc_ab_share_pack_mtrl_alpha
 com.conduent.hcesdk.R$styleable: int ConstraintSet_layout_goneMarginStart
 android.support.coordinatorlayout.R$id: int tag_unhandled_key_event_manager
@@ -2720,7 +2720,7 @@ android.support.coordinatorlayout.R$styleable
 com.conduent.hcesdk.R$style: int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse
 android.support.swiperefreshlayout.R$styleable: int FontFamilyFont_fontStyle
 com.conduent.hcesdk.HCECardData: HCECardData(java.lang.String,java.lang.String,java.util.ArrayList)
-com.conduent.hcesdk.entities.valuesapi.Description: void setEs(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage)
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: void setEs(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage)
 android.support.v7.appcompat.R$dimen: int abc_dialog_list_padding_top_no_title
 android.support.swiperefreshlayout.R$drawable: int notification_action_background
 android.support.swiperefreshlayout.R$dimen: int notification_action_icon_size
@@ -2768,7 +2768,7 @@ com.conduent.hcesdk.R$styleable: int ConstraintLayout_Layout_layout_constraintHo
 android.support.fragment.R$dimen: int compat_button_inset_horizontal_material
 com.conduent.hcesdk.R$dimen: int abc_text_size_display_2_material
 android.support.customview.R$layout: int notification_template_custom_big
-com.conduent.hcesdk.entities.valuesapi.CustomData: java.lang.String customData3
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: java.lang.String customData3
 com.conduent.hcesdk.entities.HCEResult: java.lang.String getTag()
 android.support.swiperefreshlayout.R$drawable: int notification_icon_background
 android.support.coreui.R$attr: int fontProviderPackage
@@ -2797,7 +2797,7 @@ com.conduent.hcesdk.R$style: int Widget_AppCompat_ActionBar_TabView
 android.support.coreui.R$dimen: int notification_large_icon_height
 android.support.constraint.R$styleable: int ConstraintLayout_placeholder_content
 com.conduent.hcesdk.R$drawable: int notify_panel_notification_icon_bg
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage es
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage es
 android.support.v7.appcompat.R$id: int textSpacerNoButtons
 android.support.coreutils.R$styleable: int GradientColor_android_type
 android.support.swiperefreshlayout.R$id: int notification_main_column
@@ -2887,7 +2887,7 @@ android.support.drawerlayout.R$id: int action_container
 com.conduent.hcesdk.R$styleable: int ActionBar_itemPadding
 com.conduent.hcesdk.network.Apiservice: retrofit2.Call getTestData()
 com.conduent.hcesdk.R$attr: int contentInsetLeft
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: java.lang.String getTag()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: java.lang.String getTag()
 com.conduent.hcesdk.R$styleable: int ConstraintSet_layout_goneMarginEnd
 android.support.asynclayoutinflater.R$styleable: int ColorStateListItem_android_alpha
 com.conduent.hcesdk.R$style: int Widget_Compat_NotificationActionText
@@ -2911,7 +2911,7 @@ com.conduent.hcesdk.R$dimen: int abc_dialog_fixed_width_minor
 com.conduent.hcesdk.room.ValuesAPIDao_Impl$3: com.conduent.hcesdk.room.ValuesAPIDao_Impl this$0
 android.support.customview.R$color: int notification_action_color_filter
 com.conduent.hcesdk.R$drawable: int abc_textfield_default_mtrl_alpha
-com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.CustomData getCustomData()
+com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.ProductCustomData getCustomData()
 com.conduent.hcesdk.entities.Holder: void setHolderIdNumber(com.conduent.hcesdk.entities.Rule)
 android.support.v7.appcompat.R$id: int custom
 com.conduent.hcesdk.entities.Contract: com.conduent.hcesdk.entities.Rule contractStatus
@@ -3045,7 +3045,7 @@ android.support.v7.appcompat.R$dimen: int tooltip_y_offset_touch
 android.support.compat.R$drawable: int notify_panel_notification_icon_bg
 com.conduent.hcesdk.R$styleable: int AlertDialog_buttonPanelSideLayout
 com.conduent.hcesdk.R$styleable: int AppCompatTheme_listMenuViewStyle
-com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.Description description
+com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.ProductDescription description
 com.conduent.hcesdk.R$id: int notification_main_column_container
 com.conduent.hcesdk.entities.valuesapi.Version: java.lang.String id
 com.conduent.hcesdk.utils.FilterUtils: com.conduent.hcesdk.utils.FilterUtils INSTANCE
@@ -3125,7 +3125,7 @@ android.support.constraint.R$styleable: int ConstraintLayout_Layout_layout_const
 android.support.v7.appcompat.R$style: int Widget_AppCompat_RatingBar_Small
 android.support.loader.R$styleable: int FontFamilyFont_android_fontVariationSettings
 com.conduent.hcesdk.room.ValuesAPIDao_Impl: android.arch.persistence.room.RoomDatabase __db
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.util.ArrayList resources
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.util.ArrayList resources
 com.conduent.hcesdk.R$attr: int textAppearanceLargePopupMenu
 android.support.fragment.R$id
 com.conduent.hcesdk.R$attr: int textAppearanceSmallPopupMenu
@@ -3155,7 +3155,7 @@ android.support.constraint.R$attr: int constraint_referenced_ids
 android.support.graphics.drawable.R$styleable: int[] GradientColor
 com.conduent.hcesdk.R$string: int abc_searchview_description_search
 android.support.v7.appcompat.R$styleable: int AppCompatTheme_actionMenuTextColor
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: DescriptionResource()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: DescriptionResource()
 com.conduent.hcesdk.room.OnDataBaseQueryListener$DefaultImpls: void onCountFetched(com.conduent.hcesdk.room.OnDataBaseQueryListener,int)
 android.support.v7.appcompat.R$attr: int dropDownListViewStyle
 com.conduent.hcesdk.room.tables.HolderProfileNumberTable: HolderProfileNumberTable()
@@ -3216,7 +3216,7 @@ android.support.coordinatorlayout.R$attr: int fontWeight
 android.support.constraint.R$attr: int layout_constraintCircle
 android.arch.persistence.room.R$attr: int fontProviderFetchStrategy
 android.support.graphics.drawable.R$attr: int ttcIndex
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getDe()
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getDe()
 android.support.v7.appcompat.R$dimen: int abc_text_size_body_2_material
 android.support.asynclayoutinflater.R$layout: int notification_template_part_time
 android.support.loader.R$styleable: int FontFamilyFont_android_font
@@ -3447,8 +3447,8 @@ android.support.constraint.R$styleable: int ConstraintSet_layout_constraintWidth
 android.support.drawerlayout.R$styleable: int FontFamily_fontProviderCerts
 android.support.customview.R$dimen: R$dimen()
 android.support.coordinatorlayout.R$styleable: int GradientColor_android_startY
-com.conduent.hcesdk.entities.valuesapi.CustomData: java.lang.String getCustomData3()
-com.conduent.hcesdk.entities.valuesapi.CustomData
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: java.lang.String getCustomData3()
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData
 android.support.v7.viewpager.R$color: R$color()
 com.conduent.hcesdk.entities.Holder: com.conduent.hcesdk.entities.Rule HolderProfileBitmap4
 android.support.v7.appcompat.R$attr: int fontProviderFetchStrategy
@@ -3508,9 +3508,9 @@ com.conduent.hcesdk.R$styleable: int ConstraintSet_layout_constraintBottom_toBot
 com.conduent.hcesdk.R$style: int Widget_AppCompat_PopupMenu
 android.support.v7.appcompat.R$attr: int submitBackground
 com.conduent.hcesdk.R$dimen: int abc_action_bar_default_padding_start_material
-com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.CustomData customData
+com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.ProductCustomData customData
 android.support.drawerlayout.R$id: int blocking
-com.conduent.hcesdk.entities.valuesapi.CustomData: CustomData()
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData: CustomData()
 android.support.v7.appcompat.R$dimen: int notification_content_margin_start
 android.support.v7.appcompat.R$styleable: int AppCompatTheme_borderlessButtonStyle
 android.support.asynclayoutinflater.R$attr: int font
@@ -3523,7 +3523,7 @@ com.conduent.hcesdk.HCERecordFile: java.lang.String getSFI()
 com.conduent.hcesdk.utils.HCETag: java.lang.String HOLDER_PROFILE_BITMAP3
 android.support.asynclayoutinflater.R$styleable: int FontFamilyFont_font
 com.conduent.hcesdk.utils.HCETag: java.lang.String HOLDER_DATA_CARD_STATUS
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage en
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage en
 com.conduent.hcesdk.R$styleable: int TextAppearance_android_textColorLink
 android.support.v7.appcompat.R$styleable: int AppCompatTheme_textColorSearchUrl
 com.conduent.hcesdk.utils.HCETag: java.lang.String HOLDER_PROFILE_BITMAP1
@@ -3616,7 +3616,7 @@ com.conduent.hcesdk.room.ValuesAPIDao: void insertContractStatusBatch(java.util.
 android.support.constraint.R$styleable: int ConstraintSet_android_translationY
 android.support.coordinatorlayout.R$dimen: int compat_button_inset_horizontal_material
 android.support.v7.appcompat.R$style: int Base_Widget_AppCompat_ButtonBar
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource
 android.arch.persistence.room.R$id: int right_icon
 android.support.coordinatorlayout.R$id: int start
 android.support.coreutils.R$styleable: int FontFamilyFont_font
@@ -3756,7 +3756,7 @@ com.conduent.hcesdk.R$styleable: int Toolbar_android_minHeight
 com.conduent.hcesdk.R$style: int Widget_AppCompat_Light_ActivityChooserView
 android.support.asynclayoutinflater.R$styleable: int FontFamilyFont_android_fontVariationSettings
 com.conduent.hcesdk.R$drawable
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage
 android.support.coreui.R$styleable: int GradientColor_android_centerX
 android.support.v7.appcompat.R$integer: R$integer()
 com.conduent.hcesdk.R$styleable: int ConstraintLayout_Layout_android_maxWidth
@@ -3833,7 +3833,7 @@ com.conduent.hcesdk.room.Description: void setFr(com.conduent.hcesdk.room.Descri
 android.support.compat.R$attr: int font
 android.support.v7.appcompat.R$styleable: int AppCompatTheme_actionModeCopyDrawable
 android.support.coreutils.R$dimen: int notification_large_icon_width
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: void setShortDesc(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: void setShortDesc(java.lang.String)
 com.conduent.hcesdk.R$id
 android.support.v7.appcompat.R$style: int Base_Widget_AppCompat_Spinner_Underlined
 android.support.fragment.R$attr: R$attr()
@@ -3932,7 +3932,7 @@ com.conduent.hcesdk.R$styleable: int DrawerArrowToggle_thickness
 android.support.coordinatorlayout.R$style: int TextAppearance_Compat_Notification_Info
 android.support.drawerlayout.R$color: int notification_icon_bg_color
 com.conduent.hcesdk.ReadCallback: void onReadError(com.conduent.hcesdk.HCEError)
-com.conduent.hcesdk.entities.valuesapi.Description: void setEn(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage)
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: void setEn(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage)
 android.support.v7.appcompat.R$style: int RtlOverlay_Widget_AppCompat_DialogTitle_Icon
 com.conduent.hcesdk.R$layout: int abc_search_view
 com.conduent.hcesdk.R$attr: int dropDownListViewStyle
@@ -4148,7 +4148,7 @@ com.conduent.hcesdk.R$styleable: int SwitchCompat_android_textOn
 android.support.graphics.drawable.R$id: int none
 com.conduent.hcesdk.R$attr: int textAppearancePopupMenuHeader
 android.support.v7.appcompat.R$style: int Widget_AppCompat_Spinner
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getEs()
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getEs()
 android.support.compat.R$styleable: int FontFamily_fontProviderFetchStrategy
 android.support.v7.appcompat.R$dimen: int abc_floating_window_z
 com.conduent.hcesdk.R$styleable: int AppCompatTextView_autoSizeStepGranularity
@@ -4317,7 +4317,7 @@ com.conduent.hcesdk.R$style: int Base_V7_Widget_AppCompat_Toolbar
 android.support.constraint.R$attr: int layout_constraintBaseline_creator
 com.conduent.hcesdk.R$style: int TextAppearance_AppCompat_Button
 android.support.coordinatorlayout.R$styleable: int[] GradientColorItem
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.lang.String longDesc
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.lang.String longDesc
 com.conduent.hcesdk.entities.HCERules: void setRule(com.conduent.hcesdk.entities.Rule)
 android.support.v7.appcompat.R$drawable: int abc_scrubber_primary_mtrl_alpha
 com.conduent.hcesdk.network.RetrofitConfig: int getTimeOut()
@@ -4363,7 +4363,7 @@ android.support.coreui.R$styleable: int[] FontFamilyFont
 android.support.coreutils.R$drawable: int notification_bg_low
 android.arch.persistence.room.R$layout
 android.support.customview.R$attr: int fontVariationSettings
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.lang.String title
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.lang.String title
 com.conduent.hcesdk.R$color: int dim_foreground_material_light
 com.conduent.hcesdk.R$styleable: int ConstraintSet_layout_constraintBottom_toTopOf
 android.support.constraint.R$styleable: int ConstraintLayout_Layout_layout_constraintStart_toStartOf
@@ -4884,7 +4884,7 @@ com.conduent.hcesdk.core.HCEEngine$1: com.conduent.hcesdk.core.HCEEngine this$0
 android.support.coreui.R$id: int icon_group
 android.support.v7.appcompat.R$attr: int progressBarStyle
 com.conduent.hcesdk.R$id: int group_divider
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: void setTitle(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: void setTitle(java.lang.String)
 com.conduent.hcesdk.R$id: int textSpacerNoTitle
 android.support.v7.appcompat.R$styleable: int AppCompatTheme_windowNoTitle
 com.conduent.hcesdk.SourceType: com.conduent.hcesdk.SourceType HCE
@@ -4919,7 +4919,7 @@ com.conduent.hcesdk.utils.HCETag: java.lang.String ENV_NETWORK_ID
 com.conduent.hcesdk.entities.Holder: Holder()
 com.conduent.hcesdk.room.ContractZone: void setId(java.lang.String)
 android.support.v7.appcompat.R$styleable: int ActionBar_contentInsetStartWithNavigation
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: java.lang.String getValue()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: java.lang.String getValue()
 android.support.interpolator.R
 android.support.slidingpanelayout.R$id: int action_text
 android.support.v7.viewpager.R$styleable: int[] GradientColor
@@ -4930,7 +4930,7 @@ android.support.v7.appcompat.R$drawable: int abc_text_select_handle_left_mtrl_li
 com.conduent.hcesdk.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large
 com.conduent.hcesdk.R$attr: int fontProviderFetchStrategy
 android.support.compat.R$dimen: int notification_media_narrow_margin
-com.conduent.hcesdk.entities.valuesapi.Product: void setDescription(com.conduent.hcesdk.entities.valuesapi.Description)
+com.conduent.hcesdk.entities.valuesapi.Product: void setDescription(com.conduent.hcesdk.entities.valuesapi.ProductDescription)
 android.support.fragment.R$dimen: int notification_large_icon_width
 android.arch.persistence.room.R$attr: int font
 android.support.v7.appcompat.R$styleable: int AppCompatSeekBar_tickMarkTintMode
@@ -4970,7 +4970,7 @@ android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Small
 com.conduent.hcesdk.R$style: int TextAppearance_AppCompat_SearchResult_Title
 com.conduent.hcesdk.entities.Rule: java.lang.String bitmapUsed
 android.support.coreui.R$attr: int keylines
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.lang.String shortDesc
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.lang.String shortDesc
 com.conduent.hcesdk.entities.Contract: com.conduent.hcesdk.entities.Rule contractJourneyData
 com.conduent.hcesdk.room.ValuesAPIDao_Impl$1
 android.support.drawerlayout.R$styleable: int FontFamilyFont_android_fontWeight
@@ -5527,7 +5527,7 @@ com.conduent.hcesdk.entities.Rule: void setDataType(java.lang.String)
 android.support.customview.R$style: R$style()
 android.support.v7.appcompat.R$styleable: int AppCompatTheme_windowActionBarOverlay
 android.support.coreui.R$styleable: int FontFamilyFont_android_fontVariationSettings
-com.conduent.hcesdk.entities.valuesapi.Description: void setDe(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage)
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: void setDe(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage)
 android.support.constraint.R$styleable: int ConstraintLayout_Layout_layout_constraintHorizontal_bias
 android.support.compat.R$layout: int notification_template_custom_big
 android.support.graphics.drawable.R$layout: R$layout()
@@ -5804,7 +5804,7 @@ android.support.graphics.drawable.R$attr: int fontProviderFetchStrategy
 android.support.constraint.R$id: int packed
 android.support.coreui.R$id: int blocking
 android.support.coreui.R$id: int top
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: java.lang.String tag
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: java.lang.String tag
 com.conduent.hcesdk.entities.Holder: com.conduent.hcesdk.entities.Rule HolderBirth
 android.support.compat.R$styleable: int FontFamily_fontProviderCerts
 android.support.v7.appcompat.R$attr: int state_above_anchor
@@ -5911,7 +5911,7 @@ com.conduent.hcesdk.R$color: int tooltip_background_dark
 android.support.v7.appcompat.R$styleable: int[] AppCompatImageView
 android.support.drawerlayout.R$style: int TextAppearance_Compat_Notification
 android.support.drawerlayout.R$id: int text
-com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.Description getDescription()
+com.conduent.hcesdk.entities.valuesapi.Product: com.conduent.hcesdk.entities.valuesapi.ProductDescription getDescription()
 android.support.loader.R$id: int action_image
 android.support.drawerlayout.R$dimen: int notification_action_text_size
 com.conduent.hcesdk.room.tables.HolderProfileNumberTable: void setProfile(com.conduent.hcesdk.room.DataValue)
@@ -5931,7 +5931,7 @@ android.support.v7.appcompat.R$styleable: int ListPopupWindow_android_dropDownVe
 android.support.drawerlayout.R$styleable: int GradientColorItem_android_color
 android.support.v7.appcompat.R$attr: int layout_behavior
 android.support.v7.appcompat.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
-com.conduent.hcesdk.entities.valuesapi.Description
+com.conduent.hcesdk.entities.valuesapi.ProductDescription
 android.support.customview.R$styleable: int GradientColor_android_startX
 com.conduent.hcesdk.R$styleable: int AppCompatTheme_homeAsUpIndicator
 com.conduent.hcesdk.R$drawable: int abc_ratingbar_small_material
@@ -6020,7 +6020,7 @@ com.conduent.hcesdk.network.RetrofitHelper: retrofit2.Retrofit retrofit
 android.support.coreutils.R$id: int forever
 android.support.v7.appcompat.R$layout: int notification_template_part_time
 android.support.v7.appcompat.R$styleable: int FontFamilyFont_fontWeight
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource: void setValue(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource: void setValue(java.lang.String)
 com.conduent.hcesdk.R$styleable: int LinearLayoutCompat_Layout_android_layout_width
 com.conduent.hcesdk.room.RoomRequestCodes: int UPDATE_FILE
 com.conduent.hcesdk.entities.Contract: void setContractValidityZones(com.conduent.hcesdk.entities.Rule)
@@ -6078,7 +6078,7 @@ android.support.v7.appcompat.R$styleable: int AnimatedStateListDrawableCompat_an
 android.support.graphics.drawable.R$dimen: int notification_big_circle_margin
 android.support.coreutils.R$attr: R$attr()
 android.support.asynclayoutinflater.R$drawable: int notification_action_background
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: void setLongDesc(java.lang.String)
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: void setLongDesc(java.lang.String)
 com.conduent.hcesdk.entities.Contract: void setContractSaleData(com.conduent.hcesdk.entities.Rule)
 android.support.slidingpanelayout.R$styleable: int GradientColor_android_endColor
 com.conduent.hcesdk.R$id: int scrollIndicatorUp
@@ -6131,7 +6131,7 @@ android.support.v7.appcompat.R$style: int Base_Theme_AppCompat_Dialog_MinWidth
 android.support.coordinatorlayout.R$styleable: int FontFamilyFont_android_font
 android.support.coreutils.R$drawable: int notification_bg_low_pressed
 com.conduent.hcesdk.R$style: int RtlOverlay_Widget_AppCompat_SearchView_MagIcon
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.lang.String getTitle()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.lang.String getTitle()
 android.support.compat.R$styleable: int FontFamily_fontProviderAuthority
 com.conduent.hcesdk.entities.Environment: void setEnvDataBitmap(com.conduent.hcesdk.entities.Rule)
 android.support.v7.appcompat.R$attr: int contentDescription
@@ -6712,7 +6712,7 @@ com.conduent.hcesdk.R$drawable: int tooltip_frame_light
 android.support.v7.viewpager.R$style: int Widget_Compat_NotificationActionContainer
 com.conduent.hcesdk.entities.Contract: com.conduent.hcesdk.entities.Rule contractValidityEndTime
 com.conduent.hcesdk.R$color: int background_material_dark
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage: java.lang.String getShortDesc()
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage: java.lang.String getShortDesc()
 com.conduent.hcesdk.R$id: int right
 android.support.fragment.R$dimen: int compat_button_padding_horizontal_material
 com.conduent.hcesdk.entities.valuesapi.ValuesApiResponse: void setContentEnvironment(com.conduent.hcesdk.entities.valuesapi.ContentEnvironment)
@@ -6773,7 +6773,7 @@ android.support.coreui.R$layout
 android.support.compat.R$layout: int notification_action
 com.conduent.hcesdk.room.ValuesAPIDao_Impl: void deleteAllVersion()
 android.support.slidingpanelayout.R$id: int icon_group
-com.conduent.hcesdk.entities.valuesapi.Description: com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage fr
+com.conduent.hcesdk.entities.valuesapi.ProductDescription: com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage fr
 android.support.coreutils.R$styleable: int FontFamilyFont_ttcIndex
 android.support.slidingpanelayout.R$id: int notification_main_column
 com.conduent.hcesdk.room.DatabaseQueryAsync: java.lang.Object doInBackground(java.lang.Object[])

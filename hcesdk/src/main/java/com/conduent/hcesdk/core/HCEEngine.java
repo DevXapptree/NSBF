@@ -3,7 +3,6 @@ package com.conduent.hcesdk.core;
 
 import android.content.Context;
 import android.util.Log;
-import com.conduent.hcesdk.HCECardData;
 import com.conduent.hcesdk.ReadCallback;
 import com.conduent.hcesdk.ReadParameters;
 import com.conduent.hcesdk.entities.valuesapi.ValuesApiResponse;
@@ -42,20 +41,7 @@ public class HCEEngine implements IHCEEngine {
         return instance;
     }
 
-    private IHCECore getHCEAccess() {
-        return CoreProvider.getInstance().provideHCECoreAccess();
-    }
-
-    @Override
-    public void startReading(HCECardData hceCardData, ReadCallback callback) {
-        getHCEAccess().startReading(hceCardData, callback);
-    }
-
-    @Override
-    public void startReading(String hceCardData, ReadCallback callback) {
-        getHCEAccess().startReading(hceCardData, callback);
-    }
-
+    /*StartReading of HCE card*/
     @Override
     public void startReading(ReadParameters params, ReadCallback callback) {
         getHCEAccess().startReading(params, callback);
@@ -76,6 +62,7 @@ public class HCEEngine implements IHCEEngine {
         }).execute();
     }
 
+    /*pingMe is for Demo purpose*/
     @Override
     public void pingMe(ReadCallback callback) {
         //callback.onReadComplete();
@@ -84,11 +71,18 @@ public class HCEEngine implements IHCEEngine {
         new DatabaseQueryAsync(localInstance().getContext(), RoomRequestCodes.INSERT_VALUES_API_FILE, valuesApiResponse).execute();
     }
 
+    /*Provide local context to get use of android resources*/
     @Override
     public Context getContext() {
         return this.context;
     }
 
+    /*Getting access to make use of HCECore class*/
+    private IHCECore getHCEAccess() {
+        return CoreProvider.getInstance().provideHCECoreAccess();
+    }
+
+    /*FIXME Remove once done with HCENetwork Class implementation.*/
     private void makeRetroCall() {
         new RetrofitConfig.Builder().setBaseUrl(HCEConstant.BASE_URL).setTimeOut(HCEConstant.TIME_OUT).build();
         Call<ValuesApiResponse> call = ServiceGenerator.Instance().getService().getValuesData();

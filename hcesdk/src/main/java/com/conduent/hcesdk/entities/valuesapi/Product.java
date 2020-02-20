@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class Product implements Serializable {
 
     private String productId;
-    private Description description;
+    private ProductDescription description;
     private ArrayList<CommercialId> authUser;
-    private CustomData customData;
+    private ProductCustomData customData;
 
     public Product() {
     }
@@ -21,11 +21,11 @@ public class Product implements Serializable {
         this.productId = productId;
     }
 
-    public Description getDescription() {
+    public ProductDescription getDescription() {
         return description;
     }
 
-    public void setDescription(Description description) {
+    public void setDescription(ProductDescription description) {
         this.description = description;
     }
 
@@ -37,11 +37,11 @@ public class Product implements Serializable {
         this.authUser = authUser;
     }
 
-    public CustomData getCustomData() {
+    public ProductCustomData getCustomData() {
         return customData;
     }
 
-    public void setCustomData(CustomData customData) {
+    public void setCustomData(ProductCustomData customData) {
         this.customData = customData;
     }
 }

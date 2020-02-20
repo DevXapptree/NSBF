@@ -1,6 +1,5 @@
 package com.conduent.hcesdk;
 
-import com.conduent.hcesdk.core.HCEEngine;
 import com.conduent.hcesdk.utils.HCEUtils;
 import org.junit.Test;
 
@@ -19,7 +18,7 @@ public class ExampleUnitTest {
 
     @Test
     public void hexStringToBinaryString() {
-        String outputtr = HCEUtils.hexStringToBinaryString("24 b9 28 48 08 05 b8 ca 12 30 00 12 40 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ");
+        String outputtr = HCEUtils.HexStringToBinaryString("24 b9 28 48 08 05 b8 ca 12 30 00 12 40 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ");
         System.out.println(outputtr);
     }
 
@@ -30,6 +29,7 @@ public class ExampleUnitTest {
 
     @Test
     public void printKthBit() {
+        HCEUtils.padLeft("A0",4);
     }
 
     @Test

@@ -1,0 +1,174 @@
+{
+  "mappingCard": {
+    "ContractsList": {
+      "SFI": "1E",
+      "ContractList": {
+        "dataId": "1E00",
+        "dataType": "informationNumber",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListBitmap1": {
+        "dataId": "1E01",
+        "dataType": "binary",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "ContractListTariffKey1": {
+        "dataId": "1E02",
+        "dataType": "enterprise",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListTariffStructure1": {
+        "dataId": "1E03",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "8"
+      },
+      "ContractListTariffPriority1": {
+        "dataId": "1E04",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListPointer1": {
+        "dataId": "1E05",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "2"
+      },
+      "ContractListBitmap2": {
+        "dataId": "1E06",
+        "dataType": "binary",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "ContractListTariffKey2": {
+        "dataId": "1E07",
+        "dataType": "enterprise",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListTariffStructure2": {
+        "dataId": "1E08",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "8"
+      },
+      "ContractListTariffPriority2": {
+        "dataId": "1E09",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListPointer2": {
+        "dataId": "1E10",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "2"
+      },
+      "ContractListBitmap3": {
+        "dataId": "1E11",
+        "dataType": "binary",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "ContractListTariffKey3": {
+        "dataId": "1E12",
+        "dataType": "enterprise",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListTariffStructure3": {
+        "dataId": "1E13",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "8"
+      },
+      "ContractListTariffPriority3": {
+        "dataId": "1E14",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListPointer3": {
+        "dataId": "0715",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapPos": "6",
+        "dataLength": "2"
+      },
+      "ContractListBitmap4": {
+        "dataId": "1E01",
+        "dataType": "binary",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "3"
+      },
+      "ContractListTariffKey4": {
+        "dataId": "1E02",
+        "dataType": "enterprise",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListTariffStructure4": {
+        "dataId": "1E03",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "8"
+      },
+      "ContractListTariffPriority4": {
+        "dataId": "1E04",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "4"
+      },
+      "ContractListPointer4": {
+        "dataId": "0706",
+        "dataType": "integer",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "2"
+      }
+    }
+  }
+}

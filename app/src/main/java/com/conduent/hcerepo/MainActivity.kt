@@ -4,21 +4,22 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Switch
 import com.conduent.hcesdk.*
 import com.conduent.hcesdk.core.HCEEngine
-import com.conduent.hcesdk.utils.HCEUtils
+import com.conduent.hcesdk.entities.result.HCECardResult
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener {
+    override fun onError() {
+    }
 
 
     override fun onReadError(p0: HCEError?) {
         Log.i("HCE", "error")
     }
 
-    override fun onReadComplete() {
+    override fun onReadComplete(result: HCECardResult) {
         Log.i("HCE", "complete")
     }
 
@@ -30,8 +31,8 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.button_convert ->{
+        when (v?.id) {
+            R.id.button_convert -> {
                 addCommand("[converting cr file to string ...]")
                 val crStr = Utils.convertStreamToString(assets.open("LecteurCSC420 le 19-05-22 15-24.txt"))
                 addCommand("[conversion complete cr file ...]")
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener {
                 //sdk.pingMe(this)
                 addCommand("[startReading ...]")
             }
-            R.id.button_fetch ->{
+            R.id.button_fetch -> {
                 val sdk = HCEEngine.getInstance(this);
                 sdk.retrieveRemoteOffer()
             }

@@ -5,6 +5,6 @@ import com.conduent.hcesdk.ReadCallback;
 
 public interface ICoreParser {
     HCECardData parseStringToHCECardData(final String cardData);
-    byte[] convertHexToByte(String hexData);
+    String convertHexToBinary(String hexData);
     void startParsingHCE(HCECardData hceCardData, ReadCallback readCallback);
 }

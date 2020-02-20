@@ -1,12 +1,12 @@
 package com.conduent.hcesdk.entities.result;
 
-public class EnvironmentData {
+public class REnvironmentData {
     private int EnvApplicationIssuerID;
     private String EnvApplicationValidityEndDate;
     private int EnvAuthenticator;
     private int EnvNetworkID;
 
-    public EnvironmentData() {
+    public REnvironmentData() {
     }
 
     public int getEnvApplicationIssuerID() {

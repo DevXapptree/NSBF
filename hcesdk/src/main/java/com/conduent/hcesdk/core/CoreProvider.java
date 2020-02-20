@@ -25,6 +25,6 @@ class CoreProvider implements ICoreProvider {
 
     @Override
     public IMappingRule provideMappingRuleAccess() {
-        return new MappingRule();
+        return MappingRule.getInstance();
     }
 }
