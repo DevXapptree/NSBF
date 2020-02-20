@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 import com.conduent.hcesdk.ReadCallback;
 import com.conduent.hcesdk.ReadParameters;
+import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 import com.conduent.hcesdk.entities.valuesapi.ValuesApiResponse;
 import com.conduent.hcesdk.network.RetrofitConfig;
 import com.conduent.hcesdk.network.ServiceGenerator;
@@ -63,6 +64,11 @@ public class HCEEngine implements IHCEEngine {
     }
 
     /*pingMe is for Demo purpose*/
+    @Override
+    public void retrieveRemoteOffer(ReadParameters params, RetrieveRemoteOfferCallback callback) {
+        getHCEAccess().retrieveRemoteOffer(params, callback);
+    }
+
     @Override
     public void pingMe(ReadCallback callback) {
         //callback.onReadComplete();

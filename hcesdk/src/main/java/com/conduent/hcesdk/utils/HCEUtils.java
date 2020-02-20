@@ -1,6 +1,7 @@
 package com.conduent.hcesdk.utils;
 
 import android.support.annotation.RestrictTo;
+import android.util.Base64;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -8,9 +9,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Locale;
+import java.util.*;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class HCEUtils {
@@ -87,14 +86,14 @@ public class HCEUtils {
     }
 
     public static String binaryToHexString(String binaryString) {
-        String hexOutput= Integer.toHexString(binaryStringToDecimal(binaryString));
+        String hexOutput = Integer.toHexString(binaryStringToDecimal(binaryString));
         return hexOutput.toUpperCase();
     }
 
     public static String getEnvApplicationValidityEndDate(String binString) {
-        int days = Integer.parseInt(binString,2);
+        int days = Integer.parseInt(binString, 2);
         String dt = "01/01/1997";  // Start date
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         Calendar c = Calendar.getInstance();
         try {
             c.setTime(sdf.parse(dt));
@@ -106,9 +105,9 @@ public class HCEUtils {
     }
 
     public static String getDate(String binString) {
-        int days = Integer.parseInt(binString,2);
+        int days = Integer.parseInt(binString, 2);
         String dt = "01/01/1997";  // Start date
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy",Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         Calendar c = Calendar.getInstance();
         try {
             c.setTime(sdf.parse(dt));
@@ -198,6 +197,49 @@ public class HCEUtils {
         }
         sb.append(data);
         return Integer.parseInt(sb.toString());
+    }
+
+    public static long hexStringToDecimal(String mediaSerialNumber) {
+        return Long.parseLong(mediaSerialNumber, 16);
+    }
+
+    /**
+     * HEX String to byte array
+     *
+     * @param hexString input as HEX String
+     * @return byte[]
+     */
+    public static byte[] hexStringToByteArray(String hexString) {
+        byte[] b = new byte[hexString.length() / 2];
+        for (int i = 0; i < b.length; i++) {
+            int index = i * 2;
+            int v = Integer.parseInt(hexString.substring(index, index + 2), 16);
+            b[i] = (byte) v;
+        }
+        return b;
+    }
+
+    /**
+     * HEx String to Base64 encoding
+     *
+     * @param hexString input as HEX String
+     * @return Base64Encode String
+     */
+    public static String hexStringToBase64String(String hexString) {
+        byte[] bytes = hexStringToByteArray(hexString);
+        return Base64.encodeToString(bytes, 0);
+    }
+
+    /**
+     * This method collect current date from system and return UTC time
+     *
+     * @return UTC time in String
+     */
+    public static String getCurrentUCTTime() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return dateFormat.format(date);
     }
 
 }
