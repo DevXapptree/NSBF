@@ -34,6 +34,6 @@ public class ExampleUnitTest {
 
     @Test
     public void bianaryToHex(){
-        String output = HCEUtils.binaryToHexString("010010100001001000000011");
+        String output = HCEUtils.BinaryStringToHexString("010010100001001000000011");
     }
 }

@@ -45,13 +45,15 @@ object FilterUtils {
     }
 
     fun getEnvVersion(hceResults: ArrayList<HCEResult>): Int {
-        var version: Int = 0
+        var version = 0
         val dataList = hceResults.filter { data -> data.tag.contains(HCETag.ENV_APP_VERSION_NUMBER, true) }
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
-            version = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+            if (!resObj.binaryValue.isNullOrEmpty()) {
+                version = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            }
         }
-        return version;
+        return version
     }
 
     fun getEnvironment(hceResults: ArrayList<HCEResult>): REnvironmentData {
@@ -60,31 +62,49 @@ object FilterUtils {
         val envValidityEndDateList = hceResults.filter { data -> data.tag.contains(HCETag.ENV_APP_END_DATE, true) }
         val envAuthenticatorList = hceResults.filter { data -> data.tag.contains(HCETag.ENV_AUTHENTICATOR, true) }
         val envNetworkIDList = hceResults.filter { data -> data.tag.contains(HCETag.ENV_NETWORK_ID, true) }
+        val network: String
 
         if (!envAppIssuerIdList.isNullOrEmpty()) {
             val resObj = envAppIssuerIdList[0]
-            environmentData.envApplicationIssuerID =
-                HCEUtils.padLeft(HCEUtils.binaryStringToDecimal(resObj.binaryValue), 4);
+            if (!resObj.binaryValue.isNullOrEmpty()) {
+                environmentData.envApplicationIssuerID =
+                    HCEUtils.padLeft(HCEUtils.BinaryStringToDecimal(resObj.binaryValue), 4)
+            } else {
+                environmentData.envApplicationIssuerID = -1 // If no binary code then passing -1
+            }
         }
 
         if (!envValidityEndDateList.isNullOrEmpty()) {
             val resObj = envValidityEndDateList[0]
-            environmentData.envApplicationValidityEndDate =
-                HCEUtils.getEnvApplicationValidityEndDate(resObj.binaryValue)
+            if (!resObj.binaryValue.isNullOrEmpty()) {
+                environmentData.envApplicationValidityEndDate = HCEUtils.getDate(resObj.binaryValue)
+            } else {
+                environmentData.envApplicationValidityEndDate = ""
+            }
         }
 
         if (!envAuthenticatorList.isNullOrEmpty()) {
             val resObj = envAuthenticatorList[0]
-            environmentData.envAuthenticator = HCEUtils.padLeft(HCEUtils.binaryStringToDecimal(resObj.binaryValue), 4);
+            if (!resObj.binaryValue.isNullOrEmpty()) {
+                environmentData.envAuthenticator =
+                    HCEUtils.padLeft(HCEUtils.BinaryStringToDecimal(resObj.binaryValue), 4)
+            } else {
+                environmentData.envAuthenticator = -1
+            }
         }
 
         if (!envNetworkIDList.isNullOrEmpty()) {
             val resObj = envNetworkIDList[0]
-            val network = HCEUtils.binaryToHexString(resObj.binaryValue)
-            if (network.length > 3)
-                environmentData.envNetworkID = network.substring(network.length - 3).toInt()
+            if (!resObj.binaryValue.isNullOrEmpty()) {
+                network = HCEUtils.BinaryStringToHexString(resObj.binaryValue)
+                if (network.length > 3)
+                    environmentData.envNetworkID = network.substring(network.length - 3).toInt()
+                else environmentData.envNetworkID = network.toInt()
+            } else {
+                environmentData.envNetworkID = -1
+            }
         }
-        return environmentData;
+        return environmentData
     }
 
     fun getHolder(hceResults: ArrayList<HCEResult>, context: Context): RHolder {
@@ -98,47 +118,54 @@ object FilterUtils {
         if (!holderDataCardStatusList.isNullOrEmpty()) {
             val resObj = holderDataCardStatusList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                val statusId = HCEUtils.padLeft(HCEUtils.binaryToHexString(resObj.binaryValue), 4)
-                //FIXME Handle NULL exception
+                val statusId = HCEUtils.padLeft(HCEUtils.BinaryStringToHexString(resObj.binaryValue), 4)
                 val statusValue =
                     AppRoomDataBase.getDatabase(context).valuesAPIDao().getHolderDataCardStatusById(statusId)
                 holderData.holderDataCardStatus = statusValue
+            } else {
+                holderData.holderDataCardStatus = ""
             }
         }
 
         if (!holderDataCommercialIdList.isNullOrEmpty()) {
             val resObj = holderDataCommercialIdList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                val commercialId = HCEUtils.padLeft(HCEUtils.binaryToHexString(resObj.binaryValue), 4)
-                //FIXME Handle Null Exception
+                val commercialId = HCEUtils.padLeft(HCEUtils.BinaryStringToHexString(resObj.binaryValue), 4)
                 val commercialValue =
                     AppRoomDataBase.getDatabase(context).valuesAPIDao().getHolderDataCommercialById(commercialId)
                 holderData.holderDataCommercialID = commercialValue
+            } else {
+                holderData.holderDataCommercialID = ""
             }
         }
+
         holder.holderData = holderData
-        return holder;
+        return holder
     }
 
     fun getContractAuthenticator(hceResults: ArrayList<HCEResult>): Int {
-        var authenticator: Int = 0
+        var authenticator = 0
         val dataList = hceResults.filter { data -> data.tag.contains(HCETag.CONTRACT_AUTHENTICATOR, true) }
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                authenticator = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                authenticator = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                authenticator = -1
             }
         }
-        return authenticator;
+        return authenticator
     }
 
     fun getContractTariff(hceResults: ArrayList<HCEResult>): String {
-        var tariff: String = ""
+        var tariff = ""
         val dataList = hceResults.filter { data -> data.tag.contains(HCETag.CONTRACT_TRAFFIC, true) }
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                tariff = HCEUtils.padLeft(HCEUtils.binaryToHexString(resObj.binaryValue),4)
+                tariff = HCEUtils.padLeft(HCEUtils.BinaryStringToHexString(resObj.binaryValue), 4)
+            } else {
+                tariff = "-1"
             }
         }
         return tariff
@@ -151,7 +178,7 @@ object FilterUtils {
         if (!products.isNullOrEmpty()) {
             val singleProduct = products[0]
             val dataStr = Gson().toJson(singleProduct.customData)
-            customData = Gson().fromJson(dataStr, ProductCustomData::class.java);
+            customData = Gson().fromJson(dataStr, ProductCustomData::class.java)
         }
         return customData
     }
@@ -163,7 +190,7 @@ object FilterUtils {
         if (!products.isNullOrEmpty()) {
             val singleProduct = products[0]
             val descStr = Gson().toJson(singleProduct.description)
-            description = Gson().fromJson(descStr, ProductDescription::class.java);
+            description = Gson().fromJson(descStr, ProductDescription::class.java)
         }
         return description
     }
@@ -174,7 +201,7 @@ object FilterUtils {
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                payMethod = HCEUtils.padLeft(HCEUtils.binaryToHexString(resObj.binaryValue),3)
+                payMethod = HCEUtils.padLeft(HCEUtils.BinaryStringToHexString(resObj.binaryValue), 3)
             }
         }
 
@@ -187,7 +214,7 @@ object FilterUtils {
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                amount = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                amount = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
             }
         }
 
@@ -200,7 +227,7 @@ object FilterUtils {
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                provider = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                provider = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
             }
         }
 
@@ -216,20 +243,26 @@ object FilterUtils {
         if (!saleAgent.isNullOrEmpty()) {
             val resObj = saleAgent[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                saleData.contractSaleAgent = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                saleData.contractSaleAgent = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                saleData.contractSaleAgent = -1
             }
         }
         if (!saleDate.isNullOrEmpty()) {
             val resObj = saleDate[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
                 saleData.contractSaleDate = HCEUtils.getDate(resObj.binaryValue)
+            } else {
+                saleData.contractSaleDate = ""
             }
         }
 
         if (!saleDevice.isNullOrEmpty()) {
             val resObj = saleDevice[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                saleData.contractSaleDevice = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                saleData.contractSaleDevice = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                saleData.contractSaleDevice = -1
             }
         }
 
@@ -242,9 +275,12 @@ object FilterUtils {
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                val statusID = HCEUtils.padLeft(HCEUtils.binaryToHexString(resObj.binaryValue), 2)
-                //FIXME Handle NULL exception
-                statusValue = AppRoomDataBase.getDatabase(context).valuesAPIDao().getContractStatusById(statusID)
+                val statusID = HCEUtils.padLeft(HCEUtils.BinaryStringToHexString(resObj.binaryValue), 2)
+                try {
+                    statusValue = AppRoomDataBase.getDatabase(context).valuesAPIDao().getContractStatusById(statusID)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
 
@@ -261,6 +297,8 @@ object FilterUtils {
             val resObj = endDate[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
                 contractValidityInfo.contractEndDate = HCEUtils.getDate(resObj.binaryValue)
+            } else {
+                contractValidityInfo.contractEndDate = ""
             }
         }
 
@@ -268,19 +306,20 @@ object FilterUtils {
             val resObj = startDate[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
                 contractValidityInfo.contractStartDate = HCEUtils.getDate(resObj.binaryValue)
+            } else {
+                contractValidityInfo.contractStartDate = ""
             }
         }
 
         if (!zones.isNullOrEmpty()) {
             val resObj = zones[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-
-//                val zoneId = HCEUtils.binaryToHexString(resObj.binaryValue).subSequence(5,8).toString()
-                val zoneId = HCEUtils.binaryToHexString(resObj.binaryValue)
-
-                //FIXME Handle NULL Exception
+//                val zoneId = HCEUtils.BinaryStringToHexString(resObj.binaryValue).subSequence(5,8).toString()
+                val zoneId = HCEUtils.BinaryStringToHexString(resObj.binaryValue)
                 val zoneLabel = AppRoomDataBase.getDatabase(context).valuesAPIDao().getContractZoneById(zoneId)
                 contractValidityInfo.contractZones = zoneLabel
+            } else {
+                contractValidityInfo.contractZones = ""
             }
         }
 
@@ -299,42 +338,54 @@ object FilterUtils {
         if (!eventCode.isNullOrEmpty()) {
             val resObj = eventCode[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                event.eventCode = HCEUtils.binaryToHexString(resObj.binaryValue)
+                event.eventCode = HCEUtils.BinaryStringToHexString(resObj.binaryValue)
+            } else {
+                event.eventCode = ""
             }
         }
 
         if (!eventContractPointer.isNullOrEmpty()) {
             val resObj = eventContractPointer[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                event.eventContractPointer = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                event.eventContractPointer = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                event.eventContractPointer = -1
             }
         }
 
         if (!eventDevice.isNullOrEmpty()) {
             val resObj = eventDevice[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                event.eventDevice = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                event.eventDevice = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                event.eventDevice = -1
             }
         }
 
         if (!eventLocationId.isNullOrEmpty()) {
             val resObj = eventLocationId[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                event.eventLocationID = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                event.eventLocationID = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                event.eventLocationID = -1
             }
         }
 
         if (!eventRouteNumber.isNullOrEmpty()) {
             val resObj = eventRouteNumber[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                event.eventRouteNumber = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                event.eventRouteNumber = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                event.eventRouteNumber = -1
             }
         }
 
         if (!eventServiceProvider.isNullOrEmpty()) {
             val resObj = eventServiceProvider[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                event.eventServiceProvider = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                event.eventServiceProvider = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+            } else {
+                event.eventServiceProvider = -1
             }
         }
 
@@ -362,7 +413,7 @@ object FilterUtils {
         if (!timeList.isNullOrEmpty()) {
             val resObj = timeList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                val minutes = HCEUtils.binaryStringToDecimal(resObj.binaryValue)
+                val minutes = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
                 eventTime = minutes.toString()
             }
         }

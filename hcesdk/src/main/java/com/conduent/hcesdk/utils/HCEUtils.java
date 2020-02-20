@@ -31,6 +31,7 @@ public class HCEUtils {
      * @param bytes Bytes to convert
      * @return String, containing hexadecimal representation.
      */
+    @Deprecated
     public static String ByteArrayToHexString(byte[] bytes) {
         final char[] hexArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         char[] hexChars = new char[bytes.length * 2];
@@ -44,23 +45,12 @@ public class HCEUtils {
     }
 
     /**
-     * Utility method to convert a hexadecimal string to a byte string.
+     * Utility method to convert a hexadecimal string to a binary string.
      * <p/>
      * <p>Behavior with input strings containing non-hexadecimal characters is undefined.
      *
-     * @param s String containing hexadecimal characters to convert
-     * @return Byte array generated from input
+     * @param hexString String containing hexadecimal characters to convert
      */
-    public static byte[] HexStringToByteArray(String s) {
-        int len = s.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
-                    + Character.digit(s.charAt(i + 1), 16));
-        }
-        return data;
-    }
-
     public static String HexStringToBinaryString(String hexString) {
         String trimHex = hexString.replaceAll("\\s", "");
         char[] hexChars = trimHex.toCharArray();
@@ -81,40 +71,47 @@ public class HCEUtils {
         return sb.toString();
     }
 
-    public static int binaryStringToDecimal(String binString) {
+    /**
+     * Utility method to convert a binary string to a Decimal.
+     * <p/>
+     * <p>Behavior with input strings containing non-binary characters is undefined.
+     *
+     * @param binString String containing binary characters to convert
+     */
+    public static int BinaryStringToDecimal(String binString) {
         return Integer.parseInt(binString, 2);
     }
 
-    public static String binaryToHexString(String binaryString) {
-        String hexOutput = Integer.toHexString(binaryStringToDecimal(binaryString));
+    /**
+     * Utility method to convert a binary string to a hexadecimal string.
+     * <p/>
+     * <p>Behavior with input strings containing non-binary characters is undefined.
+     *
+     * @param binaryString String containing binary characters to convert
+     */
+    public static String BinaryStringToHexString(String binaryString) {
+        String hexOutput = Integer.toHexString(BinaryStringToDecimal(binaryString));
         return hexOutput.toUpperCase();
     }
 
-    public static String getEnvApplicationValidityEndDate(String binString) {
-        int days = Integer.parseInt(binString, 2);
+    /**
+     * Utility method to convert a binary string to a Date string.
+     * <p/>
+     * <p>Behavior with input strings containing non-binary characters is undefined.
+     *
+     * @param binaryString String containing binary characters to convert
+     */
+    public static String getDate(String binaryString) {
+        int days = Integer.parseInt(binaryString, 2);
         String dt = "01/01/1997";  // Start date
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         Calendar c = Calendar.getInstance();
         try {
             c.setTime(sdf.parse(dt));
+            c.add(Calendar.DATE, days);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        c.add(Calendar.DATE, days);
-        return sdf.format(c.getTime());
-    }
-
-    public static String getDate(String binString) {
-        int days = Integer.parseInt(binString, 2);
-        String dt = "01/01/1997";  // Start date
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        Calendar c = Calendar.getInstance();
-        try {
-            c.setTime(sdf.parse(dt));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        c.add(Calendar.DATE, days);
         return sdf.format(c.getTime());
     }
 
@@ -152,31 +149,27 @@ public class HCEUtils {
         return ret;
     }
 
-    public static void testParse() {
-        int startPos = 0;
-        int endPos = 0;
-        boolean isth = true;
-        String recBinaryData = "001001001011100100101000010010000000100000000101 1011 1000 1100 1010 0001 0010 0011 0000 0000 0000 0001 0010 0100 0000 1000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000";
-        if (isth) {
-            endPos = startPos + 6;
-            String versionNumber = getCharByLength(startPos, endPos, recBinaryData);
-            startPos = endPos;
-        }
-
-        if (isth) {
-            endPos = startPos + 7;
-            String bitmap = getCharByLength(startPos, endPos, recBinaryData);
-            startPos = endPos;
-        }
-
-    }
-
+    /**
+     * Utility method to get required bits from data.
+     * <p/>
+     * <p>Behavior with input strings containing non-binary characters is undefined.
+     *
+     * @param startPos Int containing start position
+     * @param endPos   Int containing end position
+     * @param data     String containing binary characters to convert
+     */
     public static String getCharByLength(int startPos, int endPos, String data) {
         String output = "";
         output = data.subSequence(startPos, endPos).toString();
         return output;
     }
 
+    /**
+     * Utility method to add padding '0' prefix.
+     *
+     * @param data       String containing binary characters to convert
+     * @param dataLength indicates zero's to add.
+     */
     public static String padLeft(String data, int dataLength) {
         int noz = dataLength - data.length();
         StringBuilder sb = new StringBuilder();
@@ -188,6 +181,12 @@ public class HCEUtils {
         return sb.toString();
     }
 
+    /**
+     * Utility method to add padding '0' prefix.
+     *
+     * @param data       String containing binary characters to convert
+     * @param dataLength indicates zero's to add.
+     */
     public static int padLeft(int data, int dataLength) {
         int noz = dataLength - data;
         StringBuilder sb = new StringBuilder();
@@ -199,7 +198,14 @@ public class HCEUtils {
         return Integer.parseInt(sb.toString());
     }
 
-    public static long hexStringToDecimal(String mediaSerialNumber) {
+    /**
+     * Utility method to convert a hexadecimal string to number.
+     * <p/>
+     * <p>Behavior with input strings containing non-hexadecimal characters is undefined.
+     *
+     * @param mediaSerialNumber String containing hexadecimal characters to convert
+     */
+    public static long HexStringToDecimal(String mediaSerialNumber) {
         return Long.parseLong(mediaSerialNumber, 16);
     }
 
@@ -209,7 +215,7 @@ public class HCEUtils {
      * @param hexString input as HEX String
      * @return byte[]
      */
-    public static byte[] hexStringToByteArray(String hexString) {
+    public static byte[] HexStringToByteArray(String hexString) {
         byte[] b = new byte[hexString.length() / 2];
         for (int i = 0; i < b.length; i++) {
             int index = i * 2;
@@ -225,8 +231,8 @@ public class HCEUtils {
      * @param hexString input as HEX String
      * @return Base64Encode String
      */
-    public static String hexStringToBase64String(String hexString) {
-        byte[] bytes = hexStringToByteArray(hexString);
+    public static String HexStringToBase64String(String hexString) {
+        byte[] bytes = HexStringToByteArray(hexString);
         return Base64.encodeToString(bytes, 0);
     }
 

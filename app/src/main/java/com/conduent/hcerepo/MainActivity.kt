@@ -10,24 +10,14 @@ import com.conduent.hcesdk.entities.result.HCECardResult
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener {
-    override fun onError() {
-    }
-
-
-    override fun onReadError(p0: HCEError?) {
-        Log.i("HCE", "error")
-    }
-
-    override fun onReadComplete(result: HCECardResult) {
-        Log.i("HCE", "complete")
-    }
+class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, RetrieveRemoteOfferCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         button_convert.setOnClickListener(this)
         button_fetch.setOnClickListener(this)
+        button_retrieve_remote.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -50,10 +40,35 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener {
                 val sdk = HCEEngine.getInstance(this);
                 sdk.retrieveRemoteOffer()
             }
+            R.id.button_retrieve_remote -> {
+                val crStr = Utils.convertStreamToString(assets.open("LecteurCSC420 le 19-05-22 15-24.txt"))
+                val sdk = HCEEngine.getInstance(this);
+                sdk.retrieveRemoteOffer(ReadParameters(SourceType.HCE, crStr), this);
+            }
         }
     }
 
     fun addCommand(str: String) {
         command_view.text = command_view.text.toString() + "\n" + str
+    }
+
+    override fun onRetrieveRemoteOffer() {
+        Log.i("HCE", "Remote complete")
+    }
+
+    override fun onRetrieveRemoteOfferError(error: HCEError?) {
+        Log.i("HCE", "Remote error")
+    }
+
+    override fun onError() {
+    }
+
+
+    override fun onReadError(p0: HCEError?) {
+        Log.i("HCE", "error")
+    }
+
+    override fun onReadComplete(result: HCECardResult) {
+        Log.i("HCE", "complete")
     }
 }
