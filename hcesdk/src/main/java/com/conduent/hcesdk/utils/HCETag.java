@@ -74,4 +74,22 @@ public class HCETag {
     public static String CONTRACT_STATUS = "contractStatus";
     public static String CONTRACT_AUTHENTICATOR = "contractAuthenticator";
 
+    /*Transport rules*/
+    public static String EVENT_DATE_STAMP = "EventDateStamp";
+    public static String EVENT_TIME_STAMP = "EventTimeStamp";
+    public static String EVENT_BITMAP = "EventBitmap";
+    public static String EVENT_CODE = "EventCode";
+    public static String EVENT_SERVICE_PROVIDER = "EventServiceProvider";
+    public static String EVENT_NOTOK_COUNTER = "EventNotokCounter";
+    public static String EVENT_SERIAL_NUMBER = "EventSerialNumber";
+    public static String EVENT_LOCATION_ID = "EventLocationId";
+    public static String EVENT_LOCATION_GATE = "EventLocationGate";
+    public static String EVENT_DEVICE = "EventDevice";
+    public static String EVENT_ROUTING_NUMBER = "EventRouteNumber";
+    public static String EVENT_JOURNEY_RUN = "EventJourneyRun";
+    public static String EVENT_VEHICLE_ID = "EventVehicleId";
+    public static String EVENT_CONTRACT_POINTER = "EventContractPointer";
+    public static String EVENT_DATA = "EventData";
+    public static String EVENT_DATA_DATE_FIRST_STAMP = "EventDataDateFirstStamp";
+    public static String EVENT_DATA_TIME_FIRST_STAMP = "EventDataTimeFirstStamp";
 }

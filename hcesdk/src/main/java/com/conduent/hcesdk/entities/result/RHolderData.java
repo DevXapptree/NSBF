@@ -1,11 +1,11 @@
 package com.conduent.hcesdk.entities.result;
 
-public class HolderData {
+public class RHolderData {
 
     private String HolderDataCardStatus;
     private String HolderDataCommercialID;
 
-    public HolderData() {
+    public RHolderData() {
     }
 
     public String getHolderDataCardStatus() {

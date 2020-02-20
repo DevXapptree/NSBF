@@ -3,13 +3,13 @@ package com.conduent.hcesdk.entities.valuesapi;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DescriptionLanguage implements Serializable {
+public class ProductDescriptionLanguage implements Serializable {
     private String title;
     private String shortDesc;
     private String longDesc;
-    private ArrayList<DescriptionResource> resources;
+    private ArrayList<ProductDescriptionResource> resources;
 
-    public DescriptionLanguage() {
+    public ProductDescriptionLanguage() {
     }
 
     public String getTitle() {
@@ -36,11 +36,11 @@ public class DescriptionLanguage implements Serializable {
         this.longDesc = longDesc;
     }
 
-    public ArrayList<DescriptionResource> getResources() {
+    public ArrayList<ProductDescriptionResource> getResources() {
         return resources;
     }
 
-    public void setResources(ArrayList<DescriptionResource> resources) {
+    public void setResources(ArrayList<ProductDescriptionResource> resources) {
         this.resources = resources;
     }
 

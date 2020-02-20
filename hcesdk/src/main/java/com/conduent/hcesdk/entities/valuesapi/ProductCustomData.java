@@ -2,8 +2,8 @@ package com.conduent.hcesdk.entities.valuesapi;
 
 import java.io.Serializable;
 
-public class CustomData implements Serializable {
-    public CustomData() {
+public class ProductCustomData implements Serializable {
+    public ProductCustomData() {
     }
 
     private String customData1;

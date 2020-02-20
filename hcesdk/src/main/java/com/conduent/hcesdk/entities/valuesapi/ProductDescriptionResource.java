@@ -2,11 +2,11 @@ package com.conduent.hcesdk.entities.valuesapi;
 
 import java.io.Serializable;
 
-public class DescriptionResource implements Serializable {
+public class ProductDescriptionResource implements Serializable {
     private String value;
     private String tag;
 
-    public DescriptionResource() {
+    public ProductDescriptionResource() {
     }
 
     public String getValue() {

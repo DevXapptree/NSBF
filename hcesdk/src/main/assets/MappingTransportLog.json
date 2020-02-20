@@ -1,0 +1,143 @@
+{
+  "mappingCard": {
+    "TransportLog": {
+      "SFI": "08",
+      "EventDateStamp": {
+        "dataId": "0800",
+        "dataType": "date",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "14"
+      },
+      "EventTimeStamp": {
+        "dataId": "0801",
+        "dataType": "time",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "11"
+      },
+      "EventBitmap": {
+        "dataId": "0802",
+        "dataType": "bitmap",
+        "bitmapUsed": "false",
+        "bitmapId": "",
+        "bitmapPos": "",
+        "dataLength": "28"
+      },
+      "EventCode": {
+        "dataId": "0803",
+        "dataType": "binary",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "2",
+        "dataLength": "8"
+      },
+      "EventServiceProvider": {
+        "dataId": "0804",
+        "dataType": "enterprise",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "4",
+        "dataLength": "8"
+      },
+      "EventNotokCounter": {
+        "dataId": "0805",
+        "dataType": "binary",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "5",
+        "dataLength": "8"
+      },
+      "EventSerialNumber": {
+        "dataId": "0806",
+        "dataType": "binary",
+        "bitmapUsed": "false",
+        "bitmapId": "0802",
+        "bitmapPos": "6",
+        "dataLength": "24"
+      },
+      "EventLocationId": {
+        "dataId": "0807",
+        "dataType": "area",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "8",
+        "dataLength": "16"
+      },
+      "EventLocationGate": {
+        "dataId": "0808",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "9",
+        "dataLength": "8"
+      },
+      "EventDevice": {
+        "dataId": "0809",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "10",
+        "dataLength": "16"
+      },
+      "EventRouteNumber": {
+        "dataId": "0810",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "11",
+        "dataLength": "16"
+      },
+      "EventJourneyRun": {
+        "dataId": "0811",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "13",
+        "dataLength": "16"
+      },
+      "EventVehicleId": {
+        "dataId": "0812",
+        "dataType": "integer",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "14",
+        "dataLength": "16"
+      },
+      "EventContractPointer": {
+        "dataId": "0813",
+        "dataType": "binary",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "25",
+        "dataLength": "5"
+      },
+      "EventData": {
+        "dataId": "0814",
+        "dataType": "bitmap",
+        "bitmapUsed": "true",
+        "bitmapId": "0802",
+        "bitmapPos": "27",
+        "dataLength": "5"
+      },
+      "EventDataDateFirstStamp": {
+        "dataId": "0815",
+        "dataType": "date",
+        "bitmapUsed": "true",
+        "bitmapId": "0814",
+        "bitmapPos": "0",
+        "dataLength": "14"
+      },
+      "EventDataTimeFirstStamp": {
+        "dataId": "0816",
+        "dataType": "time",
+        "bitmapUsed": "true",
+        "bitmapId": "0814",
+        "bitmapPos": "1",
+        "dataLength": "11"
+      }
+    }
+  }
+}
