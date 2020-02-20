@@ -6,6 +6,18 @@ import com.conduent.hcesdk.entities.remoteoffer.request.ContextWebApi;
 import com.conduent.hcesdk.entities.remoteoffer.request.FiltersMediaManager;
 import com.conduent.hcesdk.entities.remoteoffer.request.MediaInformations;
 import com.conduent.hcesdk.entities.remoteoffer.request.RemoteRequest;
+import com.conduent.hcesdk.entities.remoteoffer.response.BuildMedia;
+import com.conduent.hcesdk.network.RetrofitConfig;
+import com.conduent.hcesdk.network.ServiceGenerator;
+import com.conduent.hcesdk.utils.HCEConstant;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
+
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HCENetwork implements IHCENetwork{
 
@@ -28,6 +40,28 @@ public class HCENetwork implements IHCENetwork{
         remoteRequest.setMediaInformations(mediaInformations);
 
 
+
+        RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), (new Gson()).toJson(remoteRequest));
+
+        new RetrofitConfig.Builder().setBaseUrl(HCEConstant.BASE_URL).setTimeOut(HCEConstant.TIME_OUT).build();
+        Call<BuildMedia> call = ServiceGenerator.Instance().getService().getBuildMedia(body);
+        call.enqueue(new Callback<BuildMedia>() {
+            @Override
+            public void onResponse(Call<BuildMedia> call, Response<BuildMedia> response) {
+                if(response.isSuccessful()){
+
+                }else{
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BuildMedia> call, Throwable t) {
+                if(t.getCause() != null){
+
+                }
+            }
+        });
 
     }
 }
