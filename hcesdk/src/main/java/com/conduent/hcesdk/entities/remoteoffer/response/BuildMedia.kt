@@ -140,7 +140,7 @@ data class ResponseWebApiProducts (
 data class ItemDatesZonesPricesInfo (
 
     @SerializedName("AvailableZonesPrices") val availableZonesPrices : List<AvailableZonesPrices>,
-    @SerializedName("Dates") val dates : List<Dates>,
+    @SerializedName("DDates") val dates : List<Dates>,
     @SerializedName("RessourceActions") val ressourceActions : String
 )
 

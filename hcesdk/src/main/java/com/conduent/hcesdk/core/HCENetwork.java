@@ -1,5 +1,7 @@
 package com.conduent.hcesdk.core;
 
+import android.os.AsyncTask;
+
 import com.conduent.hcesdk.HCECardData;
 import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 import com.conduent.hcesdk.entities.remoteoffer.request.ContextWebApi;
@@ -12,14 +14,12 @@ import com.conduent.hcesdk.network.ServiceGenerator;
 import com.conduent.hcesdk.utils.HCEConstant;
 import com.google.gson.Gson;
 
-import org.json.JSONObject;
-
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HCENetwork implements IHCENetwork{
+class HCENetwork implements IHCENetwork{
 
     private RetrieveRemoteOfferCallback remoteOfferCallback;
 
@@ -49,7 +49,7 @@ public class HCENetwork implements IHCENetwork{
             @Override
             public void onResponse(Call<BuildMedia> call, Response<BuildMedia> response) {
                 if(response.isSuccessful()){
-
+                    startProcessingRemoteOffer(response.body(), remoteOfferCallback);
                 }else{
 
                 }
@@ -63,5 +63,10 @@ public class HCENetwork implements IHCENetwork{
             }
         });
 
+    }
+
+    @Override
+    public void startProcessingRemoteOffer(BuildMedia mediaData, RetrieveRemoteOfferCallback remoteOfferCallback) {
+        new RetrieveRemoteOfferAsync(mediaData, remoteOfferCallback).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 }
