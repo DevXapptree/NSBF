@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.annotation.RestrictTo
 import com.conduent.hcesdk.HCERecordFile
 import com.conduent.hcesdk.entities.HCEResult
+import com.conduent.hcesdk.entities.remoteoffer.response.Counter
 import com.conduent.hcesdk.entities.result.*
 import com.conduent.hcesdk.entities.valuesapi.ProductCustomData
 import com.conduent.hcesdk.entities.valuesapi.ProductDescription
@@ -419,6 +420,55 @@ object FilterUtils {
         }
 
         return eventTime
+    }
+
+    /**
+     * provide Zonal Label by Zonal Id in HexString
+     * @param context context from HCEEngine
+     * @param zoneId Zonal Id in HexString
+     *
+     * @return zoneLabel as string
+     */
+    fun getZonalLabel(context: Context, zoneId: String ):String{
+        var zoneLabel = ""
+        try {
+            zoneLabel = AppRoomDataBase.getDatabase(context).valuesAPIDao().getContractZoneById(zoneId)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return zoneLabel
+    }
+
+    /**
+     * provide Auth required status
+     * @param productHexCode Product code in HexString format
+     * @param context context from HCEEngine
+     *
+     * @return "true" or "false" as string on base of auth User available
+     */
+    fun getRequiredAuth(productHexCode: String, context: Context): String{
+
+        val products = AppRoomDataBase.getDatabase(context).valuesAPIDao().getProductByProductId(productHexCode)
+        if(!products.isNullOrEmpty()){
+            val authUser = products[0].authUser
+            if(!authUser.isNullOrEmpty()){
+                return "true"
+            }
+        }
+
+        return "false"
+    }
+
+    /**
+     * provide Counter value
+     * @param productHexCode
+     * @param context
+     *
+     * @return
+     */
+    fun getCounterValue(productHexCode: String, context: Context): Counter {
+        var counter = Counter()
+        return counter
     }
 
 }

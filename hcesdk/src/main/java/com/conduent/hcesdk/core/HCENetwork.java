@@ -1,7 +1,9 @@
 package com.conduent.hcesdk.core;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.conduent.hcesdk.Failure;
 import com.conduent.hcesdk.HCECardData;
 import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 import com.conduent.hcesdk.entities.remoteoffer.request.ContextWebApi;
@@ -13,10 +15,17 @@ import com.conduent.hcesdk.network.RetrofitConfig;
 import com.conduent.hcesdk.network.ServiceGenerator;
 import com.conduent.hcesdk.utils.HCEConstant;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.HttpException;
 import retrofit2.Response;
 
 class HCENetwork implements IHCENetwork{
@@ -51,7 +60,7 @@ class HCENetwork implements IHCENetwork{
                 if(response.isSuccessful()){
                     startProcessingRemoteOffer(response.body(), remoteOfferCallback);
                 }else{
-
+                    remoteOfferCallback.onError(new Failure(response.message(), response.code()), response.message());
                 }
             }
 
@@ -59,6 +68,21 @@ class HCENetwork implements IHCENetwork{
             public void onFailure(Call<BuildMedia> call, Throwable t) {
                 if(t.getCause() != null){
 
+                    if(t instanceof HttpException){
+                        HttpException exception = (HttpException) t;
+                        Response response = exception.response();
+                        try {
+                            JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                            Log.e("Error ","" + jsonObject.optString("message"));
+                            remoteOfferCallback.onError(new Failure(response.message(), response.code()), response.message());
+                        } catch (JSONException e1) {
+                            e1.printStackTrace();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }else{
+                        remoteOfferCallback.onError(new Failure(t.getMessage(), call.hashCode()), t.getMessage());
+                    }
                 }
             }
         });

@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, RetrieveRemoteOfferCallback {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -53,13 +54,7 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
         command_view.text = command_view.text.toString() + "\n" + str
     }
 
-    override fun onRetrieveRemoteOffer() {
-        Log.i("HCE", "Remote complete")
-    }
 
-    override fun onRetrieveRemoteOfferError(error: Failure?) {
-        Log.i("HCE", "Remote error")
-    }
 
     /*Start Read Callback*/
     override fun onStarted() {
@@ -75,5 +70,13 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
     }
 
     override fun onTimeOut() {
+    }
+
+    override fun onEnded() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onError(error: Failure?, message: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

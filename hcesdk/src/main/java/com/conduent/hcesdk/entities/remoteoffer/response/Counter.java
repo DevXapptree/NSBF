@@ -1,38 +1,44 @@
 package com.conduent.hcesdk.entities.remoteoffer.response;
 
-public class Counter {
-    private String MaxBuyValue;
+import java.io.Serializable;
 
-    private String MinBuyValue;
+public class Counter implements Serializable {
+    private int MaxBuyValue;
 
-    private String StepBuyValue;
+    private int MinBuyValue;
 
-    public String getMaxBuyValue ()
+    private int StepBuyValue;
+
+    public Counter(){
+
+    }
+
+    public int getMaxBuyValue ()
     {
         return MaxBuyValue;
     }
 
-    public void setMaxBuyValue (String MaxBuyValue)
+    public void setMaxBuyValue (int MaxBuyValue)
     {
         this.MaxBuyValue = MaxBuyValue;
     }
 
-    public String getMinBuyValue ()
+    public int getMinBuyValue ()
     {
         return MinBuyValue;
     }
 
-    public void setMinBuyValue (String MinBuyValue)
+    public void setMinBuyValue (int MinBuyValue)
     {
         this.MinBuyValue = MinBuyValue;
     }
 
-    public String getStepBuyValue ()
+    public int getStepBuyValue ()
     {
         return StepBuyValue;
     }
 
-    public void setStepBuyValue (String StepBuyValue)
+    public void setStepBuyValue (int StepBuyValue)
     {
         this.StepBuyValue = StepBuyValue;
     }

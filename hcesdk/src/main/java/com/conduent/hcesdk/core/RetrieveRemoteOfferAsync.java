@@ -10,10 +10,11 @@ import com.conduent.hcesdk.entities.remoteoffer.response.DatesZonesPrices;
 import com.conduent.hcesdk.entities.remoteoffer.response.Product;
 import com.conduent.hcesdk.entities.remoteoffer.response.RemoteResponse;
 import com.conduent.hcesdk.entities.remoteoffer.response.ZonesPrices;
+import com.conduent.hcesdk.utils.FilterUtils;
 
 import java.util.ArrayList;
 
-public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, RemoteResponse> {
+public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, ArrayList<RemoteResponse>> {
     private BuildMedia mediaData;
     private RetrieveRemoteOfferCallback remoteOfferCallback;
 
@@ -28,19 +29,27 @@ public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, RemoteResp
     }
 
     @Override
-    protected RemoteResponse doInBackground(Void... voids) {
+    protected ArrayList<RemoteResponse> doInBackground(Void... voids) {
 //        RemoteResponse remoteResponse = new RemoteResponse();
 //        remoteResponse.setArticleID();
         ArrayList<RemoteResponse> remoteResponses = parseMediaData(mediaData);
 
-        return null;
+        return remoteResponses;
     }
 
     @Override
-    protected void onPostExecute(RemoteResponse remoteResponse) {
+    protected void onPostExecute(ArrayList<RemoteResponse> remoteResponse) {
         super.onPostExecute(remoteResponse);
+        remoteOfferCallback.onEnded();
+
+
     }
 
+    /**
+     * Precess media data or preparing response
+     * @param mediaData media data after processing card data
+     * @return ArrayList<RemoteResponse>
+     */
     private ArrayList<RemoteResponse> parseMediaData(BuildMedia mediaData) {
 
         ArrayList<RemoteResponse> remoteResponses = new ArrayList<>();
@@ -67,7 +76,7 @@ public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, RemoteResp
                     zonesPrices.setUnitPrice(availableZonesPrices.getUnitPrice());
                     zonesPrices.setVatRate(availableZonesPrices.getVatRate());
                     zonesPrices.setZoneID(availableZonesPrices.getId());
-                    zonesPrices.setZoneLabel("");//TODO: from valuesAPi
+                    zonesPrices.setZoneLabel(FilterUtils.INSTANCE.getZonalLabel(HCEEngine.localInstance().getContext(), availableZonesPrices.getId()));
                     zPrices.add(zonesPrices);
                 }
                 datesZonesPrices.setZonesPrices(zPrices);
@@ -93,13 +102,12 @@ public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, RemoteResp
 
 
             remoteResponse.setDatesZonesPrices(pricesArrayList);
-            remoteResponse.setRequiresAuth("");//TODO: from valuesAPi
-            remoteResponse.setCounter(null);//TODO: from valuesAPi
-            remoteResponse.setCustomData(null);//TODO: from valuesAPi
+            remoteResponse.setRequiresAuth(FilterUtils.INSTANCE.getRequiredAuth(mProduct.getProductCodeHex(), HCEEngine.localInstance().getContext()));
+            remoteResponse.setCounter(FilterUtils.INSTANCE.getCounterValue(mProduct.getProductCodeHex(), HCEEngine.localInstance().getContext()));
+            remoteResponse.setCustomData(FilterUtils.INSTANCE.getContractCustomData(mProduct.getProductCodeHex(), HCEEngine.localInstance().getContext()));
 
             remoteResponses.add(remoteResponse);
         }
-
 
         return remoteResponses;
     }

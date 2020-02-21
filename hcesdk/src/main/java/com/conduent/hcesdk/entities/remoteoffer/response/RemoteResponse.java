@@ -1,5 +1,7 @@
 package com.conduent.hcesdk.entities.remoteoffer.response;
 
+import com.conduent.hcesdk.entities.valuesapi.ProductCustomData;
+
 import java.util.ArrayList;
 
 public class RemoteResponse {
@@ -13,7 +15,7 @@ public class RemoteResponse {
 
     private String RequiresAuth;
 
-    private CustomData CustomData;
+    private ProductCustomData CustomData;
 
     private ArrayList<DatesZonesPrices> DatesZonesPrices;
 
@@ -75,12 +77,12 @@ public class RemoteResponse {
         this.RequiresAuth = RequiresAuth;
     }
 
-    public CustomData getCustomData ()
+    public ProductCustomData getCustomData ()
     {
         return CustomData;
     }
 
-    public void setCustomData (CustomData CustomData)
+    public void setCustomData (ProductCustomData CustomData)
     {
         this.CustomData = CustomData;
     }
