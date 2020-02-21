@@ -21,7 +21,7 @@ public class RemoteResponse {
 
     private int ProductID;
 
-    private String NetworkID;
+    private int NetworkID;
 
     private int VatRate;
 
@@ -115,12 +115,12 @@ public class RemoteResponse {
         this.ProductID = ProductID;
     }
 
-    public String getNetworkID ()
+    public int getNetworkID ()
     {
         return NetworkID;
     }
 
-    public void setNetworkID (String NetworkID)
+    public void setNetworkID (int NetworkID)
     {
         this.NetworkID = NetworkID;
     }

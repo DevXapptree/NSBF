@@ -1,20 +1,20 @@
 package com.conduent.hcesdk.entities.remoteoffer.response;
 
 public class ZonesPrices {
-    private String UnitPrice;
+    private int UnitPrice;
 
     private String ZoneID;
 
     private String ZoneLabel;
 
-    private String VatRate;
+    private int VatRate;
 
-    public String getUnitPrice ()
+    public int getUnitPrice ()
     {
         return UnitPrice;
     }
 
-    public void setUnitPrice (String UnitPrice)
+    public void setUnitPrice (int UnitPrice)
     {
         this.UnitPrice = UnitPrice;
     }
@@ -39,12 +39,12 @@ public class ZonesPrices {
         this.ZoneLabel = ZoneLabel;
     }
 
-    public String getVatRate ()
+    public int getVatRate ()
     {
         return VatRate;
     }
 
-    public void setVatRate (String VatRate)
+    public void setVatRate (int VatRate)
     {
         this.VatRate = VatRate;
     }

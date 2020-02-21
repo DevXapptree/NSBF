@@ -3,9 +3,9 @@ package com.conduent.hcesdk.entities.remoteoffer.response;
 public class DDates {
     private String MinStartDate;
 
-    private String Duration;
+    private int Duration;
 
-    private String Step;
+    private int Step;
 
     private String Unit;
 
@@ -21,22 +21,22 @@ public class DDates {
         this.MinStartDate = MinStartDate;
     }
 
-    public String getDuration ()
+    public int getDuration ()
     {
         return Duration;
     }
 
-    public void setDuration (String Duration)
+    public void setDuration (int Duration)
     {
         this.Duration = Duration;
     }
 
-    public String getStep ()
+    public int getStep ()
     {
         return Step;
     }
 
-    public void setStep (String Step)
+    public void setStep (int Step)
     {
         this.Step = Step;
     }
