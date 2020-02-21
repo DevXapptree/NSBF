@@ -12,7 +12,7 @@ com.conduent.hcesdk.HCECardData -> com.conduent.hcesdk.HCECardData:
     1:1:void setAnswerSelectApplication(java.lang.String):27:27 -> setAnswerSelectApplication
     1:1:void setAnswerSelectFileRT(java.lang.String):35:35 -> setAnswerSelectFileRT
     1:1:void setRecordFiles(java.util.ArrayList):43:43 -> setRecordFiles
-com.conduent.hcesdk.HCEError -> com.conduent.hcesdk.HCEError:
+com.conduent.hcesdk.Failure -> com.conduent.hcesdk.Failure:
     1:1:void <init>():9:9 -> <init>
     2:5:void <init>(java.lang.String,int,java.lang.Throwable):12:15 -> <init>
     1:1:int getErrorCode():27:27 -> getErrorCode

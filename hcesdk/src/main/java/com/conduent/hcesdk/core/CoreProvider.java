@@ -29,7 +29,7 @@ class CoreProvider implements ICoreProvider {
     }
 
     @Override
-    public IHCENetwork provideHCENeworkAccess() {
+    public IHCENetwork provideHCENetworkAccess() {
         return new HCENetwork();
     }
 }

@@ -5,5 +5,5 @@ public interface ICoreProvider {
 
     IMappingRule provideMappingRuleAccess();
 
-    IHCENetwork provideHCENeworkAccess();
+    IHCENetwork provideHCENetworkAccess();
 }

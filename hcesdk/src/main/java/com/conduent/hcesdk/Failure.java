@@ -1,18 +1,16 @@
 package com.conduent.hcesdk;
 
-public class HCEError {
+public class Failure {
 
     private String errorMessage;
     private int errorCode;
-    private Throwable throwable;
 
-    public HCEError() {
+    public Failure() {
     }
 
-    public HCEError(String errorMessage, int errorCode, Throwable throwable) {
+    public Failure(String errorMessage, int errorCode) {
         this.errorMessage = errorMessage;
         this.errorCode = errorCode;
-        this.throwable = throwable;
     }
 
     public String getErrorMessage() {
@@ -29,13 +27,5 @@ public class HCEError {
 
     public void setErrorCode(int errorCode) {
         this.errorCode = errorCode;
-    }
-
-    public Throwable getThrowable() {
-        return throwable;
-    }
-
-    public void setThrowable(Throwable throwable) {
-        this.throwable = throwable;
     }
 }
