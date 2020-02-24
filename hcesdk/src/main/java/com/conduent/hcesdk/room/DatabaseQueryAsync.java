@@ -237,7 +237,7 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
 
                     }
                     AppRoomDataBase.getDatabase(context).valuesAPIDao().insertProductsBatch(productList);
-
+                    break;
                 case RoomRequestCodes.GET_VERSION_FILE:
                     List<VersionTable> arrVersion = new ArrayList<>();
                     arrVersion = AppRoomDataBase.getDatabase(context).valuesAPIDao().getVersion();

@@ -8,6 +8,4 @@ import retrofit2.http.GET;
 public interface Apiservice {
     @GET("WS_SCONF/API/VALUES")
     Call<ValuesApiResponse> getValuesData();
-    @GET("ip")
-    Call<TestRes> getTestData();
 }

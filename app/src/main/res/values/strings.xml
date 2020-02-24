@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">HceRepo</string>
+    <string-array name="Languages">
+        <item>FR</item>
+        <item>EN</item>
+        <item>DE</item>
+        <item>ES</item>
+    </string-array>
 </resources>

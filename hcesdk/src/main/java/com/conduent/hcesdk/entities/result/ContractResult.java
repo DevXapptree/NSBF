@@ -3,7 +3,9 @@ package com.conduent.hcesdk.entities.result;
 import com.conduent.hcesdk.entities.valuesapi.ProductCustomData;
 import com.conduent.hcesdk.entities.valuesapi.ProductDescription;
 
-public class ContractResult {
+import java.io.Serializable;
+
+public class ContractResult implements Serializable {
     private int ContractAuthenticator;
     private ProductCustomData ContractCustomData;
     private ProductDescription ContractDescriptions;

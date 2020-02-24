@@ -7,7 +7,6 @@ import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 
 public interface IHCECore {
     void startReading(final ReadParameters params, ReadCallback callback);
-    void retrieveRemoteOffer();
 
     void retrieveRemoteOffer(final ReadParameters params, RetrieveRemoteOfferCallback callback);
 }

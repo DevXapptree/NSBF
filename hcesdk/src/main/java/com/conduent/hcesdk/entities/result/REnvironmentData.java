@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class REnvironmentData {
+import java.io.Serializable;
+
+public class REnvironmentData implements Serializable {
     private int EnvApplicationIssuerID;
     private String EnvApplicationValidityEndDate;
     private int EnvAuthenticator;

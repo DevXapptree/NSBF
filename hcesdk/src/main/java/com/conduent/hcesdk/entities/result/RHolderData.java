@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class RHolderData {
+import java.io.Serializable;
+
+public class RHolderData implements Serializable {
 
     private String HolderDataCardStatus;
     private String HolderDataCommercialID;

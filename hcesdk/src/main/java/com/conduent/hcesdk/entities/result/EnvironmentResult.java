@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class EnvironmentResult {
+import java.io.Serializable;
+
+public class EnvironmentResult implements Serializable {
     private int EnvVersionNumber;
     private REnvironmentData Environment;
     private RHolder Holder;

@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class TransportLogResult {
+import java.io.Serializable;
+
+public class TransportLogResult implements Serializable {
     private REvent Event;
     private String EventDate;
     private String EventTime;
