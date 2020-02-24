@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.conduent.hcesdk.Failure;
-import android.util.Log;
 import com.conduent.hcesdk.HCECardData;
 import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 import com.conduent.hcesdk.entities.remoteoffer.request.ContextWebApi;
@@ -12,22 +11,17 @@ import com.conduent.hcesdk.entities.remoteoffer.request.FiltersMediaManager;
 import com.conduent.hcesdk.entities.remoteoffer.request.MediaInformations;
 import com.conduent.hcesdk.entities.remoteoffer.request.RemoteRequest;
 import com.conduent.hcesdk.entities.remoteoffer.response.BuildMedia;
-import com.conduent.hcesdk.network.RetrofitConfig;
-import com.conduent.hcesdk.network.ServiceGenerator;
-import com.conduent.hcesdk.utils.HCEConstant;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 import com.conduent.hcesdk.entities.valuesapi.ValuesApiResponse;
+import com.conduent.hcesdk.network.RetrofitConfig;
 import com.conduent.hcesdk.network.ServiceGenerator;
 import com.conduent.hcesdk.room.DatabaseQueryAsync;
 import com.conduent.hcesdk.room.RoomRequestCodes;
+import com.conduent.hcesdk.utils.HCEConstant;
+import com.google.gson.Gson;
+
 import org.jetbrains.annotations.NotNull;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
