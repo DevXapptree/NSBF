@@ -5,7 +5,7 @@ import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 import com.conduent.hcesdk.entities.remoteoffer.response.BuildMedia;
 
 public interface IHCENetwork {
-
+    void retrieveValues();
     void retrieveRemoteOfferApi(HCECardData hceCardData, RetrieveRemoteOfferCallback callback);
 
     void startProcessingRemoteOffer(BuildMedia body, RetrieveRemoteOfferCallback remoteOfferCallback);

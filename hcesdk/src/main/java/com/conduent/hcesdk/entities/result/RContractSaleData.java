@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class RContractSaleData {
+import java.io.Serializable;
+
+public class RContractSaleData implements Serializable {
     private int ContractSaleAgent;
     private String ContractSaleDate;
     private int ContractSaleDevice;

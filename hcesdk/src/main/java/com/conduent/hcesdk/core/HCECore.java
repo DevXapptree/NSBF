@@ -29,16 +29,12 @@ final class HCECore implements IHCECore {
     }
 
     @Override
-    public void retrieveRemoteOffer() {
-    }
-
-    @Override
     public void retrieveRemoteOffer(ReadParameters params, RetrieveRemoteOfferCallback callback) {
         if (params == null) {
             callback.onError(new Failure("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()), "ReadParameters not found.");
             return;
         }
-        if(callback == null)
+        if (callback == null)
             throw new RuntimeException("startReading required ReadCallback, interface ReadCallback can not be null!");
 
         if (params.getSourceType() == SourceType.HCE) {
@@ -50,4 +46,5 @@ final class HCECore implements IHCECore {
             CoreProvider.getInstance().provideHCENetworkAccess().retrieveRemoteOfferApi(hceCardData, callback);
         }
     }
+
 }

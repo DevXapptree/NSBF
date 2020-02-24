@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class RContractValidityInfo {
+import java.io.Serializable;
+
+public class RContractValidityInfo implements Serializable {
     private String ContractEndDate;
     private String ContractStartDate;
     private String ContractZones;

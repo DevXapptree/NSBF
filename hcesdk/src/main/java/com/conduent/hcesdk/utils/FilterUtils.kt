@@ -10,6 +10,8 @@ import com.conduent.hcesdk.entities.valuesapi.ProductCustomData
 import com.conduent.hcesdk.entities.valuesapi.ProductDescription
 import com.conduent.hcesdk.room.AppRoomDataBase
 import com.google.gson.Gson
+import java.text.NumberFormat
+import java.util.*
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 object FilterUtils {
@@ -210,16 +212,17 @@ object FilterUtils {
     }
 
     fun getContractPriceAmount(hceResults: ArrayList<HCEResult>): String {
-        var amount = 0
+        var amount = "0"
         val dataList = hceResults.filter { data -> data.tag.contains(HCETag.CONTRACT_PRICE_AMOUNT, true) }
         if (!dataList.isNullOrEmpty()) {
             val resObj = dataList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                amount = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+                val nf = NumberFormat.getCurrencyInstance(Locale.FRANCE)
+                amount = nf.format(HCEUtils.BinaryStringToDecimal(resObj.binaryValue) / 100.0)
             }
         }
 
-        return amount.toString()
+        return amount
     }
 
     fun getContractProvider(hceResults: ArrayList<HCEResult>): Int {
@@ -414,8 +417,10 @@ object FilterUtils {
         if (!timeList.isNullOrEmpty()) {
             val resObj = timeList[0]
             if (!resObj.binaryValue.isNullOrEmpty()) {
-                val minutes = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
-                eventTime = minutes.toString()
+                val minutesValue = HCEUtils.BinaryStringToDecimal(resObj.binaryValue)
+                val hours = minutesValue / 60 //since both are ints, you get an int
+                val minutes = minutesValue % 60
+                eventTime = String.format("%d:%02d", hours, minutes)
             }
         }
 

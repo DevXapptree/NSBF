@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class REvent {
+import java.io.Serializable;
+
+public class REvent implements Serializable {
     private String EventCode;
     private int EventContractPointer;
     private int EventDevice;

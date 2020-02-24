@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.result;
 
-public class RCounter {
+import java.io.Serializable;
+
+public class RCounter implements Serializable {
     private int CounterContractCount;
     private int CounterRelativeFirstStamp15Mn;
 

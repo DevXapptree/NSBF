@@ -10,6 +10,9 @@ import com.conduent.hcesdk.core.HCEEngine
 import com.conduent.hcesdk.entities.result.HCECardResult
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
+import android.content.res.AssetManager
+import java.io.IOException
+
 
 class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, RetrieveRemoteOfferCallback {
 
@@ -33,18 +36,36 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
                 Log.i("CR DATA", Gson().toJson(mData))
                 addCommand(Gson().toJson(mData))
 
-                val sdk = HCEEngine.getInstance(this);
+                val sdk = HCEEngine.getInstance();
                 sdk.startReading(ReadParameters(SourceType.HCE, crStr), this)
                 //sdk.pingMe(this)
                 addCommand("[startReading ...]")
             }
             R.id.button_fetch -> {
-                val sdk = HCEEngine.getInstance(this);
-                sdk.retrieveRemoteOffer()
+//                val sdk = HCEEngine.getInstance(this);
+//                sdk.retrieveRemoteOffer()
+
+                try {
+                    // for assets folder add empty string
+                    val fileList = assets.list("cr")
+                    // for assets/subFolderInAssets add only subfolder name
+                    if (fileList == null) {
+                        // dir does not exist or is not a directory
+                    } else {
+                        for (i in fileList.indices) {
+                            // Get filename of file or directory
+                            val filename = fileList[i]
+                        }
+                    }
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+
             }
             R.id.button_retrieve_remote -> {
                 val crStr = Utils.convertStreamToString(assets.open("LecteurCSC420 le 19-05-22 15-24.txt"))
-                val sdk = HCEEngine.getInstance(this);
+                val sdk = HCEEngine.getInstance();
                 sdk.retrieveRemoteOffer(ReadParameters(SourceType.HCE, crStr), this);
             }
         }

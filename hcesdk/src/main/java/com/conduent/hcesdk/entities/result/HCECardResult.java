@@ -1,8 +1,9 @@
 package com.conduent.hcesdk.entities.result;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HCECardResult {
+public class HCECardResult implements Serializable {
     private ArrayList<ContractResult> Contracts;
     private ArrayList<EnvironmentResult> Environments;
 

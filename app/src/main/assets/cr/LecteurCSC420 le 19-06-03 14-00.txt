@@ -1,0 +1,102 @@
+
+
+  // LECTEUR CSC420
+
+
+  // Date : 03/06/19 14:00:06
+
+
+ 
+  // Serial Card Number : 984598107 ( 0x3aafc65b )
+  // Type - SubType  : 02 - ff
+
+
+
+{
+   "AnswerSelectApplication": "6f 24 84 0a a0 00 00 04 04 01 25 09 01 01 a5 16 bf 0c 13 c7 08 00 00 00 00 15 02 24 8f 53 07 0c c0 25 d7 20 01 13 ",
+   "AnswerSelectFileRT": "85 17 00 02 00 00 00 10 10 00 00 01 03 00 00 70 7d 7d 7d 21 27 30 00 20 00 ",
+
+   "recordFiles": [
+   {
+      "SFI": "07",
+      "recordData": [
+      {
+         "record": "24 b9 28 48 08 05 c7 88 6b 10 00 12 24 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "08",
+      "recordData": [
+      {
+         "record": "7f dd ef 10 03 68 a0 88 13 34 a0 24 78 08 10 10 00 0c 88 40 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "11 1d 68 10 00 68 a1 88 18 10 80 88 10 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "11 1d 68 10 00 68 a1 88 18 10 80 88 10 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "1d",
+      "recordData": [
+      {
+         "record": "7f dd ef 10 03 68 e0 89 80 13 34 a0 24 78 08 10 10 00 0c 88 40 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "1e",
+      "recordData": [
+      {
+         "record": "1c 1f f2 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "06",
+      "recordData": [
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      }
+    ]
+   },
+   {
+      "SFI": "09",
+      "recordData": [
+      {
+         "record": "5a 50 60 00 00 30 60 0d e8 45 7f dd ff 71 fd 7f dc 07 f8 08 04 01 60 00 00 00 00 00 00 "
+      },
+      {
+         "record": "5a 50 60 00 00 30 60 05 dc 45 7f dd ff 70 3d 7f dc 07 f8 04 04 01 6c 00 00 00 00 00 00 "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      }
+    ]
+   }
+ ]
+}
+
+
+
