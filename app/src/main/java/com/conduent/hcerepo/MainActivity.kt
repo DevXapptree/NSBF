@@ -16,6 +16,7 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, RetrieveRemoteOfferCallback {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -74,13 +75,7 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
         command_view.text = command_view.text.toString() + "\n" + str
     }
 
-    override fun onRetrieveRemoteOffer() {
-        Log.i("HCE", "Remote complete")
-    }
 
-    override fun onRetrieveRemoteOfferError(error: Failure?) {
-        Log.i("HCE", "Remote error")
-    }
 
     /*Start Read Callback*/
     override fun onStarted() {
@@ -96,5 +91,19 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
     }
 
     override fun onTimeOut() {
+    }
+
+    override fun onReadTerminated() {
+
+    }
+
+    override fun onContractReceived(data: String?) {
+        if(data != null){
+
+        }
+    }
+
+    override fun onError(error: Failure?, message: String?) {
+
     }
 }
