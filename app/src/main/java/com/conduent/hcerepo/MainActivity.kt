@@ -72,11 +72,17 @@ class MainActivity : AppCompatActivity(), ReadCallback, View.OnClickListener, Re
     override fun onTimeOut() {
     }
 
-    override fun onEnded() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onReadTerminated() {
+
+    }
+
+    override fun onContractReceived(data: String?) {
+        if(data != null){
+
+        }
     }
 
     override fun onError(error: Failure?, message: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 }

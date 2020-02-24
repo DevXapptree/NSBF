@@ -11,6 +11,7 @@ import com.conduent.hcesdk.entities.remoteoffer.response.Product;
 import com.conduent.hcesdk.entities.remoteoffer.response.RemoteResponse;
 import com.conduent.hcesdk.entities.remoteoffer.response.ZonesPrices;
 import com.conduent.hcesdk.utils.FilterUtils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -40,8 +41,7 @@ public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, ArrayList<
     @Override
     protected void onPostExecute(ArrayList<RemoteResponse> remoteResponse) {
         super.onPostExecute(remoteResponse);
-        remoteOfferCallback.onEnded();
-
+        remoteOfferCallback.onContractReceived(new Gson().toJson(remoteResponse));
 
     }
 
