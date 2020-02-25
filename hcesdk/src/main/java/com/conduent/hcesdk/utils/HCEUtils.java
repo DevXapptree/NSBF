@@ -3,6 +3,8 @@ package com.conduent.hcesdk.utils;
 import android.support.annotation.RestrictTo;
 import android.util.Base64;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -252,4 +254,8 @@ public class HCEUtils {
         return dateFormat.format(date);
     }
 
+    public static String stringToHexaString(@NotNull String zoneId) {
+        String binary = HexStringToBinaryString(zoneId);
+        return BinaryStringToHexString(binary);
+    }
 }

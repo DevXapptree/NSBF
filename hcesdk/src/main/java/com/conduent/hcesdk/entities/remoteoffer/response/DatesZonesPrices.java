@@ -1,8 +1,9 @@
 package com.conduent.hcesdk.entities.remoteoffer.response;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DatesZonesPrices {
+public class DatesZonesPrices implements Serializable {
     private ArrayList<ZonesPrices> ZonesPrices;
 
     private ArrayList<DDates> Dates;
