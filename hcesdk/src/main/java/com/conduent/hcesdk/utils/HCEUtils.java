@@ -84,6 +84,10 @@ public class HCEUtils {
         return Integer.parseInt(binString, 2);
     }
 
+    public static int StringToDecimal(String binString) {
+        return Integer.parseInt(binString, 16);
+    }
+
     /**
      * Utility method to convert a binary string to a hexadecimal string.
      * <p/>

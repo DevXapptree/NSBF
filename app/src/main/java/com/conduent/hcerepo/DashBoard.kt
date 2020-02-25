@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import com.conduent.hcesdk.*
 import com.conduent.hcesdk.core.HCEEngine
 import com.conduent.hcesdk.core.IHCEEngine
@@ -135,7 +134,7 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
 
     override fun onEnded(cardParsedContent: String?) {
         Log.i("NSBF", cardParsedContent)
-        Toast.makeText(this, "Read Complete", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Read Complete", Toast.LENGTH_SHORT).show()
         simpleProgressBar.progress = 100;
         val mData = Gson().fromJson(cardParsedContent, HCECardResult::class.java)
         val cdList = mData.contracts
@@ -172,15 +171,14 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
     }
 
     override fun onError(error: Failure?) {
-        Toast.makeText(this, "Read Error", Toast.LENGTH_LONG).show()
+        Log.i("NSBF", "Failed")
+        //Toast.makeText(this, "Read Error", Toast.LENGTH_LONG).show()
     }
 
     override fun onTimeOut() {
     }
 
-
     override fun onReadTerminated() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onContractReceived(articlesData: String?) {
@@ -195,8 +193,6 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
         val intent = Intent(this, ArticlesActivity::class.java)
         intent.putExtra("DATA", articlesData)
         startActivity(intent)
-
-
     }
 
     override fun onError(error: Failure?, message: String?) {

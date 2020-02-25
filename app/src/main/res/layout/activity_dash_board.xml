@@ -6,9 +6,10 @@
         android:layout_height="match_parent"
         android:background="#fff"
         tools:context=".DashBoard">
-    <RelativeLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_margin="16dp">
         <ProgressBar
                 android:id="@+id/simpleProgressBar"
@@ -22,22 +23,19 @@
         <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/sp_cr"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_toLeftOf="@+id/sp_lang"
-                android:layout_alignParentStart="true">
+                android:layout_height="50dp">
 
         </android.support.v7.widget.AppCompatSpinner>
 
         <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/sp_lang"
                 android:layout_width="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_height="50dp">
 
         </android.support.v7.widget.AppCompatSpinner>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <Button
             android:text="Start Reading"

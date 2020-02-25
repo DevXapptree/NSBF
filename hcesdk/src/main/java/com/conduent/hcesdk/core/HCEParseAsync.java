@@ -170,9 +170,8 @@ public class HCEParseAsync extends AsyncTask<Void, String, HCECardResult> {
         contractResult.setContractPriceAmount(FilterUtils.INSTANCE.getContractPriceAmount(contResult));
         contractResult.setContractProvider(FilterUtils.INSTANCE.getContractProvider(contResult));
         contractResult.setContractSaleData(FilterUtils.INSTANCE.getContractSaleData(contResult));
-        contractResult.setContractSaleData(FilterUtils.INSTANCE.getContractSaleData(contResult));
         contractResult.setContractStatus(FilterUtils.INSTANCE.getContractStatus(contResult, HCEEngine.localInstance().getContext()));
-        contractResult.setContractTariff(Integer.parseInt(tariffId));
+        contractResult.setContractTariff(HCEUtils.StringToDecimal(tariffId));
         contractResult.setContractValidityInfo(FilterUtils.INSTANCE.getContractValidityInfo(contResult, HCEEngine.localInstance().getContext()));
         //contractResult.setCounter();
         //contractResult.setPriority(FilterUtils.INSTANCE.getContractValidityInfo(contResult));
