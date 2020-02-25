@@ -23,11 +23,6 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void parseJsonFile() {
-        HCEUtils.testParse();
-    }
-
-    @Test
     public void printKthBit() {
         HCEUtils.padLeft("A0",4);
     }
