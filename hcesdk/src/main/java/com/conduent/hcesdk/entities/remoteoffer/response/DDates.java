@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.remoteoffer.response;
 
-public class DDates {
+import java.io.Serializable;
+
+public class DDates implements Serializable {
     private String MinStartDate;
 
     private int Duration;

@@ -1,6 +1,7 @@
 package com.conduent.hcesdk.entities.remoteoffer.response
 
 import com.google.gson.annotations.SerializedName
+//java.lang.IllegalStateException: Expected a string but was BEGIN_OBJECT at line 1 column 3277 path $.Products.Product[1].ItemCounterInfo
 
 data class BuildMedia(
     @SerializedName("MediaInfoWebApiDetails") val mediaInfoWebApiDetails : MediaInfoWebApiDetails,
@@ -69,9 +70,19 @@ data class ContractInfo (
 
 data class AfterSalesService (
 
-    @SerializedName("MediafterSaleOperation") val mediafterSaleOperation : String,
-    @SerializedName("ContractAfterSaleOperation") val contractAfterSaleOperation : String,
+    @SerializedName("ContractAfterSaleOperation") val contractAfterSaleOperation : List<String>,
+    @SerializedName("MediafterSaleOperation") val mediafterSaleOperation : List<MediafterSaleOperation>,
     @SerializedName("ResponseWebApi") val responseWebApi : ResponseWebApi
+)
+
+data class MediafterSaleOperation (
+
+    @SerializedName("IsBlacklistedAuthorized") val isBlacklistedAuthorized : Boolean,
+    @SerializedName("IsDepositRefund") val isDepositRefund : Boolean,
+    @SerializedName("IsReconstitutionAuthorized") val isReconstitutionAuthorized : Boolean,
+    @SerializedName("IsRenewalAuthorized") val isRenewalAuthorized : Boolean,
+    @SerializedName("MediaSerialNumber") val mediaSerialNumber : String,
+    @SerializedName("MediaUnicityId") val mediaUnicityId : String
 )
 
 data class PendingOperations (
@@ -123,10 +134,17 @@ data class Product (
     @SerializedName("ItemProductPackInfo") val itemProductPackInfo : String,
     @SerializedName("Address") val address : String,
     @SerializedName("ItemMediaProductInfo") val itemMediaProductInfo : String,
-    @SerializedName("ItemCounterInfo") val itemCounterInfo : String,
+    @SerializedName("ItemCounterInfo") val itemCounterInfo : ItemCounterInfo,
     @SerializedName("ItemDatesZonesPricesInfo") val itemDatesZonesPricesInfo : List<ItemDatesZonesPricesInfo>,
     @SerializedName("Currency") val currency : String,
     @SerializedName("RessourceActions") val ressourceActions : String
+)
+
+data class ItemCounterInfo(
+    @SerializedName("MaximumBuyValue") val maximumBuyValue : Int,
+    @SerializedName("MinimumBuyValue") val minimumBuyValue : Int,
+    @SerializedName("RessourceActions") val ressourceActions : String,
+    @SerializedName("StepBuyValue") val stepBuyValue : Int
 )
 
 data class ResponseWebApiProducts (

@@ -2,9 +2,10 @@ package com.conduent.hcesdk.entities.remoteoffer.response;
 
 import com.conduent.hcesdk.entities.valuesapi.ProductCustomData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RemoteResponse {
+public class RemoteResponse implements Serializable {
     private String ItemCategory;
 
     private String TitleOffer;

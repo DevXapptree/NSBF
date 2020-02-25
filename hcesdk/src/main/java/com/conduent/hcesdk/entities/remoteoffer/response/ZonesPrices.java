@@ -1,6 +1,8 @@
 package com.conduent.hcesdk.entities.remoteoffer.response;
 
-public class ZonesPrices {
+import java.io.Serializable;
+
+public class ZonesPrices implements Serializable {
     private int UnitPrice;
 
     private String ZoneID;

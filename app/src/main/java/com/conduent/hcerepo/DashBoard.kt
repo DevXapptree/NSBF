@@ -11,15 +11,26 @@ import android.widget.Toast
 import com.conduent.hcesdk.*
 import com.conduent.hcesdk.core.HCEEngine
 import com.conduent.hcesdk.core.IHCEEngine
+import com.conduent.hcesdk.entities.remoteoffer.response.RemoteResponse
 import com.conduent.hcesdk.entities.result.ContractResult
 import com.conduent.hcesdk.entities.result.HCECardResult
 import com.conduent.hcesdk.entities.valuesapi.ProductDescription
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_dash_board.*
+import org.json.JSONArray
 import java.io.IOException
+import java.lang.reflect.Type
+import android.support.v4.app.SupportActivity
+import android.support.v4.app.SupportActivity.ExtraData
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, RetrieveRemoteOfferCallback {
+
 
     private var crFiles = ArrayList<String>()
     private var languages: Array<String>? = null
@@ -110,6 +121,7 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
             }
             R.id.retrieve_offer -> {
                 if (!crFileName.isNullOrEmpty()) {
+                    simpleProgressBar.progress = 28
                     val crStr = Utils.convertStreamToString(assets.open(crFileName!!))
                     sdk!!.retrieveRemoteOffer(ReadParameters(SourceType.HCE, crStr), this)
                 }
@@ -166,10 +178,29 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
     override fun onTimeOut() {
     }
 
-    override fun onRetrieveRemoteOffer() {
+
+    override fun onReadTerminated() {
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onRetrieveRemoteOfferError(error: Failure?) {
+    override fun onContractReceived(articlesData: String?) {
+        simpleProgressBar.progress = 50
+        Log.i("NSBF", articlesData)
+        simpleProgressBar.progress = 70
+//        Gson().fromJson(articlesData, TypeToken<List<RemoteResponse>>() {}.type)
+//        val playerArray = Gson().fromJson(articlesData, Array<RemoteResponse>::class.java)
+        simpleProgressBar.progress = 100
+
+
+        val intent = Intent(this, ArticlesActivity::class.java)
+        intent.putExtra("DATA", articlesData)
+        startActivity(intent)
+
+
     }
 
+    override fun onError(error: Failure?, message: String?) {
+        simpleProgressBar.progress = 0
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
 }

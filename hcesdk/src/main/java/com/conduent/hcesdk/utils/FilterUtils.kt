@@ -437,7 +437,8 @@ object FilterUtils {
     fun getZonalLabel(context: Context, zoneId: String ):String{
         var zoneLabel = ""
         try {
-            zoneLabel = AppRoomDataBase.getDatabase(context).valuesAPIDao().getContractZoneById(zoneId)
+            var id = HCEUtils.stringToHexaString(zoneId)
+            zoneLabel = AppRoomDataBase.getDatabase(context).valuesAPIDao().getContractZoneById(id)
         } catch (e: Exception) {
             e.printStackTrace()
         }
