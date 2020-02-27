@@ -1,6 +1,5 @@
 package com.conduent.hcesdk.network;
 
-import android.content.Context;
 import okhttp3.OkHttpClient;
 
 import javax.net.ssl.*;
@@ -86,7 +85,7 @@ final class RetrofitProvider {
     OkHttpClient getUnSafeClient() {
         try {
             // Create a trust manager that does not validate certificate chains
-            final TrustManager[] trustAllCerts = new TrustManager[] {
+            final TrustManager[] trustAllCerts = new TrustManager[]{
                     new X509TrustManager() {
                         @Override
                         public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {

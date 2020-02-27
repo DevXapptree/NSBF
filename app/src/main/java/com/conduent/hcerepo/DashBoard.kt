@@ -2,30 +2,22 @@ package com.conduent.hcerepo
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.conduent.hcesdk.*
 import com.conduent.hcesdk.core.HCEEngine
 import com.conduent.hcesdk.core.IHCEEngine
-import com.conduent.hcesdk.entities.remoteoffer.response.RemoteResponse
 import com.conduent.hcesdk.entities.result.ContractResult
 import com.conduent.hcesdk.entities.result.HCECardResult
 import com.conduent.hcesdk.entities.valuesapi.ProductDescription
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_dash_board.*
-import org.json.JSONArray
 import java.io.IOException
-import java.lang.reflect.Type
-import android.support.v4.app.SupportActivity
-import android.support.v4.app.SupportActivity.ExtraData
-import android.support.v4.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
 
 
 class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, RetrieveRemoteOfferCallback {
@@ -42,6 +34,7 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
         start_reading.setOnClickListener(this)
         retrieve_offer.setOnClickListener(this)
         sdk = HCEEngine.getInstance()
+
         sp_cr.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -172,7 +165,10 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
 
     override fun onError(error: Failure?) {
         Log.i("NSBF", "Failed")
-        //Toast.makeText(this, "Read Error", Toast.LENGTH_LONG).show()
+        Handler(mainLooper).post(Runnable {
+            simpleProgressBar.progress = 0
+            Toast.makeText(this, "Read Error or CR Data not found", Toast.LENGTH_SHORT).show()
+        })
     }
 
     override fun onTimeOut() {
@@ -196,7 +192,9 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
     }
 
     override fun onError(error: Failure?, message: String?) {
-        simpleProgressBar.progress = 0
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        Handler(mainLooper).post(Runnable {
+            simpleProgressBar.progress = 0
+            Toast.makeText(this, "Read Error or CR Data not found", Toast.LENGTH_SHORT).show()
+        })
     }
 }

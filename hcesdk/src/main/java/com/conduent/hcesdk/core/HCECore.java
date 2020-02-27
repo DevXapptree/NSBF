@@ -19,8 +19,10 @@ final class HCECore implements IHCECore {
 
         if (params.getSourceType() == SourceType.HCE) {
             HCECardData cardData = CoreParser.getInstance().parseStringToHCECardData(params.getData());
-            if (cardData == null)
+            if (cardData == null) {
                 callback.onError(new Failure("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()));
+                return;
+            }
 
             this.hceCardData = cardData;
             /*Start parsing*/
@@ -34,13 +36,16 @@ final class HCECore implements IHCECore {
             callback.onError(new Failure("ReadParameters not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()), "ReadParameters not found.");
             return;
         }
-        if (callback == null)
-            throw new RuntimeException("startReading required ReadCallback, interface ReadCallback can not be null!");
+        if (callback == null){
+            throw new RuntimeException("retrieveRemoteOffer required RetrieveRemoteOfferCallback, interface RetrieveRemoteOfferCallback can not be null!");
+        }
 
         if (params.getSourceType() == SourceType.HCE) {
             HCECardData cardData = CoreParser.getInstance().parseStringToHCECardData(params.getData());
-            if (cardData == null)
+            if (cardData == null) {
                 callback.onError(new Failure("Data not found.", HCEConstant.HCEErrorCodes.DATA_NULL.ordinal()), "Data not found.");
+                return;
+            }
 
             this.hceCardData = cardData;
             CoreProvider.getInstance().provideHCENetworkAccess().retrieveRemoteOfferApi(hceCardData, callback);
