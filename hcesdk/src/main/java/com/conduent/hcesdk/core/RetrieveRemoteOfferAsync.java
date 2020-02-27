@@ -31,8 +31,7 @@ public class RetrieveRemoteOfferAsync extends AsyncTask<Void, String, ArrayList<
 
     @Override
     protected ArrayList<RemoteResponse> doInBackground(Void... voids) {
-//        RemoteResponse remoteResponse = new RemoteResponse();
-//        remoteResponse.setArticleID();
+
         ArrayList<RemoteResponse> remoteResponses = parseMediaData(mediaData);
 
         return remoteResponses;

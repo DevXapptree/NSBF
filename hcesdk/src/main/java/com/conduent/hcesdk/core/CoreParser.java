@@ -80,14 +80,19 @@ class CoreParser implements ICoreParser {
 
     @Override
     public long startParsingMediaSerialNumber(HCECardData hceCardData) {
-        try {
-            String applicationData = hceCardData.getAnswerSelectApplication().replace(" ","");
-            int count = Integer.parseInt(applicationData.substring(52, 54));
-            String mediaSerialNumber = applicationData.substring(54, 54+(count*2));
 
-            return HCEUtils.HexStringToDecimal(mediaSerialNumber);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
+        if(hceCardData != null) {
+            try {
+                String applicationData = hceCardData.getAnswerSelectApplication().replace(" ", "");
+                int count = Integer.parseInt(applicationData.substring(52, 54));
+                String mediaSerialNumber = applicationData.substring(54, 54 + (count * 2));
+
+                return HCEUtils.HexStringToDecimal(mediaSerialNumber);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return Long.parseLong(null);
+            }
+        }else{
             return Long.parseLong(null);
         }
     }
