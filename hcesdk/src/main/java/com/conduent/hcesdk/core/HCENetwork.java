@@ -64,6 +64,12 @@ class HCENetwork implements IHCENetwork {
     public void retrieveRemoteOfferApi(HCECardData hceCardData, RetrieveRemoteOfferCallback callback) {
         this.remoteOfferCallback = callback;
 
+        if(hceCardData.getAnswerSelectApplication() == null){
+            if (remoteOfferCallback != null) {
+                remoteOfferCallback.onError(null,null);
+            }
+            return;
+        }
         RemoteRequest remoteRequest = new RemoteRequest();
 
         remoteRequest.setFiltersMediaManager(new FiltersMediaManager());

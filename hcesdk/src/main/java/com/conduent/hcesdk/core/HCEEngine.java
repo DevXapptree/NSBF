@@ -1,13 +1,20 @@
 package com.conduent.hcesdk.core;
 
 
+import android.app.Activity;
 import android.content.Context;
+import com.arjosystems.sdkalemu.model.MediaInformations;
+import com.arjosystems.sdkalemu.model.SdkResponse;
+import com.arjosystems.sdkalemu.rest.HCEMidlet;
+import com.arjosystems.sdkalemu.rest.dto.ParamInfo;
+import com.conduent.hcesdk.R;
 import com.conduent.hcesdk.ReadCallback;
 import com.conduent.hcesdk.ReadParameters;
 import com.conduent.hcesdk.RetrieveRemoteOfferCallback;
 import com.conduent.hcesdk.network.RetrofitConfig;
 import com.conduent.hcesdk.utils.HCEConstant;
 import com.conduent.hcesdk.utils.PreConditions;
+import com.google.gson.Gson;
 
 public class HCEEngine implements IHCEEngine {
 
@@ -66,6 +73,20 @@ public class HCEEngine implements IHCEEngine {
     @Override
     public void pingMe(ReadCallback callback) {
         callback.onEnded("Ping Success");
+    }
+
+    @Override
+    public String GetBuffers(Activity activity) {
+        HCEMidlet midlet = com.arjosystems.sdkalemu.rest.HCEEngine.getInstance(activity);
+        ParamInfo oParamInfo = new ParamInfo();
+        oParamInfo.setHceServerURL(activity.getString(R.string.hce_server_url));
+        midlet.configure(oParamInfo);
+        String installResponse = midlet.poc_installNavigo(false);
+
+       // HCEMidlet midlet = com.arjosystems.sdkalemu.rest.HCEEngine.getInstance(activity);
+        SdkResponse<MediaInformations> response = midlet.getBuffers("mCardId");
+        MediaInformations media = response.getPayload();
+        return new Gson().toJson(media);
     }
 
     /*Provide local context to get use of android resources*/

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.conduent.hcerepo.entities.BufferData
 import com.conduent.hcesdk.*
 import com.conduent.hcesdk.core.HCEEngine
 import com.conduent.hcesdk.core.IHCEEngine
@@ -28,11 +29,14 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
     private var crFileName: String? = null
     private var selectedLang: String? = null
     private var sdk: IHCEEngine? = null
+    private var mCardData: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
         start_reading.setOnClickListener(this)
         retrieve_offer.setOnClickListener(this)
+        get_buffer.setOnClickListener(this)
         sdk = HCEEngine.getInstance()
 
         sp_cr.onItemSelectedListener = object :
@@ -44,6 +48,7 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
                 /*languages[position]*/
                 simpleProgressBar.progress = 0
                 crFileName = "cr/" + crFiles[position]
+                mCardData = Utils.convertStreamToString(assets.open(crFileName!!))
 
             }
 
@@ -105,20 +110,51 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.start_reading -> {
-                if (!crFileName.isNullOrEmpty()) {
-                    simpleProgressBar.progress = 28;
-                    val crStr = Utils.convertStreamToString(assets.open(crFileName!!))
-                    sdk!!.startReading(ReadParameters(SourceType.HCE, crStr), this)
+
+                if (!mCardData.isNullOrEmpty()) {
+                    simpleProgressBar.progress = 28
+                    sdk!!.startReading(ReadParameters(SourceType.HCE, mCardData), this)
                 }
             }
             R.id.retrieve_offer -> {
-                if (!crFileName.isNullOrEmpty()) {
+                if (!mCardData.isNullOrEmpty()) {
                     simpleProgressBar.progress = 28
-                    val crStr = Utils.convertStreamToString(assets.open(crFileName!!))
-                    sdk!!.retrieveRemoteOffer(ReadParameters(SourceType.HCE, crStr), this)
+                    sdk!!.retrieveRemoteOffer(ReadParameters(SourceType.HCE, mCardData), this)
                 }
             }
+            R.id.get_buffer -> {
+                val buffers = sdk!!.GetBuffers(this)
+                val bufferData = Gson().fromJson(buffers, BufferData::class.java)
+                Log.i("BufferData", Gson().toJson(bufferData))
+                mCardData = convertBufferToCRFormat(bufferData)
+                Toast.makeText(this, "MCard buffer loaded", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+
+    private fun convertBufferToCRFormat(buffer: BufferData): String {
+        val hceCardData = HCECardData()
+        hceCardData.answerSelectApplication =
+            "6f 2a 84 10 a0 00 00 04 04 01 25 09 01 01 00 00 00 00 00 00 a5 16 bf 0c 13 c7 08 00 00 00 00 27 9B 97 92 53 07 0a 3c 11 42 14 10 01 "
+        hceCardData.answerSelectFileRT = "85 17 00 01 00 00 00 12 12 00 00 01 03 01 01 00 7e 7e 7e 00 00 00 00 00 00 "
+        val hceRecordFiles = ArrayList<HCERecordFile>()
+
+        for (bufRecordFile in buffer.buffersImage.recordFiles) {
+            val hceFile = HCERecordFile()
+            val hceRecordDataList = ArrayList<HCERecordData>()
+
+            for (bufRecData in bufRecordFile.recordData.record) {
+                val hceRecordData = HCERecordData()
+                hceRecordData.record = bufRecData
+                hceRecordDataList.add(hceRecordData)
+            }
+
+            hceFile.sfi = bufRecordFile.sfi
+            hceFile.recordData = hceRecordDataList
+            hceRecordFiles.add(hceFile)
+        }
+        hceCardData.recordFiles = hceRecordFiles
+        return Gson().toJson(hceCardData)
     }
 
     override fun onStarted() {

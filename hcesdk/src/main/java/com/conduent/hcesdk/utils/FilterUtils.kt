@@ -17,12 +17,15 @@ import java.util.*
 object FilterUtils {
 
     fun getHCERecordBySFICode(recordFiles: ArrayList<HCERecordFile>, sfiCode: String): HCERecordFile? {
-        val filteredRecords =
-            recordFiles.filter { recordFile -> recordFile.sfi.contains(sfiCode, true) }
+        if(recordFiles.isNullOrEmpty()){
+            return null
+        }
+        val filteredRecords = recordFiles.filter { recordFile -> recordFile.sfi.contains(sfiCode, true) }
 
         if (filteredRecords.isNotEmpty()) {
             return filteredRecords[0]
         }
+
         return null
     }
 
