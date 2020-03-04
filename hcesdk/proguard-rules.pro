@@ -204,6 +204,10 @@
 #To use Pojo classes in Retrofit
 -keep class com.conduent.hcesdk.entities.** {*;}
 -keep class com.conduent.hcesdk.entities.valuesapi** {*;}
+-keep class com.conduent.hcesdk.entities.result** {*;}
+-keep class com.conduent.hcesdk.entities.remoteoffer** {*;}
+-keep class com.conduent.hcesdk.entities.remoteoffer.request** {*;}
+-keep class com.conduent.hcesdk.entities.remoteoffer.response** {*;}
 
 ### OkHttp3
 -dontwarn okhttp3.**
