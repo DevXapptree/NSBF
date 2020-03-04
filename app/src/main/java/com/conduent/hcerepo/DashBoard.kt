@@ -154,8 +154,7 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
             hceRecordFiles.add(hceFile)
         }
         hceCardData.recordFiles = hceRecordFiles
-        val outputBuffer = Gson().toJson(hceCardData)
-        return outputBuffer
+        return Gson().toJson(hceCardData)
     }
 
     override fun onStarted() {
