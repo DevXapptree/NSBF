@@ -26,9 +26,18 @@ data class MediaInfoWebApiDetails (
     @SerializedName("HolderBirthDate") val holderBirthDate : String,
     @SerializedName("ContractNumber") val contractNumber : Int,
     @SerializedName("EndPeriodState") val endPeriodState : String,
-    @SerializedName("HolderProfileDefinition") val holderProfileDefinition : List<String>,
+    @SerializedName("HolderProfileDefinition") val holderProfileDefinition : List<HolderProfileDefinition>,
     @SerializedName("HolderDataCardStatus") val holderDataCardStatus : String,
     @SerializedName("ContractInfo") val contractInfo : List<ContractInfo>
+)
+
+data class HolderProfileDefinition (
+
+    @SerializedName("Code") val code : Int,
+    @SerializedName("ExpirationDate") val expirationDate : String,
+    @SerializedName("StartValidityDate") val startValidityDate : String,
+    @SerializedName("Label") val label : String,
+    @SerializedName("Justified") val justified : Boolean
 )
 
 data class ResponseWebApi (
