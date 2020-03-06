@@ -13,6 +13,7 @@ import com.conduent.hcerepo.entities.BufferData
 import com.conduent.hcesdk.*
 import com.conduent.hcesdk.core.HCEEngine
 import com.conduent.hcesdk.core.IHCEEngine
+import com.conduent.hcesdk.entities.remoteoffer.response.RemoteResponse
 import com.conduent.hcesdk.entities.result.ContractResult
 import com.conduent.hcesdk.entities.result.HCECardResult
 import com.conduent.hcesdk.entities.valuesapi.ProductDescription
@@ -218,13 +219,19 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
         Log.i("NSBF", articlesData)
         simpleProgressBar.progress = 70
 //        Gson().fromJson(articlesData, TypeToken<List<RemoteResponse>>() {}.type)
-//        val playerArray = Gson().fromJson(articlesData, Array<RemoteResponse>::class.java)
+        val playerArray = Gson().fromJson(articlesData, Array<RemoteResponse>::class.java)
         simpleProgressBar.progress = 100
 
-
-        val intent = Intent(this, ArticlesActivity::class.java)
-        intent.putExtra("DATA", articlesData)
-        startActivity(intent)
+        if(playerArray.size > 0) {
+            val intent = Intent(this, ArticlesActivity::class.java)
+            intent.putExtra("DATA", articlesData)
+            startActivity(intent)
+        }else{
+            Handler(mainLooper).post(Runnable {
+                simpleProgressBar.progress = 0
+                Toast.makeText(this, "No Product found on Remote Data", Toast.LENGTH_SHORT).show()
+            })
+        }
     }
 
     override fun onError(error: Failure?, message: String?) {
