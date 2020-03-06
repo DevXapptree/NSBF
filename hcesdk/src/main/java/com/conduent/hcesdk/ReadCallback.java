@@ -1,7 +1,12 @@
 package com.conduent.hcesdk;
 
-public interface ReadCallback {
-    void onReadComplete();
+import android.os.IBinder;
+import com.conduent.hcesdk.entities.result.HCECardResult;
 
-    void onReadError(HCEError error);
+public interface ReadCallback {
+    void onStarted();
+    void onEnded(String cardParsedContent);
+    //void onReadComplete(HCECardResult result);
+    void onError(Failure error);
+    void onTimeOut();
 }

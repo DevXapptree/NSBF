@@ -1,0 +1,142 @@
+
+
+  // LECTEUR CSC420
+
+
+  // Date : 11/06/19 11:40:06
+
+
+ 
+  // Serial Card Number : 3244979181 ( 0xc16a73ed )
+  // Type - SubType  : 02 - ff
+
+
+
+{
+   "AnswerSelectApplication": "6f 2a 84 10 a0 00 00 04 04 01 25 09 01 01 00 00 00 00 00 00 a5 16 bf 0c 13 c7 08 00 00 00 00 c1 6a 73 ed 53 07 0a 3c 11 42 14 10 01 ",
+   "AnswerSelectFileRT": "85 17 00 01 00 00 00 12 12 00 00 01 03 01 01 00 7e 7e 7e 00 00 00 00 00 00 ",
+
+   "recordFiles": [
+   {
+      "SFI": "07",
+      "recordData": [
+      {
+         "record": "26 b9 28 48 08 03 ec 6b eb c4 10 01 24 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "08",
+      "recordData": [
+      {
+         "record": "11 1d 68 50 00 68 a1 88 18 10 80 88 10 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "11 1d 68 50 00 68 a1 88 18 10 80 88 10 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "11 1d 68 50 00 68 a1 88 18 10 80 88 10 00 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "1e",
+      "recordData": [
+      {
+         "record": "4c 1f fe 4c 1f fe 3c 1f fe 2c 1f fe 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "09",
+      "recordData": [
+      {
+         "record": "5f 51 60 00 00 00 00 7f ff 80 22 bd d2 f8 30 f8 06 be e6 07 4f 1a 02 00 d2 00 00 00 00 "
+      },
+      {
+         "record": "5f 51 60 00 00 00 00 00 87 00 22 be 88 fb 10 f8 06 be 88 07 4f 1a 02 00 f2 00 00 00 00 "
+      },
+      {
+         "record": "5f 51 60 00 00 00 00 02 e4 00 22 be c6 fc 08 f8 06 be c6 07 fc 00 02 00 ee 00 00 00 00 "
+      },
+      {
+         "record": "5f 51 60 00 00 00 00 7f ff 80 22 bf 04 fc e8 f8 06 bf 04 07 4f 1a 02 00 d6 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "06",
+      "recordData": [
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      },
+      {
+         "record": "00 00 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "
+      }
+    ]
+   },
+   {
+      "SFI": "19",
+      "recordData": [
+      {
+         "record": "04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "0a",
+      "recordData": [
+      {
+         "record": "04 00 00 00 00 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "0b",
+      "recordData": [
+      {
+         "record": "00 00 00 00 00 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "0c",
+      "recordData": [
+      {
+         "record": "00 00 00 00 00 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "0d",
+      "recordData": [
+      {
+         "record": "00 00 00 00 00 00 00 00 00 00 00 ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   },
+   {
+      "SFI": "1d",
+      "recordData": [
+      {
+         "record": "00 00 00 40 00 00 c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "00 00 00 40 00 00 c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      },
+      {
+         "record": "00 00 00 40 00 00 c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 "
+      }
+    ]
+   }
+ ]
+}
+
+
+

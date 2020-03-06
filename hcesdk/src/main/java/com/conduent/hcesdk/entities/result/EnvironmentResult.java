@@ -1,9 +1,11 @@
 package com.conduent.hcesdk.entities.result;
 
-public class EnvironmentResult {
+import java.io.Serializable;
+
+public class EnvironmentResult implements Serializable {
     private int EnvVersionNumber;
-    private EnvironmentData Environment;
-    private Holder Holder;
+    private REnvironmentData Environment;
+    private RHolder Holder;
 
     public EnvironmentResult() {
     }
@@ -16,19 +18,19 @@ public class EnvironmentResult {
         EnvVersionNumber = envVersionNumber;
     }
 
-    public EnvironmentData getEnvironment() {
+    public REnvironmentData getEnvironment() {
         return Environment;
     }
 
-    public void setEnvironment(EnvironmentData environment) {
+    public void setEnvironment(REnvironmentData environment) {
         Environment = environment;
     }
 
-    public com.conduent.hcesdk.entities.result.Holder getHolder() {
+    public RHolder getHolder() {
         return Holder;
     }
 
-    public void setHolder(com.conduent.hcesdk.entities.result.Holder holder) {
+    public void setHolder(RHolder holder) {
         Holder = holder;
     }
 }

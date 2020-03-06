@@ -12,7 +12,7 @@ com.conduent.hcesdk.HCECardData -> com.conduent.hcesdk.HCECardData:
     1:1:void setAnswerSelectApplication(java.lang.String):27:27 -> setAnswerSelectApplication
     1:1:void setAnswerSelectFileRT(java.lang.String):35:35 -> setAnswerSelectFileRT
     1:1:void setRecordFiles(java.util.ArrayList):43:43 -> setRecordFiles
-com.conduent.hcesdk.HCEError -> com.conduent.hcesdk.HCEError:
+com.conduent.hcesdk.Failure -> com.conduent.hcesdk.Failure:
     1:1:void <init>():9:9 -> <init>
     2:5:void <init>(java.lang.String,int,java.lang.Throwable):12:15 -> <init>
     1:1:int getErrorCode():27:27 -> getErrorCode
@@ -360,23 +360,23 @@ com.conduent.hcesdk.entities.valuesapi.ContractData -> com.conduent.hcesdk.entit
     1:1:void setContractStatus(java.util.ArrayList):22:22 -> setContractStatus
     1:1:void setContractValidityZones(java.util.ArrayList):46:46 -> setContractValidityZones
     1:1:void setProducts(java.util.ArrayList):30:30 -> setProducts
-com.conduent.hcesdk.entities.valuesapi.CustomData -> com.conduent.hcesdk.entities.valuesapi.CustomData:
+com.conduent.hcesdk.entities.valuesapi.ProductCustomData -> com.conduent.hcesdk.entities.valuesapi.ProductCustomData:
     1:1:void <init>():6:6 -> <init>
     1:1:java.lang.String getCustomData3():13:13 -> getCustomData3
     1:1:java.lang.String getCustomData4():21:21 -> getCustomData4
     1:1:void setCustomData3(java.lang.String):17:17 -> setCustomData3
     1:1:void setCustomData4(java.lang.String):25:25 -> setCustomData4
-com.conduent.hcesdk.entities.valuesapi.Description -> com.conduent.hcesdk.entities.valuesapi.Description:
+com.conduent.hcesdk.entities.valuesapi.ProductDescription -> com.conduent.hcesdk.entities.valuesapi.ProductDescription:
     1:1:void <init>():11:11 -> <init>
-    1:1:com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getDe():31:31 -> getDe
-    1:1:com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getEn():23:23 -> getEn
-    1:1:com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getEs():39:39 -> getEs
-    1:1:com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage getFr():15:15 -> getFr
-    1:1:void setDe(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage):35:35 -> setDe
-    1:1:void setEn(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage):27:27 -> setEn
-    1:1:void setEs(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage):43:43 -> setEs
-    1:1:void setFr(com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage):19:19 -> setFr
-com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage -> com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage:
+    1:1:com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getDe():31:31 -> getDe
+    1:1:com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getEn():23:23 -> getEn
+    1:1:com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getEs():39:39 -> getEs
+    1:1:com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage getFr():15:15 -> getFr
+    1:1:void setDe(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage):35:35 -> setDe
+    1:1:void setEn(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage):27:27 -> setEn
+    1:1:void setEs(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage):43:43 -> setEs
+    1:1:void setFr(com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage):19:19 -> setFr
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage -> com.conduent.hcesdk.entities.valuesapi.ProductDescriptionLanguage:
     1:1:void <init>():12:12 -> <init>
     1:1:java.lang.String getLongDesc():32:32 -> getLongDesc
     1:1:java.util.ArrayList getResources():40:40 -> getResources
@@ -386,7 +386,7 @@ com.conduent.hcesdk.entities.valuesapi.DescriptionLanguage -> com.conduent.hcesd
     1:1:void setResources(java.util.ArrayList):44:44 -> setResources
     1:1:void setShortDesc(java.lang.String):28:28 -> setShortDesc
     1:1:void setTitle(java.lang.String):20:20 -> setTitle
-com.conduent.hcesdk.entities.valuesapi.DescriptionResource -> com.conduent.hcesdk.entities.valuesapi.DescriptionResource:
+com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource -> com.conduent.hcesdk.entities.valuesapi.ProductDescriptionResource:
     1:1:void <init>():9:9 -> <init>
     1:1:java.lang.String getTag():21:21 -> getTag
     1:1:java.lang.String getValue():13:13 -> getValue
@@ -407,12 +407,12 @@ com.conduent.hcesdk.entities.valuesapi.HolderData -> com.conduent.hcesdk.entitie
 com.conduent.hcesdk.entities.valuesapi.Product -> com.conduent.hcesdk.entities.valuesapi.Product:
     1:1:void <init>():13:13 -> <init>
     1:1:java.util.ArrayList getAuthUser():33:33 -> getAuthUser
-    1:1:com.conduent.hcesdk.entities.valuesapi.CustomData getCustomData():41:41 -> getCustomData
-    1:1:com.conduent.hcesdk.entities.valuesapi.Description getDescription():25:25 -> getDescription
+    1:1:com.conduent.hcesdk.entities.valuesapi.ProductCustomData getCustomData():41:41 -> getCustomData
+    1:1:com.conduent.hcesdk.entities.valuesapi.ProductDescription getDescription():25:25 -> getDescription
     1:1:java.lang.String getProductId():17:17 -> getProductId
     1:1:void setAuthUser(java.util.ArrayList):37:37 -> setAuthUser
-    1:1:void setCustomData(com.conduent.hcesdk.entities.valuesapi.CustomData):45:45 -> setCustomData
-    1:1:void setDescription(com.conduent.hcesdk.entities.valuesapi.Description):29:29 -> setDescription
+    1:1:void setCustomData(com.conduent.hcesdk.entities.valuesapi.ProductCustomData):45:45 -> setCustomData
+    1:1:void setDescription(com.conduent.hcesdk.entities.valuesapi.ProductDescription):29:29 -> setDescription
     1:1:void setProductId(java.lang.String):21:21 -> setProductId
 com.conduent.hcesdk.entities.valuesapi.TestRes -> com.conduent.hcesdk.entities.valuesapi.TestRes:
     1:1:void <init>():8:8 -> <init>

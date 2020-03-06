@@ -13,24 +13,8 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
     private OnDataBaseQueryListener onDataBaseQueryListener;
     private Context context;
     private int code;
-    //private RecordFile recordFile;
-    private String id;
-    private int count;
-    //private ArrayList<RecordFile> arrRecordFiles;
     private VersionTable versionData;
     private ValuesApiResponse valuesResponse;
-    private Version version;
-
-    public DatabaseQueryAsync(Context context, int code) {
-        this.context = context;
-        this.code = code;
-    }
-
-    public DatabaseQueryAsync(Context context, int code, String id) {
-        this.context = context;
-        this.code = code;
-        this.id = id;
-    }
 
     public DatabaseQueryAsync(Context context, int code, OnDataBaseQueryListener onDataBaseQueryListener) {
         this.context = context;
@@ -73,6 +57,54 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                     envNetworkIdTable.setNetwork(network);
 
                     AppRoomDataBase.getDatabase(context).valuesAPIDao().insertReplaceEnvNetwork(envNetworkIdTable);
+
+                    /*Environment IssuerId*/
+                    List<EnvApplicationIssuerIdTable> envApplicationIssuerIdList = new ArrayList<>();
+                    for (Value issuer : valuesResponse.getContentEnvironment().getEnvApplicationIssuerId()) {
+                        EnvApplicationIssuerIdTable envApplicationIssuerIdTable = new EnvApplicationIssuerIdTable();
+                        DataValue dataValue = new DataValue();
+                        dataValue.setId(issuer.getId());
+                        dataValue.setValue(issuer.getValue());
+                        envApplicationIssuerIdTable.setIssuer(dataValue);
+                        envApplicationIssuerIdList.add(envApplicationIssuerIdTable);
+                    }
+                    AppRoomDataBase.getDatabase(context).valuesAPIDao().insertReplaceEnvAppIssuerIdBatch(envApplicationIssuerIdList);
+
+                    /*Holder DataCard Status*/
+                    List<HolderDataCardStatusTable> holderDataCardStatusTableList = new ArrayList<>();
+                    for (Value holderDataCard : valuesResponse.getContentEnvironment().getHolderData().getHolderDataCardStatus()) {
+                        HolderDataCardStatusTable holderDataCardStatusTable = new HolderDataCardStatusTable();
+                        DataValue dataValue = new DataValue();
+                        dataValue.setId(holderDataCard.getId());
+                        dataValue.setValue(holderDataCard.getValue());
+                        holderDataCardStatusTable.setCardStatus(dataValue);
+                        holderDataCardStatusTableList.add(holderDataCardStatusTable);
+                    }
+                    AppRoomDataBase.getDatabase(context).valuesAPIDao().insertReplaceHolderCardStatusBatch(holderDataCardStatusTableList);
+
+                    /*Holder Data Commercial*/
+                    List<HolderDataCommercialTable> holderDataCommercialTableList = new ArrayList<>();
+                    for (Value holderCommercial : valuesResponse.getContentEnvironment().getHolderData().getHolderDataCommercialId()) {
+                        HolderDataCommercialTable holderDataCommercialTable = new HolderDataCommercialTable();
+                        DataValue dataValue = new DataValue();
+                        dataValue.setId(holderCommercial.getId());
+                        dataValue.setValue(holderCommercial.getValue());
+                        holderDataCommercialTable.setCommercial(dataValue);
+                        holderDataCommercialTableList.add(holderDataCommercialTable);
+                    }
+                    AppRoomDataBase.getDatabase(context).valuesAPIDao().insertReplaceHolderDataCommercialIdBatch(holderDataCommercialTableList);
+
+                    /*Holder Profile*/
+                    List<HolderProfileNumberTable> holderProfileNumberTableList = new ArrayList<>();
+                    for (Value holderProfile : valuesResponse.getContentEnvironment().getHolderProfileNumber()) {
+                        HolderProfileNumberTable holderProfileNumberTable = new HolderProfileNumberTable();
+                        DataValue dataValue = new DataValue();
+                        dataValue.setId(holderProfile.getId());
+                        dataValue.setValue(holderProfile.getValue());
+                        holderProfileNumberTable.setProfile(dataValue);
+                        holderProfileNumberTableList.add(holderProfileNumberTable);
+                    }
+                    AppRoomDataBase.getDatabase(context).valuesAPIDao().insertReplaceHolderProfileNumberBatch(holderProfileNumberTableList);
 
                     /*Insert Contract Status*/
                     List<ContractStatusTable> contractStatusList = new ArrayList<>();
@@ -118,6 +150,8 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                         productTable.setProductId(product.getProductId());
                         /*CustomData*/
                         CustomData customData = new CustomData();
+                        customData.setCustomData1(product.getCustomData().getCustomData1());
+                        customData.setCustomData2(product.getCustomData().getCustomData2());
                         customData.setCustomData3(product.getCustomData().getCustomData3());
                         customData.setCustomData4(product.getCustomData().getCustomData4());
                         productTable.setCustomData(customData);
@@ -139,7 +173,7 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                         fr.setLongDesc(product.getDescription().getFr().getLongDesc());
 
                         ArrayList<DescriptionLangResource> descFrResourceList = new ArrayList<>();
-                        for (DescriptionResource descResource : product.getDescription().getFr().getResources()) {
+                        for (ProductDescriptionResource descResource : product.getDescription().getFr().getResources()) {
                             DescriptionLangResource descriptionLangResource = new DescriptionLangResource();
                             descriptionLangResource.setTag(descResource.getTag());
                             descriptionLangResource.setValue(descResource.getValue());
@@ -154,7 +188,7 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                         en.setLongDesc(product.getDescription().getEn().getLongDesc());
 
                         ArrayList<DescriptionLangResource> descEnResourceList = new ArrayList<>();
-                        for (DescriptionResource descResource : product.getDescription().getEn().getResources()) {
+                        for (ProductDescriptionResource descResource : product.getDescription().getEn().getResources()) {
                             DescriptionLangResource descriptionLangResource = new DescriptionLangResource();
                             descriptionLangResource.setTag(descResource.getTag());
                             descriptionLangResource.setValue(descResource.getValue());
@@ -169,7 +203,7 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                         es.setLongDesc(product.getDescription().getEs().getLongDesc());
 
                         ArrayList<DescriptionLangResource> descEsResourceList = new ArrayList<>();
-                        for (DescriptionResource descResource : product.getDescription().getEs().getResources()) {
+                        for (ProductDescriptionResource descResource : product.getDescription().getEs().getResources()) {
                             DescriptionLangResource descriptionLangResource = new DescriptionLangResource();
                             descriptionLangResource.setTag(descResource.getTag());
                             descriptionLangResource.setValue(descResource.getValue());
@@ -184,7 +218,7 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                         de.setLongDesc(product.getDescription().getDe().getLongDesc());
 
                         ArrayList<DescriptionLangResource> descDeResourceList = new ArrayList<>();
-                        for (DescriptionResource descResource : product.getDescription().getDe().getResources()) {
+                        for (ProductDescriptionResource descResource : product.getDescription().getDe().getResources()) {
                             DescriptionLangResource descriptionLangResource = new DescriptionLangResource();
                             descriptionLangResource.setTag(descResource.getTag());
                             descriptionLangResource.setValue(descResource.getValue());
@@ -203,25 +237,15 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
 
                     }
                     AppRoomDataBase.getDatabase(context).valuesAPIDao().insertProductsBatch(productList);
-
-                case RoomRequestCodes.GET_ALL_FILES:
-                    // arrRecordFiles = new ArrayList<>();
-                    // List<RecordFile> arrFiles = AppRoomDataBase.getDatabase(context).recordFileDao().getAllRecordFiles();
-                    break;
-
-                case RoomRequestCodes.INSERT_FILE:
-                    // AppRoomDataBase.getDatabase(context).recordFileDao().insertAll(recordFile);
-                    break;
-                case RoomRequestCodes.DELETE_FILE:
-                    // AppRoomDataBase.getDatabase(context).recordFileDao().delete(recordFile);
-                    break;
-                case RoomRequestCodes.UPDATE_FILE:
-                    // AppRoomDataBase.getDatabase(context).recordFileDao().update(recordFile);
                     break;
                 case RoomRequestCodes.GET_VERSION_FILE:
                     List<VersionTable> arrVersion = new ArrayList<>();
                     arrVersion = AppRoomDataBase.getDatabase(context).valuesAPIDao().getVersion();
                     List<EnvNetworkIdTable> arrEnvNet = AppRoomDataBase.getDatabase(context).valuesAPIDao().getEnvNetwork();
+                    List<EnvApplicationIssuerIdTable> arrEnvIssuerId = AppRoomDataBase.getDatabase(context).valuesAPIDao().getEnvIssuer();
+                    List<HolderDataCardStatusTable> arrHolderCardStatus = AppRoomDataBase.getDatabase(context).valuesAPIDao().getHolderCardStatus();
+                    List<HolderDataCommercialTable> arrHolderCommercial = AppRoomDataBase.getDatabase(context).valuesAPIDao().getHolderCommercial();
+                    List<HolderProfileNumberTable> arrHolderProfile = AppRoomDataBase.getDatabase(context).valuesAPIDao().getHolderProfile();
                     List<ContractStatusTable> arrStatus = AppRoomDataBase.getDatabase(context).valuesAPIDao().getStatus();
                     List<ContractCustomerProfileTable> arrProfile = AppRoomDataBase.getDatabase(context).valuesAPIDao().getProfile();
                     List<ContractValidityZonesTable> arrZones = AppRoomDataBase.getDatabase(context).valuesAPIDao().getZones();
@@ -231,7 +255,6 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                     }
                     break;
                 case RoomRequestCodes.GET_OFFLINE_FILES:
-                    //count = AppRoomDataBase.getDatabase(context).recordFileDao().getOfflineFileCount(false);
                     break;
 
                 default:
@@ -253,7 +276,6 @@ public class DatabaseQueryAsync extends AsyncTask<Void, String, Boolean> {
                     onDataBaseQueryListener.onDataFetched(versionData);
                     break;
                 case RoomRequestCodes.GET_OFFLINE_FILES:
-                    //onDataBaseQueryListener.onCountFetched(count);
                     break;
                 default:
                     break;
