@@ -1,17 +1,11 @@
 package com.conduent.hcerepo
 
-import android.app.PendingIntent.getActivity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import org.json.JSONArray
-import android.support.v4.app.SupportActivity
-import android.support.v4.app.SupportActivity.ExtraData
-import android.support.v4.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.google.gson.Gson
+import org.json.JSONArray
 
 
 class ArticlesActivity : AppCompatActivity(), ArticlesAdapter.OnSelect {

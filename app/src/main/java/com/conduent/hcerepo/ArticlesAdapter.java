@@ -13,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ItemHelper>{
+public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ItemHelper> {
 
     private Context context;
     private JSONArray jsonArray;
@@ -22,7 +22,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ItemHe
     public ArticlesAdapter(@NotNull Context context, @NotNull JSONArray jsonArray) {
         this.context = context;
         this.jsonArray = jsonArray;
-        this.selectListener = (OnSelect)context;
+        this.selectListener = (OnSelect) context;
 
     }
 
@@ -30,7 +30,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ItemHe
     @Override
     public ArticlesAdapter.ItemHelper onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout. article_list_item, viewGroup, false);
+                .inflate(R.layout.article_list_item, viewGroup, false);
 
         return new ItemHelper(itemView);
     }
@@ -61,13 +61,14 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ItemHe
     public class ItemHelper extends RecyclerView.ViewHolder {
         private JSONObject jsonObject;
         private TextView txt_article_name;
+
         public ItemHelper(@NonNull View itemView) {
             super(itemView);
             txt_article_name = itemView.findViewById(R.id.txt_article_name);
         }
     }
 
-    interface OnSelect{
+    interface OnSelect {
         public void onItemSelected(String articleData);
     }
 }

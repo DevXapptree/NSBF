@@ -5,8 +5,9 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.text.Html
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import com.conduent.hcesdk.entities.result.HCECardResult
 import com.google.gson.Gson
@@ -24,12 +25,12 @@ class StartReadingDetailActivity : AppCompatActivity() {
         val dataBundle = intent.extras ?: return
         val mData = dataBundle.getString("DATA", "")
         val mDataBundle = dataBundle.getSerializable("DATA_BUNDLE")
-        if(mDataBundle!=null){
+        if (mDataBundle != null) {
             val outRes = mDataBundle as HCECardResult
             val outStr = Gson().toJson(outRes)
             output_view.text = outStr
         }
-        output_view.text = Html.fromHtml(mData)
+        output_view.text = mData
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -37,10 +38,11 @@ class StartReadingDetailActivity : AppCompatActivity() {
         inflater.inflate(R.menu.menu, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.menu_copy -> {
-                val cm= getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clipData = ClipData.newPlainText("Card Data", output_view.text.toString())
                 cm.primaryClip = clipData
                 Toast.makeText(this, "Copied to Clipboard", Toast.LENGTH_LONG).show()

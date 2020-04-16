@@ -22,7 +22,8 @@ import kotlinx.android.synthetic.main.activity_dash_board.*
 import java.io.IOException
 
 
-class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, RetrieveRemoteOfferCallback {
+class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback,
+    RetrieveRemoteOfferCallback {
 
 
     private var crFiles = ArrayList<String>()
@@ -99,7 +100,8 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
         languages = resources.getStringArray(R.array.Languages)
         // Creating adapter for spinner
         val dataAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, crFiles)
-        val langAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, languages)
+        val langAdapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, languages)
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         langAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -137,7 +139,8 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
         val hceCardData = HCECardData()
         hceCardData.answerSelectApplication =
             "6f 2a 84 10 a0 00 00 04 04 01 25 09 01 01 00 00 00 00 00 00 a5 16 bf 0c 13 c7 08 00 00 00 00 27 9B 97 92 53 07 0a 3c 11 42 14 10 01 "
-        hceCardData.answerSelectFileRT = "85 17 00 01 00 00 00 12 12 00 00 01 03 01 01 00 7e 7e 7e 00 00 00 00 00 00 "
+        hceCardData.answerSelectFileRT =
+            "85 17 00 01 00 00 00 12 12 00 00 01 03 01 01 00 7e 7e 7e 00 00 00 00 00 00 "
         val hceRecordFiles = ArrayList<HCERecordFile>()
 
         for (bufRecordFile in buffer.buffersImage.recordFiles) {
@@ -222,11 +225,11 @@ class DashBoard : AppCompatActivity(), View.OnClickListener, ReadCallback, Retri
         val playerArray = Gson().fromJson(articlesData, Array<RemoteResponse>::class.java)
         simpleProgressBar.progress = 100
 
-        if(playerArray.size > 0) {
+        if (playerArray.size > 0) {
             val intent = Intent(this, ArticlesActivity::class.java)
             intent.putExtra("DATA", articlesData)
             startActivity(intent)
-        }else{
+        } else {
             Handler(mainLooper).post(Runnable {
                 simpleProgressBar.progress = 0
                 Toast.makeText(this, "No Product found on Remote Data", Toast.LENGTH_SHORT).show()
